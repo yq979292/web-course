@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <button id="btn2">按钮</button>
+</body>
+<script>
+    function on(el,type,f){
+        el.addEventListener(type,function(e){//事件处理函数
+            e.stop=e.stopPropagation;
+            e.prevent=e.preventDefault;
+            e.enter=e.keyCode==13;
+            // 点击要干的事
+            f.call(this,e);
+        })
+    }
+
+
+
+    on(btn,"click",function(e){
+        e.stop();
+        this.style.color="red"
+    });
+
+
+    document.onclick=function(){
+        alert("document")
+    }
+
+
+
+
+</script>
+</html>

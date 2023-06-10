@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="time">12:25:30</h1>
+</body>
+<script>
+    
+    var d=new Date();
+    var h=d.getHours();
+    var min=d.getMinutes();
+    var sec=d.getSeconds();
+
+    var h_str=h<10?"0"+h:h;
+    var min_str=min<10?"0"+min:min;
+    var sec_str=sec<10?"0"+sec:sec;
+
+    time.innerHTML=`${h_str}:${min_str}:${sec_str}`;
+
+
+    setInterval(function(){
+
+        sec++;
+        if(sec>59){
+            sec=0;
+            min++;
+        }
+        if(min>59){
+            min=0;
+            h++;
+        }
+        if(h>23){
+            h=0;
+        }
+
+
+        var h_str=h<10?"0"+h:h;
+        var min_str=min<10?"0"+min:min;
+        var sec_str=sec<10?"0"+sec:sec;
+
+        time.innerHTML=`${h_str}:${min_str}:${sec_str}`;
+
+    },1000)
+
+</script>
+</html>

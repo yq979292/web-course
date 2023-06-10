@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./data.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    var zpData=data.zpData;
+    // 一级标题
+    for(var i=0;i<zpData.length;i++){
+        var subLevelModelList=zpData[i].subLevelModelList.slice(0,4);
+        // 几个二级标题
+        var subTitle=[];
+        for(var j=0;j<subLevelModelList.length;j++){
+            subTitle.push(subLevelModelList[j].name);
+        }
+        // 左侧标题栏
+        console.log(zpData[i].name,":",subTitle.join("、"));
+        // 右侧列表
+        var two=zpData[i].subLevelModelList;
+        for(var m=0;m<two.length;m++){
+            // 三级标题
+            var three=two[m].subLevelModelList;
+            var threeTitle=[];
+            for(var n=0;n<three.length;n++){
+                threeTitle.push(three[n].name);
+            }
+            console.log("-----",two[m].name,":",threeTitle.join("、"));
+        }
+
+        console.log("--------------------------------------")
+    }
+</script>
+</html>

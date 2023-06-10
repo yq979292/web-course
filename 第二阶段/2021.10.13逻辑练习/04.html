@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 提取任意字符串中的手机号码
+    var str="xxx25151152020xxxxx15037272046我150658526的手机号是180372720463xxxxxxx26262630xx";
+    // 将非数字字符替换成* 
+    var str2="";
+    for(var i=0;i<str.length;i++){
+        var s=str.charCodeAt(i);
+        if(s>=48&&s<=57){
+            str2+=str[i];
+        }else{
+            str2+="*";
+        }
+    }
+    // console.log(str2);
+    // 用*切割字符串
+    var arr=str2.split("*");
+    // console.log(arr);
+    // 清除少于11位元素
+    for(var i=arr.length-1;i>=0;i--){
+        //不是11位的直接删除        首位不是1 第二位是1 2 直接删
+        if(arr[i].length!=11||!(arr[i][0]==1&&arr[i][1]>=3)){
+            arr.splice(i,1);
+        }
+    }
+    console.log(arr);
+
+
+</script>
+</html>

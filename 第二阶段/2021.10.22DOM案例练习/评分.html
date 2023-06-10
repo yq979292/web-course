@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>评分</title>
+    <style>
+        #box img {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <img src="./images/1.png" alt="">
+        <img src="./images/1.png" alt="">
+        <img src="./images/1.png" alt="">
+        <img src="./images/1.png" alt="">
+        <img src="./images/1.png" alt="">
+    </div>
+</body>
+<script>
+    var box = document.getElementById('box')
+    var count = 0
+    var son = box.children;
+    var flag = false;
+    function img(index) {
+        var url = './images/2.png'
+        if (index < 2) {
+            url = './images/4.png'
+        } else if (index < 3) {
+            url = './images/2.png'
+        } else if (index >= 3) {
+            url = './images/3.png'
+        } else {
+            url = './images/1.png'
+        }
+        for (var i = 0; i <= index; i++) {
+            box.children[i].src = url;
+        }
+    }
+    for (var i = 0; i < son.length; i++) {
+        son[i].setAttribute('data', i);
+        son[i].onmouseover = function () {
+            // flag = false
+            for(var j=0;j<son.length;j++){
+                son[j].src = './images/1.png'
+            }
+            // count = Number(this.getAttribute('data'))
+            img(Number(this.getAttribute('data')))
+            console.log('移入' + count)
+            
+        }
+        son[i].onclick = function () {
+            flag = true
+            count = this.getAttribute('data')
+            img(count)
+            console.log('点击' + count)
+        }
+        son[i].onmouseout = function () {
+            for(var n = 0; n< son.length; n++) {
+                    son[n].src = './images/1.png'
+            }
+            if(flag){
+                img(count)
+            }
+            console.log('移出' + count)
+            
+        }
+        
+        
+    }
+
+</script>
+
+</html>

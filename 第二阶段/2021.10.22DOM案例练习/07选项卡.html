@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab切换</title>
+    <style>
+        #content div{
+            width: 300px;
+            border:2px solid red;
+            text-align: center;
+            line-height: 200px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="btns">
+        <button>按钮1</button>
+        <button>按钮2</button>
+        <button>按钮3</button>
+        <button>按钮4</button>
+    </div>
+    <div id="content">
+        <div>
+            第一块内容
+        </div>
+        <div>
+            第二块内容
+        </div>
+        <div>
+            第三块内容
+        </div>
+        <div>
+            第四块内容
+        </div>
+    </div>
+</body>
+<script>
+    var btns=document.getElementById("btns").getElementsByTagName("button");
+    var contents=document.getElementById("content").getElementsByTagName("div");
+    // 初始状态
+    contents[0].style.display="block";
+    btns[0].style.color="red";
+
+    var x=0;//记录当前显示元素索引
+
+    for(var i=0;i<btns.length;i++){
+        btns[i].index=i;//添加编号
+        btns[i].onclick=function(){
+            // 取消
+            btns[x].style.color="black";
+            contents[x].style.display="none";
+            // 显示当前的
+            this.style.color="red";
+            contents[this.index].style.display="block";
+            // 更新x的值
+            x=this.index;
+        }
+    }
+
+
+</script>
+</html>

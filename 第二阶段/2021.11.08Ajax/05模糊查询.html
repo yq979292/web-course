@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #list{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="ipt">
+    <ul id="list"></ul>
+</body>
+<script>
+    ipt.onfocus=function(){
+        list.style.display="block";
+
+        // 根据输入框内容搜索提示信息
+        getList(this.value);
+
+    }
+    ipt.onblur=function(){
+        setTimeout(function(){
+            list.style.display="none";
+        },100)
+    }
+
+
+    var timer;
+    ipt.oninput=function(){
+        clearTimeout(timer);
+        timer=setTimeout(function(){
+            // 根据输入框内容搜索提示信息
+            getList(ipt.value);
+        },300)
+    }
+
+    // 定义方法 根据指定内容请求提示信息
+    function getList(word){
+        word=word.trim();
+        fetch("http://39.96.88.57:9090/api/www/search/searchKey?key="+word)
+        .then(r=>r.json())
+        .then(function(res){
+            console.log(res);
+            // 插入页面
+            var data=res.data;
+            list.innerHTML="";
+            for(var i=0;i<data.length;i++){
+
+                var s=data[i];
+
+                if(data[i].indexOf("\r\n")!=-1){
+                    s=data[i].split("\r\n")[0].split("=")[1];
+                }
+
+                list.innerHTML+=`
+                    <li>
+                        <a href="search.html?key=${s}">${s}</a>    
+                    </li>
+                `
+            }
+        })
+
+    }
+
+</script>
+</html>

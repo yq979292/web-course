@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*  
+        构造函数、工厂，批量生成对象
+    */
+    // var o1={};
+    // var o2={};
+    // var f1=function(){};
+    // var f2=function(){};
+    // console.log(f1==f2);
+
+    // function Person(name,age){
+    //     this.name=name;
+    //     this.age=age;
+    //     this.type="人";
+    //     this.dance=function(){
+    //         console.log("扭扭捏捏");
+    //     }
+    // }
+
+    // // 公共部分只要存一次就行
+    // var p=new Person("张三",20);
+    // var p2=new Person("李四",30);
+    // console.log(p.dance==p2.dance);//false
+
+    // 构造函数模式+原型对象模式
+    // 构造函数内部放私有的  原型对象上放公用的
+    function Person(name,age){
+        // 生成的实例对象中私有的属性
+        this.name=name;
+        this.age=age;
+    }
+    // 构造函数的原型对象上  公用
+    // 定义在构造函数原型对象上的属性和方法都会被实例对象继承
+    Person.prototype.type="人";
+    Person.prototype.dance=function(){
+        console.log("扭扭捏捏");
+    }
+
+    var p1=new Person("张三",20);
+    var p2=new Person("李四",30);
+    console.log(p1.dance==p2.dance);
+    console.log(p1);
+</script>
+</html>

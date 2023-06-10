@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <script src="./layui/layui.js"></script>
+    <script src="./js/cookie.js"></script>
+</head>
+<body>
+    <div class="layui-form" style="width:200px" lay-filter="myform">
+
+        <input type="text" id="user" lay-verify="required" lay-reqtext="用户名不能为空" name="userName" placeholder="用户名" autocomplete="off" class="layui-input">
+        <input type="text" lay-verify="required"  lay-reqtext="密码不能为空" name="pwd" placeholder="密码" autocomplete="off" class="layui-input">
+
+        <button class="layui-btn" lay-submit lay-filter="btn">提交</button>
+    </div>
+</body>
+<script src="./js/cookie.js"></script>
+<script>
+    var form=layui.form;
+    var layer=layui.layer;
+
+    form.on("submit(btn)",function(){//点击按钮验证成功之后
+        // 取出表单值
+        var res=form.val("myform");
+
+        fetch("http://39.96.88.57/login",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/x-www-form-urlencoded"
+            },
+            body:"userName="+res.userName+"&password="+res.pwd
+        })
+        .then(r=>r.json())
+        .then(function(res){
+            
+            if(res.code==2){
+                // 提示错误
+                layer.open({
+                    title:false,
+                    closeBtn:false,
+                    content:res.msg,
+                    anim:6,
+                    icon:5
+                })
+                // 清空输入框
+                form.val("myform",{
+                    userName:"",
+                    pwd:""
+                })
+                user.focus();
+            }else{
+
+                // 登录
+                // 存入cookie
+                setCookie("token",res.token,15);
+                setCookie("userName",res.userName,15);
+
+                    layer.msg("登录成功")
+
+                setTimeout(function(){
+                    location.href="index.html";
+                },1000)
+
+            }
+
+        })
+
+    })
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="time">10:00:00:00</h1>
+</body>
+<script>
+    var h=0,min=0,sec=10,ms=0;
+
+
+    var timer=setInterval(function(){
+        ms-=20;
+        if(ms<0){
+            ms=980;
+            sec--;
+        }
+        if(sec<0){
+            sec=59;
+            min--;
+        }
+        if(min<0){
+            min=59;
+            h--;
+        }
+        
+        if(h==0&&min==0&&sec==0&&ms==0){
+            // 清除定时器
+            clearInterval(timer);
+            console.log("到点了")
+        }
+
+        var h_str=h<10?"0"+h:h;
+        var min_str=min<10?"0"+min:min;
+        var sec_str=sec<10?"0"+sec:sec;
+        var ms_str=ms<100?"0"+ms/10:ms/10;
+
+        time.innerHTML=`${h_str}:${min_str}:${sec_str}:${ms_str}`;
+    },20)
+
+
+</script>
+</html>

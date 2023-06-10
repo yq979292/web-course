@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){//页面内容加载完毕
+            // 等待页面图片 外链css\js
+            var btn=document.getElementById("btn");
+            console.log(btn);
+            btn.style.color="red";
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <div class="box" style="height:5000px"></div>
+</body>
+<script>
+    // onload 页面加载完毕时
+    // onresize 调整窗口大小时
+    // onscroll 滚动窗口时
+    // window.onload=function(){
+
+    // }
+    // window.onresize=function(){
+    //     console.log("resize")
+    // }
+    window.onscroll=function(){
+        console.log("scroll");
+    }
+</script>
+</html>

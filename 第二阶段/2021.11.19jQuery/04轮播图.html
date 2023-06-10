@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-1.8.3.min.js"></script>
+    <style>
+        #view{
+            width: 500px;
+            height: 187px;
+            position: relative;
+        }
+        #view img{
+            width: 100%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="view">
+        <img src="./images/a.jpg" alt="">
+        <img src="./images/b.webp" alt="">
+        <img src="./images/c.webp" alt="">
+        <img src="./images/d.webp" alt="">
+    </div>
+    <button class="next">下一张</button>
+</body>
+<script>
+    // $("#view img").hide().eq(0).show();
+    // 不讲究
+    // var x=0;
+    // $(".next").click(function(){
+    //     x++;
+    //     if(x>$("#view img").length-1){
+    //         x=0;
+    //     }
+    //     $("#view img").fadeOut().eq(x).fadeIn();
+    // })
+
+
+    var imgs=$("#view img");
+    var x=0;
+    imgs.hide().eq(0).show();
+    
+    $(".next").click(function(){
+
+        imgs.eq(x).fadeOut();
+        x++;
+        if(x>imgs.length-1){
+            x=0;
+        }
+        imgs.eq(x).fadeIn();
+
+    })
+
+</script>
+</html>

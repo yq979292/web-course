@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var arr=[];
+    /*
+        [{s:"a",x:1},{s:"b",x:10}]
+    */
+    var str="afdssfdasfraewgaergraegffss";
+
+    for(var i=0;i<str.length;i++){
+        var a=str[i];//当前字符
+        // 验证arr中是否已经存储了该字符的信息
+        for(var j=0;j<arr.length;j++){
+            if(a==arr[j].s){//已经存储过
+                arr[j].x++;
+                break;
+            }
+        }
+        // 检测内部循环是否是自动终止
+        if(j==arr.length){//不是被break结束的 没有存储当前字符的信息
+            arr.push({
+                s:a,
+                x:1
+            })
+        }
+    }
+
+    // console.log(arr);
+    // 降序
+    arr.sort(function(a,b){
+        return a.x>b.x?-1:1;
+    })
+    // console.log(arr);
+    var num=arr[0].x;//最多的次数
+    var res=[];
+    // 提取并列第一的字符
+    for(var i=0;i<arr.length;i++){
+        if(arr[i].x==num){
+            res.push(arr[i].s)
+        }else{
+            break;
+        }
+    }
+
+    console.log(res.join("、")+"出现了"+num+"次")
+</script>
+</html>

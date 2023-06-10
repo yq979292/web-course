@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-1.8.3.min.js"></script>
+</head>
+<body>
+    <button>按钮</button>
+
+    <video src="https://other-web-nf03-sycdn.kuwo.cn/e578d746727fe8ae06433a96e1628dec/619702a1/resource/m1/18/8/2741124991.mp4"></video>
+</body>
+<script>
+    // jQuery对象转换为DOM对象
+    $("button")[0].innerHTML="hello";
+    $("button").get(0).innerHTML="hello";
+
+    // var vid=document.getElementsByTagName('video')[0];
+    // vid.play();
+</script>
+</html>

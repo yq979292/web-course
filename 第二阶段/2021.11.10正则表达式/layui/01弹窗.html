@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <style>
+        #artical {
+            width: 500px;
+            height: 500px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="layui-btn layui-btn-primary" id="btn">按钮</button>
+
+
+    <div id="artical"></div>
+
+    <div id="box" style="display: none;">
+        <p>hello</p>
+        <p>hello</p>
+        <p>hello</p>
+        <p>hello</p>
+    </div>
+</body>
+<script src="./layui/layui.js"></script>
+<script>
+    var layer = layui.layer;
+    var $ = layui.$;
+
+    btn.onclick = function () {
+        // 弹出提示 会自动消失
+        // layer.msg("加载成功")
+
+        // layer.open({
+        //     title:false,
+        //     content:"用户名或密码错误",
+        //     icon:5,
+        //     anim:6
+        // })
+
+        // 遮罩层
+        // layer.open({
+        //     type:1,
+        //     title:"地区选择",
+        //     content:$("#box"),
+        //     area:["500px","300px"],
+        //     move:false,
+        //     shadeClose:true,
+        //     anim:6 
+        // })
+
+
+        // 询问框
+        // layer.confirm("你确定要删除吗?",{},function(index){//点击确定的回调函数
+        //     // console.log(index);
+        //     // 关闭
+        //     layer.close(index);
+        //     console.log("删除成功");
+        // })
+
+
+        // layer.tips("hello","#artical")
+
+
+
+        // layer.photos({
+        //     photos: {
+        //         "title": "", //相册标题
+        //         "id": 123, //相册id
+        //         "start": 0, //初始显示的图片序号，默认0
+        //         "data": [   //相册包含的图片，数组格式
+        //             {
+        //                 "alt": "图片名",
+        //                 "pid": 666, //图片id
+        //                 "src": "https://img1.baidu.com/it/u=3312968295,3101247602&fm=26&fmt=auto", //原图地址
+        //                 "thumb": "https://img1.baidu.com/it/u=3312968295,3101247602&fm=26&fmt=auto" //缩略图地址
+        //             },
+        //             {
+        //                 "alt": "图片名2",
+        //                 "pid": 666, //图片id
+        //                 "src": "https://img1.baidu.com/it/u=1424341815,131394026&fm=26&fmt=auto", //原图地址
+        //                 "thumb": "https://img1.baidu.com/it/u=1424341815,131394026&fm=26&fmt=auto" //缩略图地址
+        //             }
+        //         ]
+        //     }
+        //     , anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+        // });
+
+
+
+        var index=layer.load(3);
+
+
+        setTimeout(function(){
+            layer.close(index);
+        },2000)
+
+    }
+</script>
+
+</html>

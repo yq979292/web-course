@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>
+            <h3 class="title">标题1</h3>
+            <div class="content">正文1</div>
+        </li>
+        <li>
+            <h3 class="title">标题2</h3>
+            <div class="content">正文2</div>
+        </li>
+        <li>
+            <h3 class="title">标题3</h3>
+            <div class="content">正文3</div>
+        </li>
+        <li>
+            <h3 class="title">标题3</h3>
+            <div class="content">正文3</div>
+        </li>
+        <li>
+            <h3 class="title">标题3</h3>
+            <div class="content">正文3</div>
+        </li>
+        <li>
+            <h3 class="title">标题3</h3>
+            <div class="content">正文3</div>
+        </li>
+        <li>
+            <h3 class="title">标题3</h3>
+            <div class="content">正文3</div>
+        </li>
+        <li>
+            <h3 class="title">标题3</h3>
+            <div class="content">正文3</div>
+        </li>
+        <li>
+            <h3 class="title">标题3</h3>
+            <div class="content">正文3</div>
+        </li>
+        <li>
+            <h3 class="title">标题3</h3>
+            <div class="content">正文3</div>
+        </li>
+        <li>
+            <h3 class="title">标题3</h3>
+            <div class="content">正文3</div>
+        </li>
+        <li>
+            <h3 class="title">标题3</h3>
+            <div class="content">正文3</div>
+        </li>
+    </ul>
+</body>
+<script>
+    var titles=document.getElementsByClassName("title");
+
+
+
+    for(var i=0;i<titles.length;i++){
+        titles[i].flag=true;//每个标题节点都有flag属性表明对应正文内容的显示隐藏
+        titles[i].onclick=function(){
+            this.flag=!this.flag;
+            this.nextElementSibling.style.display=this.flag?"block":"none";
+        }
+    }
+
+
+
+
+
+
+
+
+
+    // var flags=[true,true,true];
+
+    // for(var i=0;i<titles.length;i++){
+    //     titles[i].index=i;//加编号
+    //     titles[i].onclick=function(){
+    //         flags[this.index]=!flags[this.index];//让数组对应的布尔值反过来
+    //         this.nextElementSibling.style.display=flags[this.index]?"block":"none";
+    //     }
+    // }
+
+</script>
+</html>

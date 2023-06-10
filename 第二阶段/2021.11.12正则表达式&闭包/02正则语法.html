@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    var p=/abc/i;// i修饰符 不区分大小写
+    var str="hellAbo";
+    // 检测字符串中是否有ab字符串片段
+    console.log(p.test(str));
+    // exec 用于提取符合表达式规则的字符串片段  没有返回null
+    // console.log(p.exec(str)[0],p.exec(str).index);
+    console.log(p.exec(str));
+
+</script>
+</html>

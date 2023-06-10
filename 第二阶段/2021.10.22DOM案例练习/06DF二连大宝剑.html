@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="D">D</button>
+    <button id="F">F</button>
+    <button id="R">大宝剑</button>
+</body>
+<script>
+    var btns=document.getElementsByTagName("button");
+
+    // var num=0;
+
+    // for(var i=0;i<btns.length;i++){
+    //     // 添加点击标识
+    //     btns[i].clicked=false;
+    //     btns[i].onclick=function(){
+    //         // 第一次点它
+    //         if(this.clicked==false){
+    //             this.clicked=true;
+    //             num++;
+    //             if(num==3){
+    //                 alert("DF二连大宝剑");
+    //                 // 重置
+    //                 num=0;
+    //                 for(var j=0;j<btns.length;j++){
+    //                     btns[j].clicked=false;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+
+    
+    for(var i=0;i<btns.length;i++){
+
+        btns[i].clicked=false;
+
+        btns[i].onclick=function(){
+            this.clicked=true;
+
+            // 统计是否所有元素都被点过
+            for(var j=0;j<btns.length;j++){
+                if(btns[j].clicked==false){
+                    break;
+                }
+            }
+            if(j==btns.length){
+                alert("DF二连大宝剑");
+                // 重置
+                for(var m=0;m<btns.length;m++){
+                    btns[m].clicked=false;
+                }
+            }
+        }
+
+    }
+
+</script>
+</html>

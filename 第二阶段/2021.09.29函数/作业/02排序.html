@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // console.log("11">"2");
+    var price="￥100";
+    price=price.slice(1)*1;
+
+    var list=[{
+        p:"￥150"
+    },{
+        p:"￥15"
+    },{
+        p:"￥25"
+    }]
+
+    list.sort(function(a,b){
+        // 按价格排序  比较价格大小 决定是否换位
+        var a_p=a.p.slice(1)*1;
+        var b_p=b.p.slice(1)*1;
+        return a_p>b_p?1:-1
+    })
+    console.log(list);
+
+
+</script>
+</html>

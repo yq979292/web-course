@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./city_code.js"></script>
+</head>
+<body>
+    <select id="province"></select>
+    <select id="city"></select>
+    <select id="area"></select>
+</body>
+<script>
+    var province=document.getElementById("province");
+    // console.log(data)
+    // 插入省份
+    var data=data.slice(15);
+    for(var i=0;i<data.length;i++){
+        province.innerHTML+=`
+            <option>${data[i].name}</option>
+        `
+    }
+    // 插入对应省份的市
+    function city_fun(){
+        var city_list=data[province.selectedIndex].city;
+        if(city_list){
+            for(var i=0;i<city_list.length;i++){
+                city.innerHTML+=`
+                    <option>${city_list[i].name}</option>
+                `
+            }
+        }
+    }
+    city_fun();
+    // 插入对应省份的市的区
+    function area_fun(){
+        var city_list=data[province.selectedIndex].city;
+        if(city_list){
+            var area_list=data[province.selectedIndex].city[city.selectedIndex].area;
+            if(area_list){
+                for(var i=0;i<area_list.length;i++){
+                    area.innerHTML+=`
+                        <option>${area_list[i].name}</option>
+                    `
+                }
+            }
+        }
+    }
+    area_fun();
+
+    // 选择省份
+    province.onchange=function(){
+        // 清空市
+        city.innerHTML="";
+        // 更新对应省份的市
+        city_fun();
+        // 清空区
+        area.innerHTML="";
+        area_fun();
+    }
+
+    //选择市
+    city.onchange=function(){
+        // 插入区
+        area.innerHTML="";
+        area_fun();
+    }
+
+
+
+</script>
+</html>

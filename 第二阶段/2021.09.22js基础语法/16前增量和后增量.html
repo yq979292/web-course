@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var age=10;
+    // ++age;//单独使用 无区别
+    // console.log(10+10);
+    // console.log(++age);
+    // console.log(age);
+    // var x= 10+10;
+    // 在其他表达式中使用，前增量先运算后赋值 后增量 先赋值后运算
+    // var x=++age;
+    // console.log(x,age);
+
+    var x=10;
+
+    /*
+        x 10 11 12 11 10
+        10 + 12 - 11 + 11
+    */
+
+    var y= x++ + ++x - --x + x--;
+    console.log(x,y);
+
+</script>
+</html>

@@ -1,0 +1,78 @@
+@charset "utf-8";
+/* CSS Document */
+.wrap1{display:none;position:relative;top:40px}
+.List-l{width:1200px;overflow:hidden}
+.List-l .bt{height:51px;background:#fff;border-top:1px solid #d70c19;padding-top:15px;overflow:hidden;margin-bottom:10px}
+.List-l .bt h2{margin:0 35px 0 20px}
+.List-l .bt h2 a{display:inline-block;width:68px;height:34px;border:1px solid #e6e6e6;margin-right:-1px;text-indent:1em;line-height:36px;background:url(../images/bulk-icon.png) no-repeat 45px center}
+.List-l .bt h2 .current,.List-l .bt h2 a:hover{color:#d70c19;background:url(../images/bulk-icon2.png) no-repeat 45px center}
+.List-l .bt h2 a.zk{background:url(../images/bulk-icon3.png) no-repeat 45px center}
+.List-l .bt h2 .current1,.List-l .bt h2 a.zk:hover{background:url(../images/bulk-icon4.png) no-repeat 45px center}
+.List-l .search{width:230px;height:36px}
+.List-l .search .txt{width:168px;height:34px;line-height:34px;border:1px solid #d70c19;text-indent:1em; color:#bebebe}
+.List-l .search .btn{background:#d70c19;width:60px;height:36px;font-size:14px;font-weight:700;color:#fff;cursor:pointer}
+.List-l .dp{margin:0 25px 0 40px}
+.List-l .dp a{display:inline-block;width:58px;height:34px;border:1px solid #e6e6e6;margin-right:-1px;font-size:14px;text-indent:1.5em;line-height:34px;background:url(../images/dp-icon.png) no-repeat 7px center}
+.List-l .dp a:hover{color:#d70c19}
+.List-l .dp a.current{background:url(../images/image/dt-icon2.png) no-repeat 7px center;color:#d70c19}
+.List-l .dp2 a{background:url(../images/image/dt-icon.png) no-repeat 7px center;}
+.List-l .dp2 a.current{background:url(../images/image/dp-icon2.png) no-repeat 7px center;color:#d70c19}
+.List-l .qh{margin-right:20px}
+.List-l .qh span{padding-right:10px}
+.List-l .qh span em{color:#d70c19}
+.List-l .qh a{display:inline-block;width:28px;height:34px;border:1px solid #e6e6e6;margin-right:-1px;background:#fafafa}
+.List-l .qh a img{margin:10px 0 0 11px}
+.List-l ul li{float:left;overflow:hidden;width:228px;height:343px;border:1px solid #e6e6e6;background:#fff;margin:5px 5px}
+.List-l ul li img{overflow:hidden;margin:10px;width:208px;height:190px}
+.List-l ul li .tp{display:block;height:210px}
+.List-l ul li .name,.List-l ul li .price{display:block;overflow:hidden;margin:0 auto;width:200px;margin-top:15px}
+.List-l ul li .name{font-size:13px;line-height:22px;height:48px;overflow:hidden}
+.List-l ul li .price span{float:left;color:#d70c19;font-weight:500;font-size:20px;font-family:Arial}
+.List-l ul li .price span strong{display:block;color:#b2b2b2;text-decoration:line-through;font-family:Arial}
+.List-l ul li .price span strong i{color:#b2b2b2;font-family:"微软雅黑"}
+.List-l ul li .price span em{color:#d70c19;font-weight:700;font-family:"微软雅黑"}
+.List-l ul li .price b{float:right;margin-top:10px;font-size:13px}
+.List-l ul li .price b em{color:#d70c19;font-size:13px;font-family:Arial}
+.List-l ul li .zyd a{font-size:12px;font-weight:700;color:#b2b2b2;line-height:30px;padding-left:15px}
+.List-l ul li .zyd a:hover{color:#d70c19}
+.List-r{width:218px}
+.List-r .rxtj,.List-r .xlph{border:1px solid #e6e6e6;margin-bottom:30px}
+.List-r .rxtj h2,.List-r .xlph h2{font-family:"微软雅黑";font-size:16px;color:#d70c19;line-height:40px;padding-left:18px;background:#fff}
+.List-r .rxtj ul li{width:216px;height:287px;border-top:1px dashed #e6e6e6;background:#fff;overflow:hidden}
+.List-r .rxtj ul li img{overflow:hidden;margin:10px;width:198px;height:180px}
+.List-r .rxtj ul li .tp{display:block;height:200px}
+.List-r .rxtj ul li .name,.List-r .rxtj ul li span{display:block;overflow:hidden;margin:0 auto;width:190px;line-height:20px}
+.List-r .rxtj ul li .name{height:40px}
+.List-r .rxtj ul li span b{color:#d70c19;font-weight:500;font-size:18px;font-family:Arial;line-height:40px;float:left}
+.List-r .rxtj ul li span b em,.List-r .rxtj ul li span i em{font-family:"微软雅黑";color:#d70c19;font-weight:700}
+.List-r .rxtj ul li span i{float:right;font-family:Arial;line-height:40px;color:#b2b2b2;text-decoration:line-through}
+.List-r .rxtj ul li span i em{color:#b2b2b2}
+.List-r .xlph ul{background:#fff;border-top:1px dashed #e6e6e6;padding:15px 0 15px 20px;position: relative;}
+.List-r .xlph ul li{height:26px;overflow:hidden;*position:relative;zoom:1; line-height:26px;}
+.List-r .xlph ul li span{display:inline-block;width:15px;height:15px;background:#999;color:#fff;text-align:center;line-height:15px;margin-right:7px}
+.List-r .xlph ul li .color1{background:#ef1100}
+.List-r .xlph ul li em{display:block;font-family:Arial;font-size:16px;color:#d70c19;}
+.List-r .xlph ul li em i{font-family:"微软雅黑";color:#d70c19}
+.List-r .xlph ul li .show-title{line-height:26px;height:26px;width:152px;display:inline-block;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.List-r .xlph ul li .show-block{position:relative;height:190px;text-align:left;}
+.List-r .xlph ul li .show-block img{display:block;width:130px;height:119px; overflow:hidden}
+.find_list2 {width:958px;height:420px;border:1px solid #e6e6e6;padding-bottom:20px;margin-top:25px; overflow:hidden}
+.find_list2 .list_tit  {width:918px;height:90px;background:#FFF;overflow:hidden;padding:20px;}
+.find_list2 ul{ margin-left:5px;}
+.find_list2 ul li {float:left;margin:0 7px;width:200px;height:260px;background:#FFF;padding-bottom:0;position:relative;}
+.find_list2 ul li img{ width:200px; height:160px; margin:0 auto;}
+.find_list2 .list_tit .cj{ width:190px;margin:0 10px 0 15px;}
+.find_list2 .list_tit .name span {width:150px;}
+.find_list .list_tit .help2 {margin-left:70px;font-size:13px;color:#999999;}
+.find_list .list_tit .score {margin-left:60px;}
+.find_list2 .list_tit .come a {display:block;width:120px;height:30px;text-align:center;line-height:30px;background:#d70c19;color:#FFF;font-family:"微软雅黑";font-size:14px;}
+.find_list2 .list_tit .come a:hover {background:#900000;}
+.Select .erzi a{font-size:10px;padding:none}
+.Select .erzi {font-size:10px;padding:0}
+/*分页*/
+#pagination{display:block; text-align:center; margin-top:25px;}
+#pagination a,#pagination i{display:inline-block;width:48px;height:34px;line-height:34px;vertical-align:middle;text-align:center;font-size:12px;color:#666666;}
+#pagination a{margin:0 3px 0 3px;cursor:pointer;border:1px solid #e6e6e6;background-color:#fff;font-family:"Arial";}
+#pagination i{ width:20px}
+#pagination a.current{border:1px solid #d70c19;background-color:#d70c19;color:#fff}
+

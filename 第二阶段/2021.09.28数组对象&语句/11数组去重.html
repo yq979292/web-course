@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // indexOf   lastIndexOf
+    // var arr=[1,2,3,4];
+    // var res=arr.indexOf(5);
+    // console.log(res);
+
+    // 添加到新数组
+
+    /*
+        创建空数组
+        将原数组内容逐个添加
+                    在添加之前 新数组是否已经存在该元素
+                                        indexOf()  -1
+    */
+
+    // var res=[];
+    // for(var i=0;i<arr.length;i++){
+    //     if(res.indexOf(arr[i])==-1){//不存在该元素
+    //         res.push(arr[i]);
+    //     }
+    // }
+    // console.log(res)
+
+    // 删除 修改原数组
+    /*
+        倒着删  不影响未处理元素的索引
+        indexOf()==当前位置
+    */
+    var arr=["a","b","c","a","a","a","e"];
+    for(var i=arr.length-1;i>=0;i--){
+        if(arr.indexOf(arr[i])!=i){
+            arr.splice(i,1);//删除当前元素
+        }
+    }
+    console.log(arr)
+
+
+
+</script>
+</html>

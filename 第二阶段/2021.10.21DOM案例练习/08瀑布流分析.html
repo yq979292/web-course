@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            border:2px solid red;
+        }
+        #box img{
+            width: 100%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+</body>
+<script src="./瀑布流/homework.js"></script>
+<script>
+    var box=document.getElementById("box");
+
+
+    // 截取图片高度
+    // var h=list[0].img.split("?")[1].split("x")[1];
+    var s=list[0].img.split("?")[1].split("=")[1].split("x");//包含图片原始宽高
+    var h_w=s[1]/s[0];//高:宽
+    var h=200*h_w;
+
+
+    box.innerHTML+=`
+        <img src="${list[0].img}" style="height:${h}px">
+        <h1>标题</h1>
+    `
+    console.log(getComputedStyle(box,null).height);
+</script>
+</html>

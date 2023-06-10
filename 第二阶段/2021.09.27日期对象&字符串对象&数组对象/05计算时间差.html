@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 获取指定时间的日期对象
+    var d1=new Date("2022/10/01 12:30:25");
+    // console.log(d.getDay());
+    // console.log(d.getMonth());
+    var t1=d1.getTime()//获取时间戳 10/1
+
+
+    // 获取当前的时间戳
+    var d2=new Date();
+    var t2=d2.getTime();
+
+    var t=t1-t2;//时间差
+    
+    t/=1000;//秒
+    // 秒的值
+    var s=Math.round(t%60);
+    // 分钟的值
+    var m=Math.round((t-s)/60%60);
+    // 小时的值
+    var h=Math.round(((t-s)/60-m)/60%24);
+    // 天的值
+    var day=Math.round((((t-s)/60-m)/60-h)/24%30);
+    // 月的值
+    var month=Math.round(((((t-s)/60-m)/60-h)/24-day)/30%12)
+    // 年的值
+    var year=Math.round((((((t-s)/60-m)/60-h)/24-day)/30-month)/12);
+
+
+    console.log(year,month,day,h,m,s);
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // 根据时间差算出
+    // var num=150000
+    // var s=num/1000%60;
+    // var m=Math.floor(num/1000/60);
+    // var m=(num/1000-s)/60;
+
+    
+</script>
+</html>

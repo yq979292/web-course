@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var str="http://www.baidu.com/list?type=hot&page=10&num=100";
+    // type ?
+    // page ?
+    // num ?
+    var s1=str.split("?")[1];
+    // console.log(s1);//type=hot&page=10&num=100
+    var arr=s1.split("&");
+    // console.log(arr);//["type=hot", "page=10", "num=100"]
+    var obj={};
+    for(var i=0;i<arr.length;i++){
+        var s2=arr[i].split("=");
+        // console.log(s2);
+        obj[s2[0]]=s2[1];
+    }
+    console.log(obj.num,obj.type);
+
+</script>
+</html>

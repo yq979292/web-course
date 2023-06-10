@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+/*banner*/
+.banner_box1 {width:1200px;height:400px;position:relative;padding-top:10px;overflow:hidden;}
+.banner_box1 .banner_list{height:400px;overflow:hidden}
+.banner_box1 .banner_list li{width:1200px;height:400px;float:left;overflow:hidden}
+.banner_box1 .round {position:absolute;left:50%;margin-left:-30px;top:370px}
+.banner_box1 .Num li{float:left}
+.banner_box1 .round li a{cursor:pointer;float:left;margin:0 5px;width:10px;height:10px;border-radius:50%;background:#c4c4c5;}
+.Num li a:hover,.banner_box1 .round li.cur a{background:#d70c19;}
+/*-------正文内容-----------*/
+.find_list {width:1198px;height:420px;border:1px solid #e6e6e6;padding-bottom:20px;margin-top:25px;}
+.find_list .list_tit  {width:1138px;height:90px;padding:20px 40px 20px 20px;background:#FFF;overflow:hidden;}
+.find_list .list_tit div {float:left;}
+.find_list .list_tit .logo {width:120px;height:90px;overflow:hidden;}
+.find_list .list_tit .cj{ width:225px;margin:0 20px 0 20px;}
+.find_list .list_tit .name span {font-family:"微软雅黑";font-size:16px;color:#262626;display:block;width:180px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;line-height:30px;}
+.find_list .list_tit .name strong {color:#666666;font-size:12px;display:block;line-height:26px;font-weight:normal;}
+.find_list .list_tit .help {margin-left:70px;font-size:13px;color:#d70c19;}
+.find_list .list_tit .help2 {margin-left:70px;font-size:13px;color:#999999;}
+.find_list .list_tit .help img,.find_list .list_tit .help2 img {width:22px;height:20px;display:inline-block;margin-right:6px;vertical-align:bottom;}
+.find_list .list_tit .score {margin-left:90px;}
+.find_list .list_tit .score span {display:block;font-size:12px;color:#666666;line-height:23px;}
+.find_list .list_tit .score span strong {font-family:"Arial";}
+.find_list .list_tit .contr {font-size:12px;color:#4c4c4c;margin-left:20px;}
+.find_list .list_tit .contr span.tit {line-height:22px;margin:0;}
+.find_list .list_tit .contr span {display:block;margin:2px 0;}
+.find_list .list_tit .contr span strong {margin-left:12px;color:#d70c19;font-family:"Arial";line-height:18px;vertical-align:top;}
+.find_list .list_tit .contr span strong.bl {color:#5ec4fb;}
+.find_list .list_tit .come {margin-top:30px;float:right;}
+.find_list .list_tit .come a {display:block;width:180px;height:30px;text-align:center;line-height:30px;background:#d70c19;color:#FFF;font-family:"微软雅黑";font-size:14px;}
+.find_list .list_tit .come a:hover {background:#900000;}
+.find_list ul {overflow:hidden;margin-top:20px;padding:0 1px;}
+.find_list ul li {float:left;margin:0 10px;width:199px;height:260px;background:#FFF;padding:10px;padding-bottom:0;position:relative;}
+.find_list ul li a {font-size:12px;color:#666666;line-height:20px;}
+.find_list ul li a.tex {display:block;width:175px; height:40px;position:absolute;left:20px;top:183px; overflow:hidden}
+.find_list ul li a:hover {color:#d70c19;}
+.find_list ul li strong {font-size:12px;font-family:"微软雅黑";color:#d70c19;position:absolute;bottom:17px;left:20px;}
+.find_list ul li strong em {font-size:20px;font-family:"Arial";color:#d70c19;font-style:normal;}
+.find_list ul li i {text-decoration:line-through;font-stytle:normol;color:#b2b2b2;font-family:"Arial","微软雅黑";font-size:12px;position:absolute;bottom:17px;right:20px;}
+ 

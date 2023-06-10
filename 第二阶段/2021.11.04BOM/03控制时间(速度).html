@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">1</h1>
+    <button id="btn">100</button>
+    <button id="btn2">5000</button>
+</body>
+<script>
+    var t=1000;
+
+
+    function f(){
+        title.innerHTML+=1;
+        setTimeout(f,t);
+    }
+    f();
+
+
+    btn.onclick=function(){
+        t=100;
+    }
+
+    btn2.onclick=function(){
+        t=5000;
+    }
+</script>
+</html>

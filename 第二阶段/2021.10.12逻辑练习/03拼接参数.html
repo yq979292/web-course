@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var obj={
+        type:"hot",
+        page:10,
+        num:100
+    }
+    var url="http://www.baidu.com/list";
+    // "http://www.baidu.com/list?type=hot&page=10&num=100"
+
+    url+="?";
+
+    for(var key in obj){
+        url+=key+"="+obj[key]+"&";
+    }
+
+    
+
+    // url=url.substr(0,url.length-1);
+    url=url.slice(0,url.length-1);
+
+    console.log(url);
+
+</script>
+</html>

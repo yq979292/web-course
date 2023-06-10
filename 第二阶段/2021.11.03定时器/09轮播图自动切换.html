@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">0</button>
+</body>
+<script>
+    var num=0;
+
+    function f(){
+        num++;
+        if(num>3){
+            num=0;
+        }
+        btn.innerHTML=num;
+    }
+
+    btn.onclick=f
+
+    // 自动切换
+    var timer=setInterval(f,1000);
+
+    btn.onmouseover=function(){
+        clearInterval(timer);//清除
+    }
+
+    btn.onmouseout=function(){
+        timer=setInterval(f,1000);
+    }
+</script>
+</html>

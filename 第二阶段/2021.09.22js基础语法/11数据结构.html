@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var classInfo={
+        name:"前端83",
+        total:51,
+        students:[{
+            name:"张三",
+            sex:"男",
+            tel:"180225002",
+            age:20,
+            love:3
+        },{
+            name:"李四",
+            sex:"男",
+            tel:"180225002",
+            age:21,
+            love:2
+        },{
+            name:"小芳",
+            sex:"女",
+            tel:"180225002",
+            age:18
+        },{
+            name:"小红",
+            sex:"女",
+            tel:"180225002",
+            age:23
+        }]
+    }
+
+    // 已知张三在students中编号为0 打印他喜欢的女孩的姓名和年龄
+    // 找到张三喜欢的人的索引
+    var zsLove=classInfo.students[0].love;
+    // 通过索引找到张三喜欢的对象
+    var zsLoveGirl=classInfo.students[zsLove];
+    console.log(zsLoveGirl.name,zsLoveGirl.age)
+</script>
+</html>

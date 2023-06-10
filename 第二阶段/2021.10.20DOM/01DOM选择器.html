@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 选择器 */
+        h1{
+            color:red;
+        }
+        p{}
+    </style>
+</head>
+<body>
+    <h1 id="title">hello</h1>
+    <p class="txt">hello</p>
+    <p class="txt">world</p>
+    <p class="txt">world</p>
+    <p class="txt">world</p>
+    <p class="txt">world</p>
+
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+
+    <input type="text" name="userName">
+    <input type="text" name="userName">
+
+    <div class="box">
+        <span>span</span>
+        <span>span</span>
+        <span>span</span>
+        <span>span</span>
+        <span>span</span>
+    </div>
+    <span>外部span</span>
+</body>
+<script>
+    /*
+        ecmascript js语法
+        DOM 操作页面中的标签(绑定事件)
+        BOM 跟浏览器进行交互
+    */
+    // innerHTML设置标签内容
+    // document.get  整个文档范围内查找元素
+    // ID
+    var title=document.getElementById("title");// 节点  元素  DOM对象
+    // console.log(title);
+    title.innerHTML="前端83";//设置节点内容
+
+    // 类名选择器  获取元素集合
+    var txt=document.getElementsByClassName("txt");
+    console.log(txt);
+    // txt[0].innerHTML="p标签";
+    for(var i=0;i<txt.length;i++){
+        txt[i].innerHTML=123;
+    }
+
+    // 标签名  节点集合
+    var btn=document.getElementsByTagName("button");
+    console.log(btn);
+    btn[0].innerHTML="first";
+
+    
+    // name选择器 节点集合
+    var userName=document.getElementsByName("userName");
+    // console.log(userName);
+    userName[0].value="abc";
+
+
+    // 级联 box p
+    var box=document.getElementsByClassName("box")[0];
+    var span=box.getElementsByTagName("span");
+    console.log(span)
+</script>
+</html>

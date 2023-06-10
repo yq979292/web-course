@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #box{
+            margin-top: 100px;
+            width: 500px;
+            height: 500px;
+            background-color: red;
+            overflow: hidden;
+            position: relative;
+        }
+        #small{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin-top:300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="small"></div>
+    </div>
+</body>
+<script>
+    // offsetTop获取元素到达文档顶部的偏移量
+
+    /*
+        offsetTop 参考离他最近的带有定位属性的父级元素 如果没有则参考body
+    */
+    //    console.log(small.offsetTop+box.offsetTop);
+
+    // offsetParent 偏移参考对象
+    // console.log(small.offsetParent.offsetParent);
+
+
+    // var ot=small.offsetTop;
+    // var el=small.offsetParent;
+    // while(el!=document.body){
+    //     ot+=el.offsetTop;
+    //     el=el.offsetParent;
+    // }
+
+    // var ot=small.offsetTop;
+    // for(var el=small.offsetParent;el.offsetParent!=document.body;el=el.offsetParent){
+    //     ot+=el.offsetTop;
+    // }
+
+</script>
+</html>

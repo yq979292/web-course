@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="userName">
+    <button id="btn">弹出填写内容</button>
+
+    <hr>
+    <!-- 复选按钮   checked控制勾选状态-->
+    <input id="checkbox" type="checkbox" checked>
+
+    <hr>
+    <!-- 单选按钮  checked控制勾选状态 -->
+    <input type="radio" name="sex" checked>男
+    <input type="radio" name="sex">女
+
+    <hr>
+    <!-- 选择框  selected设置默认选项-->
+    <select id="address">
+        <option>上海</option>
+        <option>杭州</option>
+        <option selected>北京</option>
+    </select>
+</body>
+<script>
+    var userName=document.getElementById("userName");
+    var btn=document.getElementById("btn");
+    // userName.value="张三";
+    btn.onclick=function(){
+        // 获取输入框内容
+        alert(userName.value);
+    }
+
+    var checkbox=document.getElementById("checkbox");
+    // 布尔值
+    console.log(checkbox.checked);
+    checkbox.checked=false;
+
+    // 通过value访问选择结果
+    var address=document.getElementById("address");
+    console.log(address.value);
+
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="num">10</button>
+    <hr>
+    <button id="start">启用</button>
+    <button id="stop">禁用</button>
+</body>
+<script>
+    var num=document.getElementById("num");
+    var start=document.getElementById("start");
+    var stop=document.getElementById("stop");
+
+    var x=num.innerHTML*1;
+
+    function f(){
+        this.innerHTML=++x;
+    }
+    // 绑定事件
+    num.onclick=f;
+    // num.onclick=null;//啥事不干
+
+    stop.onclick=function(){
+        // 取消点击事件
+        num.onclick=null;
+    }
+    start.onclick=function(){
+        num.onclick=f;
+    }
+    
+
+</script>
+</html>

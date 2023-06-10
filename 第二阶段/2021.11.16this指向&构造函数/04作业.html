@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .banner{
+            width: 500px;
+            position: relative;
+        }
+        .imgs img{
+            width: 100%;
+            display: none;
+        }
+        .banner button{
+            position: absolute;
+            top:150px;
+        }
+        .prev{
+            left:0;
+        }
+        .next{
+            right:0;
+        }
+        .xxx{
+            width: 800px;
+        }
+        .xxx button{
+            top:300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner" id="one">
+        <div class="imgs">
+            <img src="./images/a.jpg" alt="">
+            <img src="./images/b.webp" alt="">
+            <img src="./images/c.webp" alt="">
+            <img src="./images/d.webp" alt="">
+        </div>
+        <button class="prev">上一张</button>
+        <button class="next">下一张</button>
+    </div>
+
+
+    <div class="banner" id="two">
+        <div class="imgs">
+            <img src="./images/a.jpg" alt="">
+            <img src="./images/b.webp" alt="">
+            <img src="./images/c.webp" alt="">
+            <img src="./images/d.webp" alt="">
+        </div>
+        <button class="prev">上一张</button>
+        <button class="next">下一张</button>
+    </div>
+
+    <div class="banner xxx" id="three">
+        <div class="imgs">
+            <img src="./images/a.jpg" alt="">
+            <img src="./images/b.webp" alt="">
+            <img src="./images/c.webp" alt="">
+            <img src="./images/d.webp" alt="">
+        </div>
+        <button class="prev">上一张</button>
+        <button class="next">下一张</button>
+    </div>
+</body>
+<script>
+    
+    function lunbo(banner,flag,f){
+        var imgs=banner.getElementsByTagName("img");
+        var next=banner.getElementsByClassName("next")[0];
+        var prev=banner.getElementsByClassName("prev")[0];
+        // 初始状态
+        imgs[0].style.display="block";
+        var x=0;
+
+        f&&f(x);
+
+        function nextFun(){
+            imgs[x].style.display="none";
+            x++;
+            if(x>imgs.length-1){
+                x=0;
+            }
+            imgs[x].style.display="block";
+            f&&f(x);
+        }
+        
+        next.onclick=nextFun;
+
+        prev.onclick=function(){
+            imgs[x].style.display="none";
+            x--;
+            if(x<0){
+                x=imgs.length-1;
+            }
+            imgs[x].style.display="block";
+            f&&f(x);
+        }
+
+        if(flag){
+            var timer=setInterval(nextFun,2000);
+
+            // 移入移出
+            banner.onmouseover=function(){
+                clearInterval(timer);
+            }
+            banner.onmouseout=function(){
+                timer=setInterval(nextFun,2000);
+            }
+        }
+
+    }
+
+
+
+    lunbo(one);
+
+    lunbo(two,true)
+
+
+    lunbo(three,true,function(a){
+        console.log(a);
+    })
+</script>
+</html>

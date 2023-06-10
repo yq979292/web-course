@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #box{
+            width: 600px;
+            height: 600px;
+            position: relative;
+            margin:50px auto;
+            margin-bottom:0;
+        }
+        #box div{
+            width: 200px;
+            height: 200px;
+            background-color: #999;
+            line-height: 200px;
+            text-align: center;
+            position: absolute;
+            border:2px solid white;
+            box-sizing: border-box;
+        }
+        #box div:nth-child(2){
+            left:200px
+        }
+        #box div:nth-child(3){
+            left:400px
+        }
+        #box div:nth-child(4){
+            left:400px;
+            top:200px;
+        }
+        #box div:nth-child(5){
+            left:400px;
+            top:400px;
+        }
+        #box div:nth-child(6){
+            left:200px;
+            top:400px;
+        }
+        #box div:nth-child(7){
+            top:400px;
+        }
+        #box div:nth-child(8){
+            top:200px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div>华为P50</div>
+        <div>儿童手表</div>
+        <div>手链</div>
+        <div>老年机</div>
+        <div>5元话费</div>
+        <div>口红</div>
+        <div>10元话费</div>
+        <div>谢谢惠顾</div>
+    </div>
+    <button id="start">开始</button>
+    <button id="stopBtn">停止</button>
+</body>
+<script>
+    /*
+        1.开始抽奖 慢慢加速   加到一定程度 匀速
+        2.停止  慢慢减速  减到一定程度 匀速  if(res=="兰博基尼100代金卷"){停止}
+    */
+    var x=0;
+    var items=box.children;
+    items[0].style.background="orange";
+
+    // 控制抽奖概率
+    var arr=["5元话费","10元话费","华为P50","华为P50","华为P50","华为P50","华为P50"];
+    var index,res;
+
+
+
+    var t=300;//定时器时间
+    function f(){
+        // 切换颜色
+        items[x].style.background="#999";
+        x++;
+        if(x>items.length-1){
+            x=0;
+        }
+        items[x].style.background="orange";
+        // 开始下一轮
+
+        if(t>1000&&items[x].innerHTML==res){
+            console.log("恭喜您获得 "+res)
+        }else{
+            setTimeout(f,t);
+        }
+    }
+    
+
+    start.onclick=function(){
+        t=300;//重置时间
+        index=Math.floor(Math.random()*arr.length);//随机索引
+        res=arr[index];//得到结果
+        console.log(res);
+        // 减少时间
+        var timer=setInterval(function(){
+            t-=20;
+            if(t<60){
+                clearInterval(timer);
+            }
+        },100);
+
+        f();
+
+    }
+
+    stopBtn.onclick=function(){
+
+        var timer=setInterval(function(){//慢慢减速
+            t+=10;
+            if(t>1000){
+                console.log("停止")
+                // 清除定时器 不改变时间 匀速
+                clearInterval(timer);
+            }
+        },100)
+
+    }
+</script>
+</html>

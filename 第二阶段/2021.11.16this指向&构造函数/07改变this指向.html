@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 调用时改变this指向
+    // function fun(a,b){
+    //     console.log(this,a,b);
+    // }
+
+    // var obj={name:"obj"};
+
+    // // fun(10,20);
+    // fun.call(obj,10,20);//this指向obj 并调用了自身
+    // fun.apply(obj,[10,20]);
+
+
+
+
+    function tip(){
+        alert("我是"+this.name+"今年"+this.age+"岁");
+    }
+
+    var person={
+        name:"张三",
+        age:20
+    }
+
+    var person2={
+        name:"李四",
+        age:50
+    }
+    // person.say=tip;
+    // person.say();
+    // console.log(person);
+
+    tip.call(person);
+
+    tip.call(person2);
+
+
+
+</script>
+</html>

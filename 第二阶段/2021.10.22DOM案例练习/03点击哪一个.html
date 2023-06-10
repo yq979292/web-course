@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+</body>
+<script>
+    var btns=document.getElementsByTagName("button");
+
+    // DOM对象 也是对象 
+    // btns[0]
+    // var obj={};
+    // obj.name="张三";
+    // console.log(obj.name);
+
+    // btns[0].a=10;
+    // console.log(btns[0].a)
+
+    // btns[0].a=0;
+    // btns[1].a=1;
+    // btns[2].a=2;
+
+    for(var i=0;i<btns.length;i++){
+        btns[i].a=i;//编号
+        btns[i].onclick=function(){
+            alert(this.a);
+        }
+    }
+
+
+
+
+</script>
+</html>

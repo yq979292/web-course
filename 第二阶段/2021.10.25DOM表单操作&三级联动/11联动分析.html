@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./area.js"></script>
+    <style>
+        p {
+            width: 800px;
+            line-height: 40px;
+        }
+
+        span {
+            margin: 0 10px;
+            display: inline-block;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>省</h2>
+    <p id="province_wrap">
+
+    </p>
+    <hr>
+    <h2>市</h2>
+    <p id="city_wrap">
+
+    </p>
+    <button id="ok">切换</button>
+</body>
+<script>
+    /*
+        ****_wrap  外层容器
+        ****_span  内部插入的span标签
+        ****_index 选择到的span索引     控制颜色
+        ****_res   选择到的结果    记录最终结果的
+    */
+
+
+
+    for (var province_name in data) {
+        province_wrap.innerHTML += `
+            <span>${province_name}</span>
+        `
+    }
+    // 省份span绑定点击事件
+    var province_index = 0;//记录选择的省的索引
+    var province_span = province_wrap.getElementsByTagName("span");
+    for (var i = 0; i < province_span.length; i++) {
+        province_span[i].index = i;
+        // 选择省份
+        province_span[i].onclick = function () {
+            // 切换颜色
+            province_span[province_index].style.color = "black";
+            province_span[province_index].style.fontWeight = "normal";
+            province_index = this.index;
+            province_span[province_index].style.color = "blue";
+            province_span[province_index].style.fontWeight = "bolder";
+            // 记录省份名字
+            province_res = this.innerHTML;
+
+            // 更新市
+            city_wrap.innerHTML = "";//清空
+            var city_obj = data[province_res][0];
+            for (var city_name in city_obj) {
+                city_wrap.innerHTML += `
+                    <span>${city_name}</span>
+                `
+            }
+            var city_obj = data[province_res][0];
+            // console.log(city_obj);
+            for (var city_name in city_obj) {
+                city_wrap.innerHTML += `
+                    <span>${city_name}</span>
+                `
+            }
+            // 给市内部span绑定点击事件
+            var city_span = city_wrap.getElementsByTagName("span");
+            city_index = 0;
+            city_span[0].style.color = "blue";
+            city_span[0].style.fontWeight = "bolder";
+            city_res = city_span[0].innerHTML;
+            for (var i = 0; i < city_span.length; i++) {
+                city_span[i].index = i;
+                // 选择市
+                city_span[i].onclick = function () {
+                    // 切换颜色
+                    city_span[city_index].style.color = "black";
+                    city_span[city_index].style.fontWeight = "normal";
+                    city_index = this.index;
+                    city_span[city_index].style.color = "blue";
+                    city_span[city_index].style.fontWeight = "bolder";
+                    // 记录市名字
+                    city_res = this.innerHTML;
+                }
+            }
+        }
+    }
+    // 获取默认选择的省份
+    province_span[0].style.color = "blue";
+    province_span[0].style.fontWeight = "bolder";
+    var province_res = province_span[0].innerHTML;
+
+    // 插入市
+    var city_obj = data[province_res][0];
+    // console.log(city_obj);
+    for (var city_name in city_obj) {
+        city_wrap.innerHTML += `
+            <span>${city_name}</span>
+        `
+    }
+
+    var city_index=0;
+    var city_res="";
+    // 给市内部span绑定点击事件
+    var city_span = city_wrap.getElementsByTagName("span");
+    city_index = 0;
+    city_span[0].style.color = "blue";
+    city_span[0].style.fontWeight = "bolder";
+    city_res = city_span[0].innerHTML;
+    for (var i = 0; i < city_span.length; i++) {
+        city_span[i].index = i;
+        // 选择市
+        city_span[i].onclick = function () {
+            // 切换颜色
+            city_span[city_index].style.color = "black";
+            city_span[city_index].style.fontWeight = "normal";
+            city_index = this.index;
+            city_span[city_index].style.color = "blue";
+            city_span[city_index].style.fontWeight = "bolder";
+            // 记录市名字
+            city_res = this.innerHTML;
+        }
+    }
+
+    ok.onclick=function(){
+        console.log("你选择了",province_res+"-"+city_res);
+    }
+
+</script>
+
+</html>

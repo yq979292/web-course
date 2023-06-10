@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 如何定义add函数
+    // function add(a,b,c){
+    //     // a 1   b 2
+    //     function z(m,n){//f
+    //         return m+n;
+    //     }
+    //     return c(a,b,z)
+    // };
+    // var res=add(
+    //     1,
+    //     2,
+    //     function(a,b,f){return f(a,b)}//c
+    // );
+    // console.log(res);//3
+
+
+    function add(x,y,z){
+        function k(m,n,l){
+            l(m,n);
+        }
+        z(x,y,k)
+    }
+
+    add(
+        1,
+        2,
+        function(a,b,f){
+            f(
+                a,
+                b,
+                function(a,b){alert(a+b)}
+            )
+        }
+    );
+
+
+</script>
+</html>

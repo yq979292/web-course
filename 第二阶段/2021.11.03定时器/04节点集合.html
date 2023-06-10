@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+</body>
+<script>
+    // getElements 动态集合
+    var title=document.getElementsByTagName("h1");//查找页面中所有h1标签
+    // 静态集合
+    var title2=document.querySelectorAll("h1");
+    // console.log(title);
+    document.body.innerHTML+=`
+        <h1>world</h1>
+    `
+    console.log(title,title2);
+</script>
+</html>

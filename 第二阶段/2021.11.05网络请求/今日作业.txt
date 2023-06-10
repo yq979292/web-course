@@ -1,0 +1,18 @@
+接口：
+    排行榜分类：
+        http://39.96.88.57:9090/api/www/bang/bang/bangMenu
+    
+    排行榜音乐列表：
+        http://39.96.88.57:9090/api/www/bang/bang/musicList?bangId=93&pn=1&rn=30
+        参数说明：
+            bangId 音乐榜id
+    
+    歌词：
+        http://39.96.88.57:9090/newh5/singles/songinfoandlrc?musicId=197861235
+        参数说明：
+            musicId 歌曲id
+    
+    专辑介绍：
+        http://39.96.88.57:9090/api/www/music/musicInfo?mid=196835141
+        参数说明：
+            mid 歌曲id

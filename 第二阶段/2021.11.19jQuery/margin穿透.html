@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: aqua;
+            margin-top: 30px;
+            /* overflow: hidden; */
+            border: 1px solid red;
+            padding:10px;
+            box-sizing: border-box;
+            /* 正常的盒子模型，宽度不包含padding和border content-box
+                怪异盒子模型，宽度是包含padding和border  border-box
+            */
+        }
+        .box2{
+            width:100px;
+            height:100px;
+            background-color: pink;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>

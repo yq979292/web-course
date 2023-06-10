@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 普通对象
+    // var obj={
+    //     name:"张三",
+    //     age:20,
+    //     say:function(){
+    //         alert("我是"+this.name)
+    //     }
+    // }
+    // var obj2={
+    //     name:"李四",
+    //     age:30,
+    //     say:function(){
+    //         alert("我是"+this.name)
+    //     }
+    // }
+
+    // 函数返回对象    工厂模式
+    // function Person(name,age){
+    //     return {
+    //         name:name,
+    //         age:age,
+    //         say:function(){
+    //             alert(this.name)
+    //         }
+    //     }
+    // }
+
+    // var p=Person("张三",20);
+    // var p2=Person("李四",30);
+    // console.log(p,p2);
+
+    
+    // 对象+函数
+    // 使用构造函数创建对象
+    // function F(name,age){
+    //     this.name=name;
+    //     this.age=age;
+    // }
+
+    // var obj={};
+    // F.call(obj,"张三",20);//将F内部的this指向obj 并调用自身
+    
+    // var obj2={};
+    // F.call(obj2,"李四",30);
+    // console.log(obj,obj2)
+
+    function F(name,age){
+        // this指向new出来的对象
+        this.name=name;
+        this.age=age;
+    }
+    var p=new F("张三",20);
+    console.log(p)
+</script>
+</html>

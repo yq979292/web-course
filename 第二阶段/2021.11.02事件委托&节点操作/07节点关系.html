@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        父子  同级
+     -->
+    <div id="box">
+        <h1>标题 <span>span</span> </h1>
+        <p>hello</p>
+    </div>
+</body>
+<script>
+    // 访问子节点
+    // console.log(box.children[0].children);
+
+    // 访问父节点
+    // console.log(box.parentNode.parentNode.parentNode.parentNode);
+
+    // 兄弟
+    console.log(box.children[0].nextElementSibling);//下一个兄弟节点
+    console.log(box.children[1].previousElementSibling);//上一个兄弟节点
+
+</script>
+</html>

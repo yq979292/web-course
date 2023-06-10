@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 使用for循环
+    var str="hello";
+    var res="";
+    for(var i=str.length-1;i>=0;i--){
+        res+=str[i];
+    }
+    console.log(res);
+
+
+    // 使用方法
+    var arr=str.split("");
+    arr.reverse();
+    var res=arr.join("");//将数组元素连接成字符串
+    console.log(res);
+
+    var res2=str.split("").reverse().join("");
+    console.log(res2)
+</script>
+</html>

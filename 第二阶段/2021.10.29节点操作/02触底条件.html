@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+    <div style="height:2000px;background:pink"></div>
+</body>
+<script>
+    // 监听滚动事件
+    window.onscroll=function(){
+        // 滚动高度
+        var st=document.body.scrollTop||document.documentElement.scrollTop;
+        // 窗口高度
+        var H=window.innerHeight;
+        // 文档高度
+        var h=document.body.offsetHeight;
+
+        // console.log(st+H,h);
+        if(st+H+50>h){
+            console.log("触底")
+        }
+
+    }
+</script>
+</html>

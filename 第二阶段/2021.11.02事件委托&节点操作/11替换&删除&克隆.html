@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</body>
+<script>
+    // 替换元素
+    var node=document.createElement("li");
+    node.innerHTML="新的";
+    // 父元素调用 替换子节点
+    // list.replaceChild(node,list.children[0]);
+    // 替换当前元素
+    // list.children[0].replaceWith(node);
+
+    // 删除
+    // list.removeChild(list.children[0]);
+
+    // 克隆 复制
+    // var node=list.children[0].cloneNode();//克隆节点本身
+    var node=list.children[0].cloneNode(true);//包含子节点
+    console.log(node);
+</script>
+</html>

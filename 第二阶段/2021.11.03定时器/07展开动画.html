@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            margin:0;
+            padding:0;
+            width:300px;
+            border:1px solid red;
+            /* 当前元素样式变化时 会有0.5s的过渡效果 */
+            transition: all .5s;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <p id="txt">呼呼呼呼给哥哥溶剂热更加热烈公积金二十热高热高热高热高热三个色人热隔热隔热个热缩管热水过热</p>
+</body>
+<script>
+    var flag=true;
+
+    txt.h=txt.offsetHeight;
+    txt.style.height=txt.offsetHeight+"px";
+
+    btn.onclick=function(){
+        flag=!flag;
+        if(flag){
+            txt.style.height=txt.h+"px";
+        }else{
+            txt.style.height=0;
+        }
+
+    }
+</script>
+</html>

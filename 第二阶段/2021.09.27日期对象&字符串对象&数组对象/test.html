@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>攻击</button>
+    <button>暴击</button>
+    <button>幸运</button>
+</body>
+<script>
+    let btns=document.querySelectorAll("button");
+    // 声明数值计数 记录点击按钮的数量
+    let count=0;
+    for(let i=0;i<btns.length;i++){
+        btns[i].onclick=function(){
+            if(!this.checkout){
+                this.checkout=true;//添加自定义属性记录当前按钮状态
+                count++;
+                if(count==3){
+                    alert("弹出提示内容");
+                    // 回到初识状态
+                    for(let j=0;j<btns.length;j++){
+                        btns[j].checkout=undefined;
+                    }
+                    count=0;
+                }
+            }
+        }
+    }
+</script>
+</html>

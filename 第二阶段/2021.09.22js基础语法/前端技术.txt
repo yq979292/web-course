@@ -1,0 +1,9 @@
+html
+css
+js    动效  数据交互    
+    nodejs  Vue React 微信小程序
+
+js三块内容： 
+    Ecmascript js语法
+    DOM 用js操作标签
+    BOM 与浏览器进行交互

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">
+
+    </div>
+
+    <div id="box2"></div>
+
+
+</body>
+<script>
+    // el DOM对象||id名
+    // 面向过程封装
+    // function render(el){
+    //     var node=document.createElement("input");
+    //     var node2=document.createElement("button");
+    //     node2.innerHTML="搜索";
+    //     node2.onclick=function(){
+    //         alert(node.value);
+    //     }
+
+    //     if(typeof el == "string"){
+    //         el=document.getElementById(el);
+    //     }
+
+    //     el.appendChild(node);
+    //     el.appendChild(node2);
+    // }
+
+    // render("box");
+
+    // render("box2")
+
+
+    /*
+        创建节点
+        绑定节点事件
+        添加节点
+    */
+    // var obj={
+    //     input:null,
+    //     button:null,
+    //     parent:"box",
+    //     // 常见需要的节点
+    //     createNode:function(){
+    //         this.input=document.createElement("input");
+    //         this.button=document.createElement("button");
+    //         this.button.innerHTML="搜索";
+    //         // 绑定事件
+    //         this.bindEvent();
+    //     },
+    //     // 绑定点击事件
+    //     bindEvent:function(){
+    //         this.button.onclick=function(){
+    //             alert(this.input.value);
+    //         }.bind(this);
+    //         // 插入容器
+    //         this.insert();
+    //     },
+    //     // 插入容器
+    //     insert:function(){
+    //         if(typeof this.parent=="string"){
+    //             this.parent=document.getElementById(this.parent);
+    //         }
+    //         this.parent.appendChild(this.input);
+    //         this.parent.appendChild(this.button);
+    //     },
+    //     init:function(){
+    //         this.createNode();
+    //     }
+    // }
+
+    // obj.init();
+
+    // 工厂模式
+    function render(el,f) {//批量生成对象  提升代码复用
+        return {//包含了功能属性和方法
+            input: null,
+            button: null,
+            parent: el,
+            search:f,
+            // 创建需要的节点
+            createNode: function () {
+                this.input = document.createElement("input");
+                this.button = document.createElement("button");
+                this.button.innerHTML = "搜索";
+                // 绑定事件
+                this.bindEvent();
+            },
+            // 绑定点击事件
+            bindEvent: function () {
+                var fun=function () {
+                    this.search(this.input.value)
+                }.bind(this);
+                // 点击按钮
+                this.button.onclick = fun;
+                // 敲回车
+                this.input.onkeyup=function(e){
+                    if(e.keyCode==13){
+                        fun();
+                    }
+                }
+                // 插入容器
+                this.insert();
+            },
+            // 插入容器
+            insert: function () {
+                if (typeof this.parent == "string") {
+                    this.parent = document.getElementById(this.parent);
+                }
+                this.parent.appendChild(this.input);
+                this.parent.appendChild(this.button);
+            },
+            init: function () {
+                this.createNode();
+            }
+        }
+    }
+
+    render("box",function(val){//点击搜索按钮时
+        console.log(val);
+    }).init();
+
+</script>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #view{
+            width: 500px;
+            border:2px solid red;
+            position: relative;
+        }
+        img{
+            width: 500px;
+            display: block;
+        }
+        #view h2{
+            position: absolute;
+            bottom:10px;
+            left:10px;
+        }
+        #next,#prev{
+            position: absolute;
+            top:80px;
+            right:0;
+        }
+        #prev{
+            left:0;
+        }
+    </style>
+</head>
+<body>
+    <div id="view">
+        <img id="pic" alt="">
+        <h2 id="title"></h2>
+        <button id="prev">上一张</button>
+        <button id="next">下一张</button>
+    </div>
+</body>
+<script>
+    var pic=document.getElementById("pic");
+    var title=document.getElementById("title");
+    var next=document.getElementById("next");
+    var prev=document.getElementById("prev");
+    var imgs=[{
+        url:"images/a.jpg",
+        title:"手机1"
+    },{
+        url:"images/b.webp",
+        title:"手机2"
+    },{
+        url:"images/c.webp",
+        title:"手机3"
+    },{
+        url:"images/d.webp",
+        title:"手机4"
+    }]
+
+    var x=0;
+
+    function render(){
+        pic.src=imgs[x].url;
+        title.innerHTML=imgs[x].title;
+    }
+    render();
+
+    // 点击下一张
+    next.onclick=function(){
+        x++;
+        // 到达最后一张时 回到第一张
+        if(x>imgs.length-1){
+            x=0;
+        }
+        render();
+    }
+
+    // 上一张
+    prev.onclick=function(){
+        x--;
+        // 小于0 折到最后一张
+        if(x<0){
+            x=imgs.length-1;
+        }
+        render();
+    }
+
+</script>
+</html>

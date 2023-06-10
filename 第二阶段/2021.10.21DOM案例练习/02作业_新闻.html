@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">换一批</button>
+    <ul id="list">
+
+    </ul>
+</body>
+<script src="./data.js"></script>
+<script>
+
+    var btn = document.getElementById("btn");
+    var list = document.getElementById("list");
+
+
+    /*
+        0   6
+        6   12
+        12  18
+    */
+    var x = 0;
+
+    function render(){
+        // 清空
+        list.innerHTML="";
+        // 插入内容
+        for (var i = x; i < x + 6; i++) {
+            if(data[i]){
+                list.innerHTML += `
+                    <li>${i + 1}. ${data[i].pure_title}</li>
+                `
+            }
+        }
+    }
+    render();
+
+    // 15
+    // 7
+    // 3
+    // x 0 7 14
+
+    // 点击换一批
+    btn.onclick=function(){
+        x+=6;
+        if(x>=data.length){
+            x=0;
+        }
+        // 根据最新的x值 再次插入新的内容
+        render();
+    }
+    
+</script>
+
+</html>

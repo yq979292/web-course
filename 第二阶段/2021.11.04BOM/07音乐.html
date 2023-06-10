@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="请输入搜索内容" id="key"> <button id="search">搜索</button>
+    <ul id="list">
+
+    </ul>
+    <!-- 视频标签 autoplay自动播放  src指定播放地址  controls显示控件-->
+    <video id="vid" autoplay src="" controls></video>
+</body>
+<script>
+    search.onclick=function(){
+        // 点击按钮时 根据用户输入内容发送请求
+        fetch("http://39.96.88.57:9090/api/www/search/searchMvBykeyWord?key="+key.value)
+        .then(r=>r.json())//解析json数据
+        .then(function(res){
+            // console.log(res);
+            // 列表数据
+            var mvlist=res.data.mvlist;
+            // 清空容器
+            list.innerHTML="";
+            // 插入页面
+            for(var i=0;i<mvlist.length;i++){
+                list.innerHTML+=`
+                    <li data-id="${mvlist[i].id}">${mvlist[i].name}---${mvlist[i].artist}</li>
+                `
+            }
+            // 绑定点击事件
+            for(var i=0;i<list.children.length;i++){
+                list.children[i].onclick=function(){
+
+                    // 获取标签上携带的id
+                    var id=this.dataset.id;
+                    // 发送请求获取播放地址
+                    fetch("http://39.96.88.57:9090/api/v1/www/music/playUrl?mid="+id+"&type=mv&httpsStatus=1")
+                    .then(r=>r.json())
+                    .then(function(res){
+                        // 设置视频标签的播放地址
+                        vid.src=res.data.url;
+                    })
+
+                }
+            }
+        })
+    }
+
+
+</script>
+</html>

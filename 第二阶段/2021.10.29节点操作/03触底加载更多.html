@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            background-color: #999;
+        }
+        li{
+            list-style: none;
+        }
+        #list{
+            width: 1200px;
+            margin:0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        #list li{
+            width: 280px;
+            padding:5px;
+            margin:5px 0;
+            background-color: white;
+        }
+        #list img{
+            width: 100%;
+            height: 280px;
+            background: url(./lazyload.gif) no-repeat center center;
+        }
+    </style>
+</head>
+<body>
+    <ul id="list">
+        
+    </ul>
+</body>
+<script src="./goodList.js"></script>
+<script>
+    // console.log(goodList);
+    var page=1;
+    // var pageList=goodList.slice(0,30);//1   30*(page-1) 30*page
+    // var pageList=goodList.slice(30,60);//2
+    function render(){
+            var pageList=goodList.slice(30*(page-1),30*page);
+            
+            for(var i=0;i<pageList.length;i++){
+                list.innerHTML+=`
+                    <li>
+                        <img data-src="${pageList[i].imageUrl}" alt="">
+                        <h3>${pageList[i].title}</h3>
+                    </li>
+                `
+            }
+    }
+    // 插入初始数据
+    render();
+    // 找到图片节点
+    var imgs=list.getElementsByTagName("img");
+    // 监听滚动事件
+    function scroll_fun(){
+        // 图片懒加载
+        var H=window.innerHeight;
+        var st=document.body.scrollTop||document.documentElement.scrollTop;
+
+        for(var i=30*(page-1);i<30*page;i++){
+            var ot=imgs[i].offsetTop;
+            if(H+st>ot+100){
+                imgs[i].src=imgs[i].dataset.src;
+            }
+        }
+        // 触底
+        var h=document.body.offsetHeight;//文档高度
+        if(st+H+50>h){
+            page++;// 35  1 2 3   
+            if(page>Math.ceil(goodList.length/30)){
+                alert("没有更多内容了");
+                window.onscroll=null;//取消监听
+            }else{
+                render();
+            }
+        }
+
+    }
+    scroll_fun();
+    window.onscroll=scroll_fun;
+</script>
+</html>

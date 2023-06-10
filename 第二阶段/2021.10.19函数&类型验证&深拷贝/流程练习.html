@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function loop() {
+        var arg = arguments
+        var count = 0;
+        console.log(arg)
+        function a(){
+            count++;
+            arg[count](a)
+        }
+        arg[0](a)
+    }
+    loop(1,2,3)
+    loop(function(next){
+        console.log('第一个参数')
+        next()
+    },function(next){
+        console.log('888')
+        next()
+    },function(next){
+        console.log('这是第三个参数')
+    })
+</script>
+</html>

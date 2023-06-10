@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // fetch("http://39.96.88.57:9090/api/www/search/searchMvBykeyWord?key=周杰伦")
+    // .then(r=>r.json())
+    // .then(function(res){
+    //     console.log(res);
+    // })
+
+
+    // 同步和异步？  同步会阻塞代码的运行
+
+
+    // 创建请求对象
+    var xhr=new XMLHttpRequest();
+    // 通过open方法指定请求方式、请求地址、同步异步
+    xhr.open("GET","http://39.96.88.57:9090/api/www/search/searchMvBykeyWord?key=周杰伦");
+    // 发送请求
+    xhr.send();
+    // 监听请求状态改变事件
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState==4&&xhr.status==200){//数据响应成功
+            // 访问请求结果
+            // console.log(xhr.responseText);//字符串
+            // 把JSON字符串转换为JSON对象
+            console.log(JSON.parse(xhr.responseText));
+        }
+    }
+
+
+
+    console.log("hello")
+</script>
+</html>

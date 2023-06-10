@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 不能为空 -->
+    <input type="text" id="userName" placeholder="用户名">
+    <!-- 6-12位 -->
+    <input type="password" id="pwd" placeholder="密码">
+    <button id="submit">提交</button>
+</body>
+<script>
+    var userName=document.getElementById("userName");
+    var pwd=document.getElementById("pwd");
+    var submit=document.getElementById("submit");
+
+    submit.onclick=function(){
+
+        if(!userName.value){
+            alert("用户名不能为空");
+            userName.focus();
+            return false;//终止函数运行
+        }
+        if(pwd.value.length<6||pwd.value.length>12){
+            alert("请确保密码6-12位");
+            pwd.focus();
+            return false;
+        }
+
+        console.log(userName.value,pwd.value);
+
+    }
+
+</script>
+</html>

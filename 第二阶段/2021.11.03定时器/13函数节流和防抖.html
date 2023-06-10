@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <div style="height:3000px"></div>
+</body>
+<script>
+    /*
+        函数的防抖和节流  用于减少代码执行频率的
+    */
+    /*
+        节流  在固定时间内只执行第一次
+    */
+    var flag=true;//开关
+    btn.onclick=function(){
+        if(flag){
+            flag=false;//关门
+            console.log("登录");
+            t=setTimeout(function(){
+                flag=true;//开门
+            },1000)
+        }
+    }
+
+
+    window.onscroll=function(){
+        // var st=document.body                       
+        console.log("")
+    }
+</script>
+</html>

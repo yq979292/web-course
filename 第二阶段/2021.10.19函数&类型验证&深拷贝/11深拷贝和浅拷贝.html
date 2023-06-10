@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        引用类型赋值
+    */
+    var list=[1,2,3];
+    var list2=list;//浅拷贝
+
+    // 深拷贝
+    // var list2=[];
+    // for(var i=0;i<list.length;i++){
+    //     list2.push(list[i]);
+    // }
+    // list2.push(100);
+    // console.log(list);
+
+
+    var list=[{name:"张三"},{name:"李四"}];
+    // var list2=[];
+    // for(var i=0;i<list.length;i++){
+    //     list2.push(list[i]);
+    // }
+    // list2.push(1000);
+    // console.log(list);//说明list和list2不存在引用关系
+
+    // list2[0].name="狗蛋";
+    // console.log(list[0]);
+
+
+
+    // 深拷贝
+    var list=[{name:"张三"},{name:"李四"}];
+    // json数据
+    // var str=JSON.stringify(list);//转化为JSON字符串
+    // var res=JSON.parse(str);//转化为JSON对象
+    // console.log(res);
+
+    console.log(JSON.parse(JSON.stringify(list)))
+
+
+</script>
+</html>

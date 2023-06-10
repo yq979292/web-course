@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="btns">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+    </div>
+    <hr>
+    <input type="checkbox" id="all">全选
+</body>
+<script>
+    var items=btns.children;
+    // 主动勾选全选按钮
+    all.onchange=function(){
+        // checked 勾选状态
+        for(var i=0;i<items.length;i++){
+            items[i].checked=this.checked;
+        }
+        if(this.checked){
+            num=items.length;
+        }else{
+            num=0;
+        }
+    }
+
+    // 勾选单个选项控制全选按钮
+    var num=0;//记录勾选的数量
+    for(var i=0;i<items.length;i++){
+        items[i].onchange=function(){
+            if(this.checked){
+                num++;
+            }else{
+                num--;
+            }
+            console.log(num);
+            all.checked=num==items.length;
+        }
+    }
+</script>
+</html>

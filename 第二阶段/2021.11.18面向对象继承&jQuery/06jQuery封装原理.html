@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>hello</div>
+    <div>hello</div>
+    <div>hello</div>
+    <div>hello</div>
+</body>
+<script>
+    function $(str){
+
+        // 根据选择器字符串找到dom节点集合
+        var nodeList=null;
+        if(str.indexOf("#")==0){
+            nodeList=[document.getElementById(str.slice(1))];
+        }else if(str.indexOf(".")==0){
+            nodeList=document.getElementsByClassName(str.slice(1));
+        }else{
+            nodeList=document.getElementsByTagName(str);
+        }
+
+        // 返回对象
+        return {
+            css:function(key,val){
+                for(var i=0;i<nodeList.length;i++){
+                    nodeList[i].style[key]=val;
+                }
+                return this;
+            },
+            html:function(val){
+                for(var i=0;i<nodeList.length;i++){
+                    nodeList[i].innerHTML=val;
+                }
+                return this;
+            },
+            click:function(cb){
+                for(var i=0;i<nodeList.length;i++){
+                    nodeList[i].onclick=cb
+                }
+            }
+        }
+
+    }
+
+    $("div").css("color","blue").html("哈哈哈哈").click(function(){
+        console.log(this.innerHTML);
+    });
+</script>
+</html>

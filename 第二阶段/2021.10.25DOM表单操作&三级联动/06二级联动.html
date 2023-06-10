@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./city.js"></script>
+</head>
+<body>
+    <select id="letter">
+
+    </select>
+
+    <select id="city_name">
+
+    </select>
+</body>
+<script>
+    var letter=document.getElementById("letter");
+    var city_name=document.getElementById("city_name");
+    // 插入字母 默认选择第一个
+    for(var key in city){
+        letter.innerHTML+=`
+            <option>${key}</option>
+        `
+    }
+    
+    function render(){
+        // 字母对应的城市集合
+        var city_list=city[letter.value];
+        for(var i=0;i<city_list.length;i++){
+            city_name.innerHTML+=`
+                <option>${city_list[i].name}</option>
+            `
+        }
+    }
+    render();
+
+    // 当选择首字母时
+    letter.onchange=function(){
+        // 清空
+        city_name.innerHTML="";
+        render();
+
+    }
+
+</script>
+</html>

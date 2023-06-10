@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-1.8.3.min.js"></script>
+    <style>
+        /* .box p{
+            color:red;
+        } */
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>hello</p>
+        <p>hello</p>
+        <p>hello</p>
+    </div>
+    <div class="box">
+        <p>hello</p>
+        <p>hello</p>
+        <p>hello</p>
+    </div>
+    <div class="box">
+        <p>hello</p>
+        <p>hello</p>
+        <p>hello</p>
+    </div>
+    <h1>world</h1>
+    <h1>world</h1>
+    <h1>world</h1>
+    <div id="box">#box</div>
+    <p>box下面的p</p>
+    <p>box下面的p</p>
+    <p>box下面的p</p>
+</body>
+<script>
+    // $(".box p,h1").css("color","orange");
+
+    // $("#box+p").css("color","red");
+    // $("#box~p").css("color","red");
+
+
+    // $("p:first").css("color","blue")
+
+    // 访问其中某一个
+    $(".box p").eq(2).css("color","blue")
+</script>
+</html>

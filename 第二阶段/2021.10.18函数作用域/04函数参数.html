@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // function fun(a,b){//形参
+    //     return a+b;
+    // }
+
+    // alert(fun(2,3));//实参
+
+    function getQuery(str){
+        var s=str.split("?");
+        if(s[1]){//路径后携带参数的话
+            var obj={};
+            var arr=s[1].split("&");
+            for(var i=0;i<arr.length;i++){
+                var s2=arr[i].split("=");
+                obj[s2[0]]=s2[1];
+            }
+            return obj;
+        }
+    }
+
+    var str2="http://www.jd.com/list?x=100&y=200&z=300";
+    var res=getQuery(str2);
+    console.log(res);
+
+
+    console.log(getQuery("http://www.baidu.com/a?a=10&b=500"))
+
+</script>
+</html>

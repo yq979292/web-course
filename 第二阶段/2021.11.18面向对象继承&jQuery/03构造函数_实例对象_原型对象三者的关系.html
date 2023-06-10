@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        构造函数
+        实例对象
+        原型对象
+
+        构造函数和实例对象
+            构造函数通过new关键字创建实例对象
+            每个实例对象都会有constructor属性指向它的构造函数
+        构造函数和原型对象
+            每个函数都会有一个prototype属性指向它的原型对象
+            定义在原型对象上的属性和方法都会被实例对象所继承
+        实例对象和原型对象
+            实例对象的__proto__指向它构造函数的原型对象
+        
+    */
+    /*
+        继承的原理
+        每个普通对象都会有一个__proto__属性，指向谁 就可以继承谁上面的属性和方法
+        实例对象的__proto__默认指向它构造函数的原型对象
+    */
+    var animal={
+        a:"动物"
+    }
+    var person={
+        type:"人",
+        sex:"男"
+    }
+    person.__proto__=animal;
+    var obj={
+        name:"张三"
+    }
+    obj.__proto__=person;
+    console.log(obj.a);
+
+
+    function Person(){
+        
+    }
+    Person.prototype.say=function(){
+        alert("哈哈哈")
+    }
+    // var p=new Person();
+    // new操作符干了啥事？
+    var p={};
+    p.__proto__=Person.prototype;//公用 继承
+    Person.call(p);//私有
+
+    // console.log(p.say);
+    // console.log(p.__proto__==Person.prototype);
+
+
+    /*
+        原型链  主要用于继承
+            每个普通对象都会有__proto__属性指向它构造函数的原型对象
+            当访问对象的属性和方法时，会先在当前对象内部查找，不存在则沿着__proto__属性向上一级查找直到找到null为止
+    */
+    console.log(obj.__proto__.__proto__.__proto__.__proto__);
+</script>
+</html>

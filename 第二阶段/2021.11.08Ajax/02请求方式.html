@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        GET  后端->前端
+            携带的数据量小
+            速度快
+            参数拼接在路径之后
+            会有缓存问题
+        POST 前端->后端
+            对携带的数据没有限制
+            速度慢
+            更安全
+            参数放在请求体中 作为send的实参传入
+            在send之前设置请求头声明参数类型
+    */
+    // /a?x=1
+    // /a?x=2
+
+    /*
+        解决get请求的缓存问题
+        在路径后面拼接时间戳
+        /a?time=15151515
+        /a?time=15151516
+    */
+
+    // GET请求
+    // var xhr=new XMLHttpRequest();
+    // xhr.open("GET","http://192.168.218.20:6543/list?x=10");
+    // xhr.send();
+    // xhr.onreadystatechange=function(){
+    //     if(xhr.readyState==4&&xhr.status==200){
+    //         console.log(xhr.responseText);
+    //     }
+    // }
+
+
+    // post请求
+    // var xhr=new XMLHttpRequest();
+    // xhr.open("POST","http://192.168.218.20:6543/login");
+    // // 设置请求头 确保后端能够成功解析参数
+    // xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");//告诉后端参数是用&形式拼接的
+    // // 参数放在send里面
+    // xhr.send("userName=张三&password=123456");
+    // xhr.onreadystatechange=function(){
+    //     if(xhr.readyState==4&&xhr.status==200){
+    //         console.log(xhr.responseText);
+    //     }
+    // }
+
+    // post请求 传递json格式参数
+    // var xhr=new XMLHttpRequest();
+    // xhr.open("POST","http://192.168.218.20:6543/login");
+    // // 设置请求头 确保后端能够成功解析参数
+    // xhr.setRequestHeader("Content-Type","application/json");//告诉后端参数是json格式
+    // // 参数放在send里面
+    // xhr.send(JSON.stringify({
+    //     userName:"张三",
+    //     password:"123456"
+    // }));
+    // xhr.onreadystatechange=function(){
+    //     if(xhr.readyState==4&&xhr.status==200){
+    //         console.log(xhr.responseText);
+    //     }
+    // }
+
+</script>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="用户名" id="userName">
+    <button id="submit">登录</button>
+</body>
+<script>
+    // 点击登录按钮时
+    submit.onclick=function(){
+        // 判断用户名长度是否是6-12位
+        if(userName.value.length<6||userName.value.length>12){
+            alert("请确保用户名6-12位")
+        }else{
+            alert("登录成功")
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 500px;
+            height: 500px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">切换</button>
+    <div id="box"></div>
+</body>
+<script>
+    var btn=document.getElementById("btn");
+    var box=document.getElementById("box");
+
+    // 点击按钮时 box会进行红黑切换   ?
+
+    // 两种情况的切换  布尔 奇偶
+    // var flag=true;
+    // function f(){  
+    //     // 真假切换 
+    //     flag = !flag;
+    //     box.style.background=flag?"red":"black";
+    // }
+    // btn.onclick=f;
+
+
+    var num=0;
+    btn.onclick=function(){
+        num++;
+        box.style.background=num%2?"black":"red";
+    }
+
+
+
+
+</script>
+</html>

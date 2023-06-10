@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+    <button>0</button>
+</body>
+<script>
+    // var btn=document.getElementsByTagName("button");
+
+    /*
+        var x=0;
+        btn.onclick=function(){
+            this.innerHTML=++x;
+        }
+    
+    */
+
+
+
+    // var nums=[];
+    // for(var i=0;i<btn.length;i++){
+    //     // 存储的值和按钮一一对应
+    //     nums.push(0);
+    //     btn[i].index=i;
+    //     btn[i].onclick=function(){
+    //         this.innerHTML=++nums[this.index];
+    //     }
+    // }
+
+
+
+    // function add(a,b){
+    //     console.log(a+b);
+    // }
+
+    
+    // function getQuery(url){
+    //     // var url="http://www.baidu.com/list?x=10&y=20&z=30";
+    //     var obj={};
+    //     var s=url.split("?")[1].split("&");
+    //     for(var i=0;i<s.length;i++){
+    //         var s2=s[i].split("=");
+    //         obj[s2[0]]=s2[1];
+    //     }
+    //     return obj;
+    // }
+
+
+
+    function bindClick(el){
+        // var btn=document.getElementsByTagName("button")[0];
+        var x=0;//局部变量 有闭包会持久保存
+        el.onclick=function(){//闭包
+            this.innerHTML=++x;
+        }
+    }
+
+    var btns=document.getElementsByTagName("button");
+    
+    for(var i=0;i<btns.length;i++){
+        bindClick(btns[i]);
+    }
+
+</script>
+</html>

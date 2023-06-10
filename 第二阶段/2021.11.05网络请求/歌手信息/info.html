@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歌手信息</title>
+</head>
+<body>
+    <h1>歌手信息</h1>
+    <p id="txt"></p>
+
+    <ul id="list">
+
+    </ul>
+</body>
+<script>
+    // 提取路径中携带的歌手id
+    var id=location.href.split("?")[1].split("=")[1];
+    // console.log(id);
+
+    // 请求歌手信息
+    fetch("http://39.96.88.57:9090/api/www/artist/artist?artistid="+id)
+    .then(r=>r.json())
+    .then(function(res){
+        txt.innerHTML=res.data.info;
+    })
+
+
+    fetch("http://39.96.88.57:9090/api/www/artist/artistMusic?artistid="+id+"&pn=1&rn=30")
+    .then(r=>r.json())
+    .then(function(res){
+        // console.log(res);
+        var data=res.data.list;
+        for(var i=0;i<data.length;i++){
+            list.innerHTML+=`
+                <li>
+                    <a href="play.html?y=${data[i].rid}"> ${data[i].name} </a>    
+                </li>
+            `
+        }
+    })
+
+</script>
+</html>

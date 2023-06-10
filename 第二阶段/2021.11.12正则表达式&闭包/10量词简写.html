@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>hello</div>
+    <p>hello</p>
+</body>
+<script>
+    /*
+        {0,}  *
+        {1,}  +
+        {0,1} ?
+    */
+    // var str="张";
+    // var patt=/^张.?$/;
+    // console.log(patt.test(str));
+
+    var str=document.body.innerHTML;
+    var patt=/<div>.*<\/div>/;
+    console.log(patt.exec(str));
+
+</script>
+</html>

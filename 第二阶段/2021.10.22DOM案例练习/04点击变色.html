@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+</body>
+<script>
+    var btns=document.getElementsByTagName("button");
+    // 初始状态
+    btns[0].style.color="red";
+
+    // 不讲究
+    // for(var i=0;i<btns.length;i++){
+    //     btns[i].onclick=function(){
+    //         // 把其他的都变黑
+    //         for(var j=0;j<btns.length;j++){
+    //             btns[j].style.color="black";
+    //         }
+    //         // 让当前按钮变红
+    //         this.style.color="red";
+    //     }
+    // }
+
+    // 体面人  (把红色那个变黑)
+    // 每次点击时都需要直到红色元素的索引
+    var x=0;//记录红色元素索引
+
+    for(var i=0;i<btns.length;i++){
+        btns[i].index=i;
+        btns[i].onclick=function(){
+            btns[x].style.color="black";
+            // 点击谁 把谁变成红色
+            this.style.color="red";
+            // 将当前元素索引赋值给x
+            x=this.index;
+        }
+    }
+
+
+</script>
+</html>

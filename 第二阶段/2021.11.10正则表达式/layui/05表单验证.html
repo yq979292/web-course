@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <script src="./layui/layui.js"></script>
+</head>
+
+<body>
+
+    <div class="layui-form" style="width:200px" lay-filter="myform">
+
+        <input type="text" lay-verify="required|a|number" name="userName" placeholder="用户名" autocomplete="off" class="layui-input">
+        <input type="text" name="pwd" placeholder="密码" autocomplete="off" class="layui-input">
+
+        <!-- lay-submit 点击时自动验证 -->
+        <button class="layui-btn" lay-submit id="btn" lay-filter="btn">提交</button>
+    </div>
+</body>
+
+<script>
+    var form = layui.form;
+
+
+    // 自定义验证规则
+    form.verify({
+        a: function (value, el) {
+            // 不符合6-12位 提示 "长度6-12位"
+            if (!(value.length>=6&&value.length<=12)) {
+                return "长度6-12位";
+            }
+        }
+    })
+
+
+    // btn.onclick = function () {
+
+    //     console.log("发请求")
+
+    // }
+
+    // 提交时通过验证之后触发
+    form.on("submit(btn)",function(){
+        console.log(form.val("myform"))
+        console.log("发请求")
+    })
+
+</script>
+
+</html>

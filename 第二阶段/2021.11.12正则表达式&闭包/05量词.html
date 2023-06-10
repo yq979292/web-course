@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 量词跟单个字符或分组之后
+    var patt=/ab{3}/;//abbb
+    // var patt=/(ab){3}/;//ababab
+    var str="abababc";
+    console.log(patt.test(str))
+
+
+    // 3个字符位置 每个位置可以是a或b
+    var patt=/[ab]{3}/
+    var str="abb";
+    console.log(patt.test(str));
+
+
+    // 指定范围
+    var patt=/a{1,3}/
+    var str="aaaabb";
+    console.log(patt.test(str));
+
+    var patt=/a{1,}/  //至少有 一个a
+    var str="aaaabb";
+    console.log(patt.test(str));
+
+
+</script>
+</html>

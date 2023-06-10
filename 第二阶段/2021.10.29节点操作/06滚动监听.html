@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #nav {
+            position: fixed;
+            top: 100px;
+            left: 100px;
+            width: 150px;
+        }
+
+        #nav li {
+            line-height: 50px;
+            background-color: #999;
+            text-align: center;
+            margin: 2px;
+        }
+
+        #content {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        #content li {
+            height: 900px;
+            text-align: center;
+            font-size: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="nav">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <ul id="content">
+        <li style="background-color: red;">1</li>
+        <li style="background-color: orange;">2</li>
+        <li style="background-color: yellow;">3</li>
+        <li style="background-color: green;">4</li>
+        <li style="background-color: blue;">5</li>
+    </ul>
+</body>
+<script>
+    var navs = document.getElementById("nav").getElementsByTagName("li");
+    var contents = document.getElementById("content").getElementsByTagName("li");
+
+
+    var x = 0;//记录滚到到那个楼层
+    navs[x].style.background = "purple";
+    navs[x].style.color = "white";
+
+    // 给导航绑定点击事件
+    for (var i = 0; i < navs.length; i++) {
+        navs[i].index = i;
+        navs[i].onclick = function () {
+            // 取消之前颜色
+            navs[x].style.background = "#999";
+            navs[x].style.color = "black";
+            x = this.index;
+            navs[x].style.background = "purple";
+            navs[x].style.color = "white";
+
+            // 让页面滚动对应内容模块位置
+            var ot = contents[this.index].offsetTop;
+            document.body.scrollTop = ot - 200;
+            document.documentElement.scrollTop = ot - 200;
+        }
+    }
+
+    // st+H/2>ot  顶部超出窗口中线
+    // st+H/2<ot+h 底部低于窗口中线
+    window.onscroll = function () {
+        // 滚动高度
+        var st = document.body.scrollTop || document.documentElement.scrollTop;
+        // 窗口高度
+        var H = window.innerHeight;
+
+        // 挨个比对
+        for (var i = 0; i < contents.length; i++) {
+            // 元素顶部偏移量
+            var ot = contents[i].offsetTop;
+            // 元素高度
+            var h = contents[i].offsetHeight;
+            // 判断是否占据窗口c位
+            if (st + H / 2 > ot && st + H / 2 < ot + h && i != x) {
+                navs[x].style.background = "#999";
+                navs[x].style.color = "black";
+                x = i;
+                navs[x].style.background = "purple";
+                navs[x].style.color = "white";
+                console.log(i);
+            }
+        }
+    }
+</script>
+
+</html>

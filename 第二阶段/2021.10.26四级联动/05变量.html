@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list">
+
+    </ul>
+
+    <ul id="wrap">
+        <li>
+            <h3></h3>
+            <ul>
+                <li>
+                    <h4></h4>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <h3></h3>
+            <ul>
+                <li>
+                    <h4></h4>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul id="wrap">
+        
+    </ul>
+</body>
+<script src="./data.js"></script>
+<script>
+    var zpData=data.zpData;
+    // 一级
+    for(var i=0;i<zpData.length;i++){
+
+        // 二级
+        var twoStr="";
+        var two=zpData[i].subLevelModelList;
+        for(var j=0;j<two.length;j++){
+            twoStr+=`
+                <li>${two[j].name}</li>
+            `
+        }
+        wrap.innerHTML+=`
+            <li>
+                <h3>${zpData[i].name}</h3>
+                <ul>
+                    ${twoStr}
+                </ul>
+            </li>
+        `
+    }
+
+
+
+
+
+
+
+
+
+
+    var arr=["a","b","c","d"];
+
+    // for(var i=0;i<arr.length;i++){
+    //     list.innerHTML+=`
+    //         <li>${arr[i]}</li>
+    //     `
+    // }
+    
+    // var html="";
+    // for(var i=0;i<arr.length;i++){
+    //     html+=`
+    //         <li>${arr[i]}</li>
+    //     `
+    // }
+    // list.innerHTML=html;
+
+    
+    // for(var i=0;i<arr.length;i++){
+    //     list.innerHTML+="<li>";
+    //     list.innerHTML+=arr[i];
+    //     list.innerHTML+="</li>";
+    // }
+    
+
+</script>
+</html>

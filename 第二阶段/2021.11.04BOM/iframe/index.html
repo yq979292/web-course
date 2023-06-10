@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        <a href="./home.html">首页</a>
+        <a href="./es.html">二手车页</a>
+    </p>
+    <iframe id="iframe" src="./es.html" frameborder="0"></iframe>
+    <div>底部</div>
+</body>
+<script>
+    var a=document.getElementsByTagName('a');
+
+    for(var i=0;i<a.length;i++){
+        a[i].onclick=function(){
+            iframe.src=this.href;
+            // 阻止跳转
+            return false;
+        }
+    }
+
+</script>
+</html>

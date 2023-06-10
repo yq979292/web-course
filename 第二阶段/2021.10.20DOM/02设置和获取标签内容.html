@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <h1 id="title">标题</h1>
+    </div>
+</body>
+<script>
+    // 找到元素
+    var box=document.getElementById("box");
+    // 设置标签内容
+    // box.innerHTML=`
+    //     <h1>hello</h1>
+    // `
+    // box.innerHTML+=`
+    //     <h1>world</h1>
+    // `
+    // 设置标签内容  不解析标签
+    // box.innerText=`
+    //     <h1>hello</h1>
+    // `
+    // 覆盖box
+    // box.outerHTML=`
+    //     <h1>hello</h1>
+    // `
+    // box.outerText=`
+    //     <h1>hello</h1>
+    // `
+
+    // 获取标签内容
+    // alert(box.innerHTML)
+
+
+    // 注意
+    // 获取title节点
+    // var title=document.getElementById("title");
+    // 往box中追加内容
+        // box.innerHTML+=`
+        //     <p>文本</p>
+        // `
+        // 会覆盖原内容
+        box.innerHTML=box.innerHTML+"<p>文本</p>";
+    var title=document.getElementById("title");
+    // 操作title节点
+    title.innerHTML="123"
+
+    
+
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button data-index="0">按钮</button>
+    <button data-index="1">按钮</button>
+    <button data-index="2">按钮</button>
+</body>
+<script>
+    var btns=document.getElementsByTagName("button");
+    
+    for(var i=0;i<btns.length;i++){
+        btns[i].onclick=function(){
+            alert(i);//为啥弹3 当你点击按钮执行此代码时 循环已经执行结束
+            alert(this.dataset.index);
+        }
+    }
+    console.log(i);
+
+
+
+    // https://element.eleme.cn/#/zh-CN/component/rate
+
+</script>
+</html>

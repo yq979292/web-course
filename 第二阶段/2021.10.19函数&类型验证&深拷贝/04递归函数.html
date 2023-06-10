@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // function f(){
+    //     f();
+    // }
+    // f();
+
+    var i=0;
+    function f(){
+        console.log(i);
+        i++;
+        if(i<5){//终止递归调用
+            f();
+        }
+    }
+    f();
+
+
+    var a=0;
+    var total=0;
+    function f2(){
+        console.log(a);
+        total+=a;
+        a++;
+        if(a<=100){
+            f2();
+        }
+    }
+    f2();
+    console.log(total);
+    var i = 5;
+    function a(){
+        i--;
+        // if(i>=0){
+        //     console.log(i)
+        //     a()
+        // }
+        if(i<=0){
+            console.log('不让执行')
+        } else {
+            a()
+        }
+        
+    }
+    a()
+
+</script>
+</html>

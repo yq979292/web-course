@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // getType("hello");//string
+    // getType([]);//array
+
+    function getType(a){
+        // 正常 不正常 null
+        if(a===null){
+            return "null";
+        }else{
+            if(typeof a == "object"){//不正常
+                if(a instanceof Array){
+                    return "array";
+                }else{
+                    return "object";
+                }
+            }else{//正常
+                return typeof a;
+            }
+        }
+    }
+
+    console.log(getType())
+
+
+</script>
+</html>

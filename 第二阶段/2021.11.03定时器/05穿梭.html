@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            border:2px solid red;
+            padding:20px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="list">
+        <li>
+            <input type="checkbox">北京
+        </li>
+        <li>
+            <input type="checkbox">上海
+        </li>
+        <li>
+            <input type="checkbox">杭州
+        </li>
+    </ul>
+    <button id="toList2">向下</button>
+    <button id="toList">向上</button>
+    <ul id="list2">
+
+    </ul>
+</body>
+<script>
+    var items=list.getElementsByTagName("input");
+    var items2=list2.getElementsByTagName("input");
+
+
+    // 单个选项的勾选操作
+    for(var i=0;i<items.length;i++){
+        items[i].onchange=function(){
+            console.log("list")
+        }
+    }
+
+
+    toList2.onclick=function(){
+
+        for(var i=0;i<items.length;i++){
+            if(items[i].checked){//勾选状态
+                items[i].checked=false;
+
+                // 重新绑定change
+                items[i].onchange=function(){
+                    console.log("list2")
+                }
+
+                list2.appendChild(items[i].parentNode);
+                i--;
+            }
+        }
+
+    }
+
+
+
+    toList.onclick=function(){
+
+        for(var i=0;i<items2.length;i++){
+            if(items2[i].checked){//勾选状态
+                items2[i].checked=false;
+                items2[i].onchange=function(){
+                    console.log("list")
+                }
+                list.appendChild(items2[i].parentNode);
+                i--;
+            }
+        }
+
+    }
+</script>
+</html>

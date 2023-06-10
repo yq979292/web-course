@@ -1,0 +1,545 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>城乡商贸城-同城店</title>
+<link href="style/common.css" rel="stylesheet" type="text/css">
+<link href="style/details.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="js/area.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/fenye.js" ></script>
+<script type="text/javascript" src="js/childcommon.js"></script>
+<script type="text/javascript" src="js/payfor.js"></script>
+<script type="text/javascript" src="js/lazyload.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.js"></script>
+</head>
+<body>
+<!--头部 start-->
+<div class="TOP" id="top"> 
+   <!--top-->
+   <div class="top w1200">
+      <p class="top1"><span id="cityName" class="red1">新乡市</span><span id="countyName">原阳县</span><a href="javascript:;" data-reveal-id="myModal">[切换]</a></p>
+      <div class="fr">
+         <div class="YC fl">
+            <p class="xl"> 
+               <a href="javascript:;" class="ddl">登录</a> 
+               <span class="login"> 
+               		<span class="yhm"><input type="text" value="用户名/手机号码" / ></span> 
+                    <span class="mm"><input type="password" placeholder="密码"  /></span> 
+                    <span class="yzm"><input type="text" value="验证码" /><img src="images/yzm.jpg" /><a href="#">换一个</a></span> 
+                    <span class="zd"><label><input type="checkbox" /><span>自动登录</span></label><a href="忘记密码.html" class="wjmm">忘记密码?</a></span>
+                    <span class="tsxx">*用户名不能为空</span>
+                    <span class="login1"><a href="javascript:;">登录</a></span>
+                </span>
+            </p>	
+            <p><a href="注册页面.html" target="_blank">注册</a></p>
+         </div>
+         <p class="top2 fl"><a href="#">消息(0)</a><a href="免费开店.html" target="_blank">免费开店</a><a href="#" target="_blank">便民宝</a><a href="#" target="_blank">便民网</a></p>
+         <div class="wzdt fr">
+        	  <p><a href="网站地图.html" target="_blank">网站地图</a></p>
+              <div class="wzdt-list">
+                 <div class="first">
+                    <h2>便民网</h2>
+                    <h3><a href="#">三农服务</a><a href="#">便民服务</a><a href="#">便民工具</a><a href="#">供求自贸</a><a href="#">聚焦祥符</a><a href="#">交友</a><a href="#">爱心帮</a><a href="#">农博士</a><a href="#">金融超市</a></h3>
+                 </div>
+                 <div>
+                    <h2>商贸城</h2>
+                    <h3><a href="同城店index.html">同城店</a><a href="找厂家index.html">找厂家</a><a href="特卖会index.html">特卖会</a><a href="逛团购index.html">逛团购</a><a href="地方特产index.html">地方特产</a><a href="生鲜市场index.html">生鲜市场</a></h3>
+                 </div>
+                 <div>
+                    <h2>信息港</h2>
+                    <h3><a href="#">港站新闻</a><a href="#">团购活动</a><a href="#">指数信息站</a><a href="#">港站风采</a><a href="#">招商加盟</a><a href="#">关于我们</a></h3>
+                 </div>
+                 <div>
+                 	<h2>信息站</h2>
+                    <h3><a href="#">团购动态</a><a href="#">最新团购</a></h3>
+                 </div>
+                 <div>
+                 <h2>联盟店</h2>
+                    <h3><a href="#">联盟分布</a><a href="#">招商加盟</a><a href="#">所有联盟店</a><a href="#">申请联盟店</a></h3>
+                 </div>
+                 <div>
+                 <h2>合作社</h2>
+                    <h3><a href="#">农机</a><a href="#">养殖</a><a href="#">种植</a><a href="#">林业</a><a href="#">渔业</a><a href="#">畜牧业</a></h3>
+                 </div>
+                 <div style="border-right:none;">
+                 <h2>服务通</h2>
+                    <h3><a href="#">美丽乡村</a><a href="#">新闻专题</a><a href="#">雷锋墙</a><a href="#">健康教育</a><a href="#">旅游文化</a><a href="#">城乡三农</a></h3>
+                 </div>
+             </div>
+         </div>
+      </div>
+   </div>
+   <!--区域切换弹出层-->
+   <div id="myModal" class="reveal-modal area">
+      <div class="title1">县域商城，一键直达；本地企业，最近服务；同城保障，放心消费！</div>
+      <div id="pro">
+         <h1>省份：</h1>
+         <span onClick="switchArea(this)">河南省</span><span onClick="switchArea(this)">江西省</span><span onClick="switchArea(this)">山西省</span> <span onClick="switchArea(this)">辽宁省</span><span onClick="switchArea(this)">吉林省</span><span onClick="switchArea(this)">黑龙江省</span> <span onClick="switchArea(this)">江苏省</span><span onClick="switchArea(this)">浙江省</span><span onClick="switchArea(this)">安徽省</span> <span onClick="switchArea(this)">福建省</span><span onClick="switchArea(this)">山东省</span><span onClick="switchArea(this)">河北省</span> <span onClick="switchArea(this)">湖北省</span><span onClick="switchArea(this)">湖南省</span><span onClick="switchArea(this)">广东省</span> <span onClick="switchArea(this)">海南省</span><span onClick="switchArea(this)">四川省</span><span onClick="switchArea(this)">贵州省</span> <span onClick="switchArea(this)">云南省</span><span onClick="switchArea(this)">陕西省</span><span onClick="switchArea(this)">甘肃省</span> <span onClick="switchArea(this)">青海省</span><span onClick="switchArea(this)">台湾省</span><span onClick="switchArea(this)">北京市</span> <span onClick="switchArea(this)">天津市</span><span onClick="switchArea(this)">重庆市</span><span onClick="switchArea(this)">上海市</span> <span onClick="switchArea(this)">内蒙古自治区</span><span onClick="switchArea(this)">广西壮族自治区</span><span onClick="switchArea(this)">宁夏回族自治区</span> <span onClick="switchArea(this)">新疆维吾尔自治区</span><span onClick="switchArea(this)">西藏自治区</span><span onClick="switchArea(this)">香港特别行政区</span> <span onClick="switchArea(this)">澳门特别行政区</span></div>
+      <div id="city">
+         <h1>市域：</h1>
+         <span onClick="switchArea(this)">郑州市</span><span onClick="switchArea(this)">开封市</span><span onClick="switchArea(this)">洛阳市</span> <span onClick="switchArea(this)">平顶山市</span><span onClick="switchArea(this)">安阳市</span><span onClick="switchArea(this)">鹤壁市</span> <span onClick="switchArea(this)">新乡市</span><span onClick="switchArea(this)">焦作市</span><span onClick="switchArea(this)">濮阳市</span> <span onClick="switchArea(this)">许昌市</span><span onClick="switchArea(this)">漯河市</span><span onClick="switchArea(this)">三门峡市</span> <span  onClick="switchArea(this)">南阳市</span><span onClick="switchArea(this)">商丘市</span><span onClick="switchArea(this)">信阳市</span> <span onClick="switchArea(this)">周口市</span><span onClick="switchArea(this)">驻马店市</span><span onClick="switchArea(this)">济源市</span> </div>
+      <div id="county">
+         <h1>县区：</h1>
+         <span onClick="switchArea(this)">宛城区</span><span onClick="switchArea(this)">卧龙区</span><span onClick="switchArea(this)">南召县</span> <span onClick="switchArea(this)">方城县</span><span onClick="switchArea(this)">西峡县</span><span onClick="switchArea(this)">镇平县</span> <span onClick="switchArea(this)">内乡县</span><span onClick="switchArea(this)">淅川县</span><span onClick="switchArea(this)">社旗县</span> <span onClick="switchArea(this)">唐河县</span><span onClick="switchArea(this)">新野县</span><span onClick="switchArea(this)">桐柏县</span> <span onClick="switchArea(this)">邓州市</span>
+         <div class="go fl"><a href="javaScript:subSwitch()">切&nbsp;&nbsp;换</a></div>
+      </div>
+      <a class="close-reveal-modal">×</a> </div>
+   <div class="content_mark"></div>
+</div>
+<div class="header">
+   <div class="head w1200">
+      <div class="logo fl" ><a href="index.html"><img src="images/logo.png" /></a></div>
+      <div class="search fl">
+         <input class="txt fl" value="请输入商品或品牌" type="text"  />
+         <a href="商品列表-搜索结果.html">
+         <input class="btn fl" value="搜索" name="" type="button" /></a> 
+         <span><em>热门搜索：</em> <a href="商品列表-搜索结果.html">美容美妆</a><a href="商品列表-搜索结果.html">休闲零食</a><a href="商品列表-搜索结果.html">生活电器</a><a href="商品列表-搜索结果.html">地方特产</a><a href="商品列表-搜索结果.html">健康饮品</a><a href="商品列表-搜索结果.html">个人洗护</a></span> </div>
+   </div>
+</div>
+<!--nav start-->
+<div class="nav">
+   <div class="menu">
+      <div class="Menu">
+         <h2><a href="javascript:;">全部商品分类</a></h2>
+        
+        
+      </div>
+      <ul>
+    <li  class="current"><a href="index.html">首页</a></li>
+         <li><a href="zuixinshangpin.html">最新商品</a></li>
+         <li><a href="tejiashangpin.html">特价商品</a></li>
+         <li><a href="lianmengzhandian.html">联盟站点</a></li>
+         
+         <li style="float:right;"><a href="shenqinglianmeng.html" target="_blank" style="float:right;height:32px;width:103px;background:url(images/shenqing.png) center center no-repeat;margin-top:5px"></a></li>
+      </ul>
+   </div>
+</div>
+<!--nav end--> 
+ <!------中间 start--------------->
+<div class="main w1200">
+  <div class="Title"><a href="#">家用电器</a>><a href="#">洗衣机</a>><a href="#">Tcl</a>><span>TCLXQB55-36SP</span></div>
+  <div class="goods">
+    <div class="pho zx_slider">
+       <div class="focusImgBox">
+           <div class="bd"> 
+               <a href="#" ><img src="images/goods1.jpg"></a> 
+               <a href="#" ><img src="images/goods2.jpg"></a> 
+               <a href="#" ><img src="images/goods3.jpg"></a> 
+               <a href="#" ><img src="images/goods4.jpg"></a>
+               <a href="#" ><img src="images/goods5.jpg"></a> 
+           </div>
+           <div class="hd">
+              <ul>
+                 <li><img src="images/goods1.jpg"></li>
+                 <li><img src="images/goods2.jpg"></li>
+                 <li><img src="images/goods3.jpg"></li>
+                 <li><img src="images/goods4.jpg"></li>
+                 <li><img src="images/goods5.jpg"></li>
+              </ul>
+           </div>
+       </div>
+       <script language="javascript"> jQuery(".focusImgBox").slide({ mainCell:".bd",effect: "fade",autoPlay:true});</script>
+    </div>
+    <div class="int">
+      <h2>TCL XQB55-36SP 5.5公斤 全自动波轮洗衣机 一键脱水</h2>
+      <h3>狂欢继续 这次别错过 买一就送三 仅10套 抢！</h3>
+      <div class="time">
+        <p>团购</p>
+        <div class="rema">
+          <em>剩余</em>
+          <span id="t_d">00天</span>
+          <span id="t_h">00时</span>
+          <span id="t_m">00分</span>
+          <span id="t_s">00秒</span>
+        </div>
+      </div>
+      <div class="price">
+        <div class="pri_lt">
+          <p><i>参考价：</i><em>￥1298.00</em></p>
+          <p><i>促销价：</i><b>￥<strong>998.00</strong></b></p>
+        </div>
+        <div class="pri_rt">
+          <p><span>已售<i>5985</i>件</span></p>
+          <p><a href="javascript:;">收藏</a></p>
+        </div>
+      </div>
+      <div class="distr">
+        <p><span>颜色分类：</span><em class="change"><a class="current">亮灰色</a><a>茶色</a></em></p>
+        <p><span>规格：</span><em class="stand change"><a class="current">5.5公斤普通款</a><a>6.0公斤普通款</a></em></p>
+        <p><span>数量：</span><input lang="sub1" class="minus" type="button" readonly>
+          		<input class="minicart_num" blurlang="1" lang="1"  value="1" style="color:#666">
+                <input lang="add1" class="plus" type="button" readonly></p>  
+      </div>
+      <div class="buy">
+        <a href="去结算.html">立即购买</a><a href="加入购物车.html" class="shop">加入购物车</a>
+      </div>
+    </div>
+    <div class="specia">
+      <h2>TCL专卖店</h2>
+      <ul>
+        <li>主营品牌：TCL 海尔 美的 格力</li>
+        <li>经营范围：家用电器</li>
+        <li>联系电话：0371-5626485</li>
+        <li>店铺地址：开封县县府西街与文化大道交叉口向北</li>
+      </ul>
+      <h3>总体评分<img src="images/goods-icon4.png"><img src="images/goods-icon4.png"><img src="images/goods-icon4.png"><img src="images/goods-icon4.png"><img src="images/goods-icon5.png"></h3>
+      <h4><strong>店铺动态评分</strong>与同行业相比</h4>
+      <p>描述相符：<i>4.8</i><img src="images/find-db.jpg"><em>62.74%</em></p>
+      <p>描述相符：<i>4.8</i><img src="images/find-db.jpg"><em>62.74%</em></p>
+      <p>描述相符：<i>4.8</i><img src="images/find-db.jpg"><em>62.74%</em></p>
+      <div><a href="#" class="red">进入店铺</a><a href="#">收藏店铺</a></div>
+    </div>
+  </div>
+  <div class="good_con">
+    <div class="see">
+      <p>看了又看</p>
+      <ul>
+        <li><a href="#" class="tp"><img src="pic/goods-see1.jpg"></a><a href="#">小天鹅（Little Swan） 6公斤 全自动波轮洗衣机（灰色）</a><span>￥898.00</span><strong>￥1129.00</strong></li>
+        <li><a href="#" class="tp"><img src="pic/goods-see2.jpg"></a><a href="#">格兰仕（Galanz） XQG60-A7308 6公斤节能滚筒洗衣机（高温炫银）</a><span>￥1158.00</span><strong>￥1170.00</strong></li>
+      </ul>
+    </div>
+    <div class="switch">
+         <div class="tit tab3"> <a href="javascript:;" class="current">商品详情</a> <a href="javascript:;">规格参数</a> <a href="javascript:;">包装清单</a> <a href="javascript:;">累计评价  5624</a> <a href="javascript:;">月成交记录268件</a> <a href="javascript:;">售后保障</a> </div>
+         <div class="det tab_list3" style="display:block;"> <span>商品名称：TCLXQB55-36SP</span><span>品牌： TCL</span> <span>上架时间：2015-04-27 11:26:47</span><span>商品毛重：27.0kg</span> <span>商品产地：中国大陆</span><span>产品类型：波轮</span> <span>洗涤容量：4.6-5.9kg</span><span>能效等级：三级</span> <span>功率：250-349W</span><span>热门推荐：LED数码显示</span> <span>深度：51-55厘米</span><span>宽度：51-55厘米</span> <span>高度：86-90厘米</span><span>电机类型：定频</span> <span>排水类型：下排水</span> <img src="images/pic/goods-th1.jpg"> <img src="images/pic/goods-th2.jpg"> <img src="images/pic/goods-th3.jpg"> </div>
+      <div class="para tab_list3">
+        <div class="basic">
+          <div class="tit">基本参数</div>
+          <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td class="rig">智能类型</td><td>不支持智能</td>
+            </tr>
+            <tr>
+              <td class="rig">洗衣机品牌</td><td>TCL</td>
+            </tr>
+            <tr>
+              <td class="rig">型号</td><td>XQB55-36SP</td>
+            </tr>
+            <tr>
+              <td class="rig">颜色分类</td><td>亮灰色</td>
+            </tr>
+            <tr>
+              <td class="rig">产品类型</td><td>波轮洗衣机</td>
+            </tr>
+            <tr>
+              <td class="rig">使用方式</td><td>全自动</td>
+            </tr>
+            <tr>
+              <td class="rig">能效等级</td><td>三级</td>
+            </tr>
+            <tr>
+              <td class="rig">排水方式</td><td>下排水</td>
+            </tr>
+            <tr>
+              <td class="rig">开合方式</td><td>顶开式</td>
+            </tr>
+          </table>
+          <div class="tit">洗衣能力</div>
+          <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td class="rig">洗涤公斤量</td><td>5.5KG</td>
+            </tr>
+            <tr>
+              <td class="rig">脱水功率</td><td>260W</td>
+            </tr>
+            <tr>
+              <td class="rig">洗衣程序</td><td>快洗 单漂 单洗 筒干燥 标准洗</td>
+            </tr>
+          </table>
+          <div class="tit">尺寸规格</div>
+          <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td class="rig">净重</td><td>24KG</td>
+            </tr>
+            <tr>
+              <td class="rig">包装尺寸</td><td>525x520x865mm</td>
+            </tr>
+            <tr>
+              <td class="rig">尺寸</td><td>521x515x860mm</td>
+            </tr>
+            <tr>
+              <td class="rig">毛重</td><td>26KG</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="basic tab_list3 para">
+        <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="rig">洗衣机</td><td>1件</td>
+          </tr>
+          <tr>
+            <td class="rig">进水管</td><td>1件</td>
+          </tr>
+          <tr>
+            <td class="rig">说明书</td><td>1件</td>
+          </tr>
+          <tr>
+            <td class="rig">防鼠板</td><td>1件</td>
+          </tr>
+        </table>
+      </div>
+      <div class="para tab_list3">
+        <div class="score">
+          <p>总体评分<img src="images/goods-icon4.png"><img src="images/goods-icon4.png"><img src="images/goods-icon4.png"><img src="images/goods-icon4.png"><img src="images/image/goods-icon5.png"></p> 
+          <div class="dyna">
+            <p>店铺动态评分<span>与同行业相比</span></p>
+            <ul>
+              <li>描述相符：<i>4.8</i><img src="images/find-db.jpg"><em>62.74%</em></li>
+              <li>服务态度：<i>4.8</i><img src="images/find-db.jpg"><em>62.74%</em></li>
+              <li>发货速度：<i>4.8</i><img src="images/find-db.jpg"><em>62.74%</em></li>
+            </ul>
+          </div>
+        </div>
+        <div class="eva_tit tab2">
+          <a class="current">全部评价 5624</a>
+          <a>有图评价 4623</a>
+          <a>好评 5123</a>
+          <a>中评 398</a>
+          <a>差评 103</a> 
+        </div>
+        <ul class="eva_con tab_list2" style="display:block">
+          <li>
+            <p><img src="pic/goods-tx1.jpg">156*****564</p>
+            <div class="text">
+              <span>洗衣机收到很长时间了，一直想等用一段时间再评价。我觉得特别好用，声音也很小，筒风干这个功能虽然时间很长，但是用过之后衣服基本就干了，总之我真是很满意很满意啊！已经买了两台了,很好价,洗衣服干净,别犹豫了买吧</span>
+              <strong class="tab">
+                <img src="pic/goods-pj1.jpg">
+                <img src="pic/goods-pj2.jpg">
+                <img src="pic/goods-pj3.jpg">
+              </strong>  
+              <i class="tab_list"><img src="pic/goods-pj1.jpg"></i>
+              <i class="tab_list"><img src="pic/goods-pj2.jpg"></i>  
+              <i class="tab_list"><img src="pic/goods-pj3.jpg"></i>
+              <em>2015-12-02  14:26:34</em>
+            </div>
+            <div class="late">
+              <span>颜色分类：亮灰色</span><span>型号分类：5.5公斤普通款</span><span>2015-11-28 16:54购买</span>
+            </div>
+          </li>
+          <li>
+            <p><img src="pic/goods-tx2.jpg">156*****564</p>
+            <div class="text">
+              <span>用了几次了，洗衣服挺好挺干净的，声音也小，操作也方便。有个缺点，底部的挡板有点郁闷，就一块塑胶材质的薄挡板，希望厂家能改善下。</span>
+              <em>2015-12-02  14:26:34</em>
+            </div>
+            <div class="late">
+              <span>颜色分类：亮灰色</span><span>型号分类：5.5公斤普通款</span><span>2015-11-28 16:54购买</span>
+            </div>
+          </li>
+          <li>
+            <p><img src="pic/goods-tx3.jpg">156*****564</p>
+            <div class="text">
+              <span>这款洗衣机真是价格中的佼佼者，便宜，实用，洗的干净，噪音还小。 材质也很结实，一点也不像塑料的，同事看我买了这么实惠，他也买了一台，洗衣机用着真心不错，赞赞赞！</span>
+              <strong class="tab">
+                <img src="pic/goods-pj4.jpg">
+              </strong>  
+              <i class="tab_list"><img src="pic/goods-pj4.jpg"></i>
+              <em>2015-12-02  14:26:34</em>
+            </div>
+            <div class="late">
+              <span>颜色分类：亮灰色</span><span>型号分类：5.5公斤普通款</span><span>2015-11-28 16:54购买</span>
+            </div>
+          </li>
+          <li>
+            <p><img src="pic/goods-tx4.jpg">156*****564</p>
+            <div class="text">
+              <span>不错，试洗了很好用，功能也很多，性价比很高！会介绍朋友来的</span>
+              <em>2015-12-02  14:26:34</em>
+            </div>
+            <div class="late">
+              <span>颜色分类：亮灰色</span><span>型号分类：5.5公斤普通款</span><span>2015-11-28 16:54购买</span>
+            </div>
+          </li>
+          <li>
+            <p><img src="pic/goods-tx5.jpg">156*****564</p>
+            <div class="text">
+              <span>客服服务耐心周到，发货及时，物流超快。我特意安装好用了一次再来评价，操作简单方便，声音较小。性价比很高，洗洁干净，物超所值！而且还比较省水，赞！</span>
+              <em>2015-12-02  14:26:34</em>
+            </div>
+            <div class="late">
+              <span>颜色分类：亮灰色</span><span>型号分类：5.5公斤普通款</span><span>2015-11-28 16:54购买</span>
+            </div>
+          </li>
+          <li>
+            <p><img src="pic/goods-tx6.jpg">156*****564</p>
+            <div class="text">
+              <span>用了几次了，洗衣服挺好挺干净的，声音也小，操作也方便。有个缺点，底部的挡板有点郁闷，就一块塑胶材质的薄挡板，希望厂家能改善下。</span>
+              <strong class="tab">
+                <img src="images/pic/goods-pj5.jpg">
+              </strong>  
+              <i class="tab_list"><img src="images/pic/goods-pj5.jpg"></i>
+              <em>2015-12-02  14:26:34</em>
+            </div>
+            <div class="late">
+              <span>颜色分类：亮灰色</span><span>型号分类：5.5公斤普通款</span><span>2015-11-28 16:54购买</span>
+            </div>
+          </li>
+          <li>
+            <p><img src="images/pic/goods-tx7.jpg">156*****564</p>
+            <div class="text">
+              <span>这款洗衣机真是价格中的佼佼者，便宜，实用，洗的干净，噪音还小。 材质也很结实，一点也不像塑料的，同事看我买了这么实惠，他也买了一台，洗衣机用着真心不错，赞赞赞！</span>
+              <em>2015-12-02  14:26:34</em>
+            </div>
+            <div class="late">
+              <span>颜色分类：亮灰色</span><span>型号分类：5.5公斤普通款</span><span>2015-11-28 16:54购买</span>
+            </div>
+          </li>
+          <li>
+            <p><img src="images/pic/goods-tx8.jpg">156*****564</p>
+            <div class="text">
+              <span>不错，试洗了很好用，功能也很多，性价比很高！会介绍朋友来的</span>
+              <em>2015-12-02  14:26:34</em>
+            </div>
+            <div class="late">
+              <span>颜色分类：亮灰色</span><span>型号分类：5.5公斤普通款</span><span>2015-11-28 16:54购买</span>
+            </div>
+          </li>
+          <li>
+            <p><img src="images/pic/goods-tx9.jpg">156*****564</p>
+            <div class="text">
+              <span>客服服务耐心周到，发货及时，物流超快。我特意安装好用了一次再来评价，操作简单方便，声音较小。性价比很高，洗洁干净，物超所值！而且还比较省水，赞！</span>
+              <em>2015-12-02  14:26:34</em>
+            </div>
+            <div class="late">
+              <span>颜色分类：亮灰色</span><span>型号分类：5.5公斤普通款</span><span>2015-11-28 16:54购买</span>
+            </div>
+          </li>
+          <li>
+            <p><img src="images/pic/goods-tx10.jpg">156*****564</p>
+            <div class="text">
+              <span>用了几次了，洗衣服挺好挺干净的，声音也小，操作也方便。有个缺点，底部的挡板有点郁闷，就一块塑胶材质的薄挡板，希望厂家能改善下。</span>
+              <em>2015-12-02  14:26:34</em>
+            </div>
+            <div class="late">
+              <span>颜色分类：亮灰色</span><span>型号分类：5.5公斤普通款</span><span>2015-11-28 16:54购买</span>
+            </div>
+          </li>
+        </ul>
+        <ul class="eva_con tab_list2">
+          <li>
+            <p><img src="images/pic/goods-tx1.jpg">156*****564</p>
+            <div class="text">
+              <span>洗衣机收到很长时间了，一直想等用一段时间再评价。我觉得特别好用，声音也很小，筒风干这个功能虽然时间很长，但是用过之后衣服基本就干了，总之我真是很满意很满意啊！已经买了两台了,很好价,洗衣服干净,别犹豫了买吧</span>
+              <strong class="tab">
+                <img src="images/pic/goods-pj1.jpg">
+                <img src="images/pic/goods-pj2.jpg">
+                <img src="images/pic/goods-pj3.jpg">
+              </strong>  
+              <i class="tab_list"><img src="images/pic/goods-pj1.jpg"></i>
+              <i class="tab_list"><img src="images/pic/goods-pj2.jpg"></i>  
+              <i class="tab_list"><img src="images/pic/goods-pj3.jpg"></i>
+              <em>2015-12-02  14:26:34</em>
+            </div>
+            <div class="late">
+              <span>颜色分类：亮灰色</span><span>型号分类：5.5公斤普通款</span><span>2015-11-28 16:54购买</span>
+            </div>
+          </li>
+          <li>
+            <p><img src="images/pic/goods-tx3.jpg">156*****564</p>
+            <div class="text">
+              <span>这款洗衣机真是价格中的佼佼者，便宜，实用，洗的干净，噪音还小。 材质也很结实，一点也不像塑料的，同事看我买了这么实惠，他也买了一台，洗衣机用着真心不错，赞赞赞！</span>
+              <strong class="tab">
+                <img src="images/pic/goods-pj4.jpg">
+              </strong>  
+              <i class="tab_list"><img src="images/pic/goods-pj4.jpg"></i>
+              <em>2015-12-02  14:26:34</em>
+            </div>
+            <div class="late">
+              <span>颜色分类：亮灰色</span><span>型号分类：5.5公斤普通款</span><span>2015-11-28 16:54购买</span>
+            </div>
+          </li>
+        </ul>
+          <div id="pagination"></div>
+      </div>
+      <div class="para clear tab_list3">
+        <div class="record">
+          <table class="rec-tit" border="0" cellspacing="0" cellpadding="0">
+            <tr class="rec_tit">
+              <td width="20%">买家</td><td width="30%">颜色/规格 </td><td width="20%">数量</td><td width="20%">购买时间</td>
+            </tr> 
+            <tr>
+              <td width="20%">153*****217</td><td width="30%">颜色分类：亮灰色</td><td width="20%">1</td><td width="20%">2015-11-29 16:34:56</td>
+            </tr>
+            <tr>
+              <td width="20%">153*****217</td><td width="30%">颜色分类：亮灰色</td><td width="20%">1</td><td width="20%">2015-11-29 16:34:56</td>
+            </tr>
+            <tr>
+              <td width="20%">153*****217</td><td width="30%">颜色分类：亮灰色</td><td width="20%">1</td><td width="20%">2015-11-29 16:34:56</td>
+            </tr>
+            <tr>
+              <td width="20%">153*****217</td><td width="30%">颜色分类：亮灰色</td><td width="20%">1</td><td width="20%">2015-11-29 16:34:56</td>
+            </tr>
+            <tr>
+              <td width="20%">153*****217</td><td width="30%">颜色分类：亮灰色</td><td width="20%">1</td><td width="20%">2015-11-29 16:34:56</td>
+            </tr>
+            <tr>
+              <td width="20%">153*****217</td><td width="30%">颜色分类：亮灰色</td><td width="20%">1</td><td width="20%">2015-11-29 16:34:56</td>
+            </tr>
+            <tr>
+              <td width="20%">153*****217</td><td width="30%">颜色分类：亮灰色</td><td width="20%">1</td><td width="20%">2015-11-29 16:34:56</td>
+            </tr>
+            <tr>
+              <td width="20%">153*****217</td><td width="30%">颜色分类：亮灰色</td><td width="20%">1</td><td width="20%">2015-11-29 16:34:56</td>
+            </tr>
+            <tr>
+              <td width="20%">153*****217</td><td width="30%">颜色分类：亮灰色</td><td width="20%">1</td><td width="20%">2015-11-29 16:34:56</td>
+            </tr>
+            <tr>
+              <td width="20%">153*****217</td><td width="30%">颜色分类：亮灰色</td><td width="20%">1</td><td width="20%">2015-11-29 16:34:56</td>
+            </tr>
+          </table> 
+        </div>
+          <div id="pagination"></div>
+      </div>
+      <div class="para clear tab_list3">
+        <div class="after">
+          <p><img src="images/image/after1.png"><span><strong>正品行货</strong><em>本商家商品保证正品行货，严格按照国家三包政策提供售后服务，因质量问题或实物与描述不符产生的退换货服务运费由本店承担。</em></span></p>
+          <p><img src="images/image/after2.png"><span><strong>正品行货</strong><em>本商家商品保证正品行货，严格按照国家三包政策提供售后服务，因质量问题或实物与描述不符产生的退换货服务运费由本店承担。</em></span></p>
+          <p><img src="images/image/after3.png"></p>
+        </div>
+      </div>
+      
+      
+      
+    </div>
+  </div>
+</div> 
+<!------中间 end--------------->
+
+<!--底部 start-->
+<div class="bot_tit clear">
+   <ul>
+      <li><span>正</span>正规渠道&nbsp;正品保证</li>
+      <li><span>多</span>品类齐全&nbsp;轻松购物</li>
+      <li><span>值</span>产地直供&nbsp;原汁原味</li>
+      <li><span>省</span>天天低价&nbsp;畅选无忧</li>
+   </ul>
+</div>
+<div class="bot_con">
+   <ul>
+      <li><a href="#" class="bt">用户指南</a ><a href="#">注册应用</a><a href="#">找回密码</a><a href="#">便民宝</a></li>
+      <li><a href="#" class="bt">订单交易</a ><a href="#">交易流程</a><a href="#">财务安全</a><a href="#">支付方式</a><a href="#">我要退单</a></li>
+      <li><a href="#" class="bt">联盟店</a ><a href="#">申请流程</a><a href="#">我要加入</a><a href="#">资质认证</a><a href="#">信息发布</a></li>
+      <li><a href="#" class="bt">合作社</a ><a href="#">申请流程</a><a href="#">我要加入</a><a href="#">资质认证</a><a href="#">信息发布</a></li>
+      <li><a href="#" class="bt">物流港</a ><a href="#">功能说明</a><a href="#">常见问题</a><a href="#">查找信息</a><a href="#">联系我们</a></li>
+      <li><a href="#" class="bt">信息站</a ><a href="#">申请流程</a><a href="#">我要加入</a><a href="#">资质认证</a><a href="#">信息发布</a></li>
+      <li><a href="#" class="bt">服务中心</a ><a href="#">售后政策</a><a href="#">价格保护</a><a href="#">联系客服</a></li>
+   </ul>
+</div>
+<div class="bot_tex">
+   <p><a href="#">城乡商贸城</a>|<a href="#">法律声明</a>|<a href="#">用户协议</a>|<a href="#">隐私安全</a>|<a href="#">友情链接</a>|<a href="#">投诉建议</a>|<a href="#">联系我们</a> </p>
+   <p>豫ICP备13021607号-17&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;  ****备案&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;  合作热线：0371-56087190</p>
+   <p>©2015&nbsp; &nbsp; &nbsp; 郑州市康途计算机科技有限公司&nbsp; &nbsp; &nbsp; 版权所有</p>
+</div>
+<!--公共底部 end--> 
+
+<!--banner js star--> 
+<script type="text/javascript">
+	new Tab('.J_tab', { auto: true });
+	new Slide('.banner_box', { index: 1, effect: 'slide', firstDelay: 8 });
+</script> 
+<!--banner js end-->
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var str="box1 box2 box3 box4";
+    // 把任意词删除
+    var arr=str.split(" ");//切割字符串 获取所有词
+    // console.log(arr);
+    // 找出box2在数组中的位置
+    for(var i=0;i<arr.length;i++){
+        if(arr[i]=="box2"){
+            // 删掉
+            arr.splice(i,1)
+        }
+    }
+    // console.log(arr);
+    // 拼接成字符串
+    var res=arr.join(" ");
+    console.log(res);
+
+
+    // 第二种
+    var arr2=str.split(" ");
+    var index=arr2.indexOf("box2");
+    if(index!=-1){
+        arr2.splice(index,1);
+    }
+    var res=arr2.join(" ");
+    console.log(res);
+
+
+    // 第三种
+    var str="box2 box1 box3 box4";
+    // var str="box3 box4 box2";
+    if(str.indexOf("box2 ")==0){
+        var res=str.replace("box2 ","");
+    }else if(str.indexOf(" box2 ")!=-1){
+        var res=str.replace(" box2 "," ");
+    }else if(str.indexOf(" box2")!=-1){
+        var res=str.replace(" box2","");
+    }
+    console.log(res);
+
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            outline: 0;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="userName">
+
+    <hr>
+
+    <input type="checkbox" id="checkbox">
+
+
+    <hr>
+    <select id="address">
+        <option>上海</option>
+        <option>杭州</option>
+        <option selected>北京</option>
+    </select>
+
+</body>
+<script>
+    var userName=document.getElementById("userName");
+
+    // userName.onfocus=function(){
+    //     console.log("获取焦点")
+    //     this.style.border="2px solid red";
+    // }
+
+    // userName.onblur=function(){
+    //     console.log("失去焦点")
+    //     this.style.border="2px solid black";
+    //     // 验证
+    //     if(this.value.length<6){
+    //         alert("长度不够")
+    //     }
+    // }
+
+    // 自动获取焦点
+    // userName.focus();
+    // 内容变化时触发的事件
+    userName.oninput=function(){
+        console.log(this.value);
+    }
+
+
+    var checkbox=document.getElementById("checkbox");
+    // 当勾选状态发生变化时
+    checkbox.onchange=function(){
+        console.log(this.checked);
+    }
+    
+    var address=document.getElementById("address");
+    address.onchange=function(){
+        console.log(this.value);
+    }
+</script>
+</html>

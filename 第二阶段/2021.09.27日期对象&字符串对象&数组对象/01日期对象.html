@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var d=new Date();//获取当前时间点的日期对象
+
+    var year=d.getFullYear();//年份
+
+    // 月份从0-11      +1
+    var month=d.getMonth()+1;//月份
+
+    var date=d.getDate();//日
+
+    // 星期    星期日-星期六 0-6
+    var week=d.getDay();//星期
+
+    // 时
+    var hours=d.getHours();
+    // 分
+    var min=d.getMinutes();
+    // 秒
+    var sec=d.getSeconds();
+    // 毫秒
+    var msec=d.getMilliseconds();
+
+    // 时间戳  1970 1 1 - 至今的毫秒数  格林威治时间
+    var s=d.getTime();
+    alert(s)
+
+    console.log(year,month,date,week,hours,min,sec,msec);
+
+
+
+</script>
+</html>

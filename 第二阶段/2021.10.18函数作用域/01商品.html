@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="nav">
+
+    </ul>
+    <ul id="list">
+
+    </ul>
+</body>
+<script src="./data.js"></script>
+<script>
+    // 往ul中插入li标签  重新赋值会覆盖原来内容
+    // list.innerHTML="<li>1</li>";
+    // list.innerHTML+="<li>2</li>";
+
+    // for(var i=1;i<=10;i++){
+    //     list.innerHTML+=`
+    //         <li>${i}</li>
+    //     `
+    // }
+
+    // console.log(data);
+
+    for(var i=0;i<data.length;i++){
+        // 处理导航   id
+        nav.innerHTML+=`
+            <li>
+                <a href="#a${i}">${data[i].type}</a>    
+            </li>
+        `
+        // 商品结构
+            // 单个分类下的列表元素
+            var item="";
+            var goodList=data[i].goodList;
+            for(var j=0;j<goodList.length;j++){
+                item+=`
+                    <li>
+                        <img src="${goodList[j].imgUrl}">   
+                        <h4>${goodList[j].title}</h4> 
+                    </li>
+                `
+            }
+
+
+        list.innerHTML+=`
+            <li id="a${i}">
+                <h3>${data[i].type}</h3>    
+                <ul>
+                    ${item}
+                </ul>
+            </li>
+        `
+    }
+
+    
+</script>
+</html>

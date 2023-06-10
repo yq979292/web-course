@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style: none;
+        }
+        #list{
+            width: 1200px;
+            display: flex;
+            flex-wrap: wrap;
+            margin:0 auto;
+            justify-content: space-between;
+        }
+        #list li{
+            width: 180px;
+            padding:5px;
+            margin:5px 0;
+        }
+        #list .big img{
+            width: 100%;
+            height: 180px;
+        }
+        #list li{
+            text-align: center;
+        }
+        #list img{
+            border-radius: 50%;
+        }
+        #list .small img{
+            width:80px;
+            height: 80px;
+        }
+        #btns{
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            padding:30px;
+        }
+        #loading{
+            position: fixed;
+            top:0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255,255,255,0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <ul id="btns">
+        <li>全部</li>
+        <li>华语男</li>
+        <li>华语女</li>
+        <li>华语组合</li>
+        <li>日韩男</li>
+    </ul>
+    <ul id="list">
+        
+    </ul>
+    <div id="loading">
+        <span>加载中</span>
+    </div>
+</body>
+<script>
+    // 请求数据
+    function getData(index){
+        // 请求
+        loading.style.display="flex";
+        fetch("http://39.96.88.57:9090/api/www/artist/artistInfo?category="+index+"&pn=1&rn=100")
+        .then(r=>r.json())
+        .then(insert)
+    }
+    // 插入内容
+    function insert(res){
+        var data=res.data.artistList;
+        list.innerHTML="";
+        for(var i=0;i<data.length;i++){
+            list.innerHTML+=`
+                <li class="${i<12?'big':'small'}">
+                    <img src="placeholder.png" data-src="${data[i].pic300}" alt="">
+                    <h4>${data[i].name}</h4>
+                </li>
+            `
+        }
+        // 插入完毕 关闭loading
+        loading.style.display="none";
+        // 检测图片是否在视图区域内
+        checkout();
+    }
+
+    getData(0);
+
+
+    // 绑定点击事件
+    var btn=btns.getElementsByTagName("li");
+    for(var i=0;i<btn.length;i++){
+        btn[i].index=i;
+        btn[i].onclick=function(){
+            bindScroll();
+            getData(this.index)
+        }
+    }
+
+    // 检测哪些图片出现在视图区域内
+    var imgs=list.getElementsByTagName("img");//找到list中的img元素
+    // 检测
+    function checkout(){
+        console.log("checkout")
+        var st=document.body.scrollTop||document.documentElement.scrollTop;
+        var H=window.innerHeight;
+        for(var i=0;i<imgs.length;i++){
+            var ot=imgs[i].offsetTop;
+            if(ot+100<st+H){//出现在视图区域
+                imgs[i].src=imgs[i].dataset.src;
+                if(i==imgs.length-1){//最后一个也出来了
+                    window.onscroll=null;
+                }
+            }
+        }
+    }
+
+
+    // 滚动检测
+    function bindScroll(){
+        var timer;
+        window.onscroll=function(){
+            clearTimeout(timer);
+            timer=setTimeout(checkout,100)
+        }
+    }
+    bindScroll();
+
+</script>
+</html>

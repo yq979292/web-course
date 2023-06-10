@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国移动</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <script src="./layui/layui.js"></script>
+    <style>
+        #user{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>首页</h1>
+    <a href="user.html" id="user">用户管理</a>
+    <button id="changePwd">修改密码</button>
+    <button id="logout">退出登录</button>
+
+
+
+    <!-- 修改密码 -->
+    <div id="box" style="display: none;">
+        <input type="text" placeholder="旧密码" id="oldPwd">
+        <input type="text" placeholder="新密码" id="newPwd">
+        <button id="submit">提交</button>
+    </div>
+
+
+</body>
+<script src="./js/cookie.js"></script>
+<script src="./js/checkLogin.js"></script>
+<script>
+    var $=layui.$;
+
+
+    // 判断是否是超级管理员
+    if(getCookie().userName=="admin"){
+        user.style.display="block";
+    }
+
+
+    // 退出登录
+    logout.onclick=function(){
+
+        setCookie("token","",-1);
+        setCookie("userName","",-1);
+
+        location.href="login.html";
+
+    }
+
+
+    var index;
+
+    changePwd.onclick=function(){
+
+        // 弹出窗口
+
+        index=layui.layer.open({
+            type:1,
+            title:"修改密码",
+            content:$("#box")
+        })
+
+    }
+
+
+    // 修改密码
+    submit.onclick=function(){
+
+        fetch("http://39.96.88.57/changePassword",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/x-www-form-urlencoded"
+            },
+            body:`newPwd=${newPwd.value}&oldPwd=${oldPwd.value}&token=${getCookie().token}`
+        })
+        .then(r=>r.json())
+        .then(function(res){
+            if(res.code==1){
+                layui.layer.msg("旧密码错误")
+            }else{
+                layui.layer.msg("修改成功");
+                // 关闭弹窗
+                layui.layer.close(index);
+            }
+        })
+
+    }
+
+</script>
+</html>

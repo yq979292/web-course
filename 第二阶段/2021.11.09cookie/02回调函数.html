@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <button id="btn2">按钮2</button>
+</body>
+<script>
+    /*
+        把一个函数当参数传入另一个函数
+    */
+    // function fun(a,b){
+    //     alert(a+b);
+    // }
+    // fun(1,2);
+
+    // 工具
+    function getQuery(a){
+
+        var str=a;
+        var s=str.split("?")[1];
+        var s2=s.split("&");
+        var obj={};
+        for(var i=0;i<s2.length;i++){
+            var s3=s2[i].split("=");
+            obj[s3[0]]=s3[1];
+        }
+        
+        return obj;
+
+    }
+
+    console.log(getQuery("http://a.com/b?x=10&y=20"))
+    console.log(getQuery("http://a.com/b?x=10&y=500&z=800"))
+
+
+
+
+
+    function C(el,b){
+        el.onclick=function(){
+            this.style.color="red";
+            var x=10;
+            // 变红之外
+            b(x);
+        }
+    }
+
+    C(btn,function(x){
+        console.log("hello",x);
+    })
+
+    C(btn2,function(){
+        for(var i=0;i<10;i++){
+            console.log(i);
+        }
+    })
+
+    // btn2.onclick=function(){
+    //     this.style.color="red";
+    //     for(var i=0;i<10;i++){
+    //         console.log(i);
+    //     }
+    // }
+
+</script>
+</html>

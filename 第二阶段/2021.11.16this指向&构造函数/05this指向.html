@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+</body>
+<script>
+    // btn.onclick=function(){
+    //     this.style.color="red";
+    // }
+
+    // console.log(this);
+    
+    /*
+        函数内部的this
+        1.谁调用指向谁 否则指向window
+    */
+    // function fun(){
+    //     console.log(this);
+    // }
+    // fun();//指向window
+    
+    var name="李四";
+    var obj={
+        name:"张三",
+        say:function(){
+            alert(this.name);
+        }
+    }
+
+    // obj.say();//obj
+    var f=obj.say;
+    f();
+
+</script>
+</html>

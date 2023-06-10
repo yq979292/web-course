@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        add(1,2)//3
+        add(1)(2)//3
+    */
+   function add(a,b){
+        // if(b!=undefined){
+        //     console.log(a+b);
+        // }else{
+        //     return function(c){//闭包
+        //         console.log(a+c);
+        //     };
+        // }
+
+        
+        if(arguments.length==2){
+            console.log(a+b);
+        }else{
+            return function(c){//闭包
+                console.log(a+c);
+            };
+        }
+        
+   }    
+   add(1)(2);
+   add(1,2)
+</script>
+</html>

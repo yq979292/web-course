@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="banner">
+        <div class="imgs">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+        </div>
+        <button class="prev">上一张</button>
+        <button class="next">下一张</button>
+    </div>
+
+    <div class="banner">
+        <div class="imgs">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+        </div>
+        <button class="prev">上一张</button>
+        <button class="next">下一张</button>
+    </div>
+</body>
+<script>
+    /*
+        封装函数     参数超过3个   用对象存储
+    */
+    
+    function add(a,b,c,d){
+        // a 是否显示上一张
+        // b 是否显示下一张
+        // c 是否显示标记点
+        // d 是否自动播放
+        console.log(a,b,c,d);
+    }
+    add(true,true,true,false)
+
+
+    function add2(obj){
+        console.log(obj.next,obj.prev,obj.dots,obj.autoplay)
+    }
+    add2({
+        next:true,
+        prev:true,
+        autoplay:true,
+        dots:true
+    })
+
+
+    /*
+        // low
+        // var imgs=document.getElementsByClassName("imgs")[0].children;
+        // var next=document.getElementsByClassName("next")[0];
+        // var prev=document.getElementsByClassName("prev")[0];
+        
+        // 讲究
+        // 顶层节点
+        function lunbo(banner){
+            // var banner=document.getElementsByClassName("banner")[0];
+            var imgs=banner.getElementsByClassName("imgs")[0].children;
+            var next=banner.getElementsByClassName("next")[0];
+            var prev=banner.getElementsByClassName("prev")[0];
+        }
+    */
+
+
+    // 一个页面五十个  
+
+    lunbo(banner,true)//第二个 是否自动切换
+    lunbo(banner,true,function(index){
+        console.log(index)
+    })
+</script>
+</html>

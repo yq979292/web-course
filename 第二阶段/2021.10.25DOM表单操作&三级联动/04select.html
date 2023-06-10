@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        option 单个选项
+        select的value指所选option的value值 
+        如果没有设置value则是所选option的标签内容
+        (标签内容是让用户看的  value是让程序内部使用的)
+     -->
+    <select id="address">
+        <option value="1">上海</option>
+        <option value="2" selected>北京</option>
+        <option value="3">杭州</option>
+    </select>
+</body>
+<script>
+    var address=document.getElementById("address");
+    console.log(address.value);
+    console.log(address.selectedIndex);//所选option的索引
+</script>
+</html>

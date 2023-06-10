@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 首字符 必须是 字母 $ _
+    // 其余字符 字母 $ _ 数字
+    // 不能是关键字和保留字  var for if else
+
+    var str="varif";
+    // 第一个条件 验证首字符
+    var first=str[0]=="$"||str[0]=="_"||(str.charCodeAt(0)>=65&&str.charCodeAt(0)<=90)||(str.charCodeAt(0)>=97&&str.charCodeAt(0)<=122)
+    // 第二个条件 验证剩余字符
+    var s2=str.slice(1);
+    var flag=true;//银针
+    for(var i=1;i<str.length;i++){
+        // 不符合条件
+        if(!(str[i]=="$"||str[i]=="_"||(str.charCodeAt(i)>=65&&str.charCodeAt(i)<=90)||(str.charCodeAt(i)>=97&&str.charCodeAt(i)<=122)||(str.charCodeAt(i)>=48&&str.charCodeAt(i)<=57))){
+            flag=false;//银针变黑
+        }
+    }
+    // 第三个条件  验证关键字保留字
+    var third=!(str=="var"||str=="if"||str=="else"||str=="for");
+
+    if(first&&flag&&third){
+        alert("好棒")
+    }else{
+        alert("你不行")
+    }
+
+
+
+    // 思考 检测一个字符串是否有$   有 弹 有 没有 弹 没有
+
+    // 思考  prompt()弹两次     "2021/5/23 5:30"   "2028/6/1 8:45"   输入时间差  7年2个月5天12个小时30分钟
+
+</script>
+</html>

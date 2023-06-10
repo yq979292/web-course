@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">停止</button>
+</body>
+<script>
+    // 计时器 间隔执行 每隔1s执行一次 以毫秒为单位
+    // var x=1;
+    // var t=setInterval(function(){
+    //     console.log(++x);
+    // },1000);
+
+    // btn.onclick=function(){
+    //     // 清除定时器
+    //     clearInterval(t);
+    // }
+
+    // 定时器 延迟执行
+    var t=setTimeout(function(){
+        console.log("爆炸")
+    },1000)
+    clearTimeout(t);
+
+
+</script>
+</html>

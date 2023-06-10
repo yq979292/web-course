@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function loop(){
+        var fns=arguments;
+        var i=0;
+        function a(){//调用下一个函数
+            i++;
+            fns[i](a);
+        };
+
+        arguments[0](a);//调用第一个函数
+    }
+
+
+    // 参数
+    loop(function(next){
+        console.log(1);
+        next();
+    },function(next){   
+        console.log(2);
+        next();
+    },function(next){
+        console.log(3);
+        next();
+    },function(){
+        console.log(4);
+    })
+    function fun3(x) {
+
+    }
+    fun3(3)
+
+</script>
+</html>

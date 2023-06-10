@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>播放页面</h1>
+    <audio id="aud" src="" autoplay controls></audio>
+</body>
+<script>
+    // 提取路径中携带的歌曲id
+    var id=location.href.split("?")[1].split("=")[1];
+
+    // 用歌曲id请求mp3播放地址
+    fetch("http://39.96.88.57:9090/api/v1/www/music/playUrl?mid="+id+"&type=music&httpsStatus=1")
+    .then(r=>r.json())
+    .then(function(res){
+        aud.src=res.data.url;
+    })
+
+</script>
+</html>

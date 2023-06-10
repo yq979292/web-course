@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">0</button>
+</body>
+<script>
+    var btn=document.getElementById("btn");
+    var num=0;
+
+
+
+    btn.onclick=function(){
+        if(num<5){
+            num++;//变量递增
+            btn.innerHTML=num;//插入btn
+        }
+    }
+
+</script>
+</html>

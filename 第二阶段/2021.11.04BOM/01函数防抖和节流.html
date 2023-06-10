@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <input type="text" id="userName">
+    <div style="height:3000px"></div>
+</body>
+<script>
+    // 节流  在固定时间只执行一次(第一次)
+    // var flag=true;
+    // btn.onclick=function(){
+    //     if(flag){
+    //         flag=false;
+    //         console.log("点击");
+    //         setTimeout(function(){
+    //             flag=true;
+    //         },1000)
+    //     }
+    // }
+
+    // 防抖 在固定时间内执行最后一次
+    var t;
+    window.onscroll=function(){
+        clearTimeout(t);
+        t=setTimeout(function(){
+            var st=document.body.scrollTop||document.documentElement.scrollTop;
+            console.log(st);
+        },100)
+    }
+
+    // 防抖
+    var t2;
+    userName.oninput=function(){
+        clearTimeout(t2);
+        t2=setTimeout(function(){
+            console.log(userName.value);
+        },500)
+    }
+</script>
+</html>

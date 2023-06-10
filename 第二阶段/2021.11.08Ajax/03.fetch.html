@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="month">
+    <input type="text">
+</body>
+<script>
+    // get请求
+    // fetch("http://192.168.218.20:6543/list?x=100")
+    // .then(r=>r.json())
+    // .then(function(res){
+    //     console.log(res);
+    // })
+
+    // post
+    fetch("https://api.tf2sc.cn/api/tfcar/car/estimate",{
+        method:"POST",//设置请求方式
+        headers:{
+            "Content-Type":"application/x-www-form-urlencoded",
+            "PlatformType": "h5"
+        },
+        // 参数
+        body:"name=11&phone=11&model=11&mileage=11&dateOfRegistration=2021-11&type=2"
+    })
+    .then(r=>r.json())
+    .then(function(res){
+        console.log(res);
+    })
+
+
+
+
+    function abc(url,obj,f){
+        fetch("http://192.168.218.20:6543"+url,{
+            method:"POST",//设置请求方式
+            headers:{
+                "Content-Type":"application/json"
+            },
+            // 参数
+            body:JSON.stringify(obj)
+        })
+        .then(r=>r.json())
+        .then(f)
+    }
+
+    abc("/login",{userName:"张三",password:"123456"},function(res){
+        console.log(res)
+    })
+</script>
+</html>

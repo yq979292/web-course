@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <script src="./layui/layui.js"></script>
+</head>
+<body>
+    
+    <div class="layui-form" style="width:200px">
+
+        <select name="city" id="address" lay-filter="address">
+            
+        </select>
+    </div>
+
+    <button id="btn">杭州</button>
+</body>
+
+<script>
+    var form=layui.form;
+
+    setTimeout(function(){
+        address.innerHTML+=`
+            <option></option>
+            <option>北京</option>
+            <option>上海</option>
+            <option>广州</option>
+            <option>深圳</option>
+            <option>杭州</option>
+        `
+
+        form.render();//重新美化
+
+    },100)
+
+    // 监听选择
+    form.on("select(address)",function(e){
+        console.log(e.elem.value);
+    })
+
+    // 设置表单值
+    btn.onclick=function(){
+        address.value="杭州";
+        form.render();//重新美化
+    }
+</script>
+</html>

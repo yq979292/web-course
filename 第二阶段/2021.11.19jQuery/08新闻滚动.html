@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style: none;
+        }
+        #view{
+            width: 300px;
+            height:40px;
+            border:2px solid #999;
+            margin:100px auto;
+            overflow: hidden;
+        }
+        #view li{
+            line-height: 40px;
+            text-indent: 10px;
+        }
+    </style>
+    <script src="./jquery-1.8.3.min.js"></script>
+</head>
+<body>
+    <div id="view">
+        <ul>
+            <li>十九届六中全会有多重要</li>
+            <li>31省区市新增本土确诊8例</li>
+            <li>常德书记夫妻双双落马 妹妹被查</li>
+            <li>辽宁新增7例本土确诊</li>
+        </ul>
+    </div>
+</body>
+<script>
+
+    // $(document).click(function(){
+    //     // 单组   动画结束 重置
+    //     $("ul").animate({
+    //         marginTop:-40
+    //     },function(){
+    //         console.log("动画结束")
+    //         $("ul").css("marginTop",0);
+    //         $("ul li").eq(0).appendTo("ul");
+    //     })
+
+    // })
+
+    var timer;
+    function start(){
+        timer=setInterval(function(){
+            // 单组   动画结束 重置
+            $("ul").animate({
+                marginTop:-40
+            },function(){
+                console.log("动画结束")
+                $("ul").css("marginTop",0);
+                $("ul li").eq(0).appendTo("ul");
+            })
+
+        },1000)
+    }
+
+    start();
+
+
+    $("#view").hover(function(){
+        clearInterval(timer);
+    },start)
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="./goodList.js"></script>
+<script>
+    // console.log(goodList);
+    var obj={};
+    /*
+        {
+            "分类名":[{},{},{}]
+        }
+    */
+    for(var i=0;i<goodList.length;i++){
+        var type=goodList[i].type_two;//当前商品分类名
+        if(obj[type]==undefined){//没有
+            obj[type]=[{
+                title:goodList[i].title,
+                imageUrl:goodList[i].imageUrl
+            }]
+        }else{//已经存过当前商品分类
+            obj[type].push({
+                title:goodList[i].title,
+                imageUrl:goodList[i].imageUrl
+            })
+        }
+    }
+
+    console.log(obj);
+
+    // for(var typeName in obj){
+    //     console.log(typeName)
+    //     for(var i=0;i<obj[typeName].length;i++){
+    //         console.log("---------",obj[typeName][i].title)
+    //     }
+    // }
+</script>
+</html>

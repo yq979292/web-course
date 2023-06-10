@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>列表</h1>
+</body>
+<script src="./cookie.js"></script>
+<script>
+    // 验证是否登录  cookie是否有token
+    if(!getCookie().token){
+        alert("您还没有登录，即将为你跳转登录页")
+        location.href="login.html?from=list"
+    }
+</script>
+</html>

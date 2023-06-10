@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    console.log(typeof 100 == "number")//数值类型
+    console.log(typeof NaN == "number")//数值类型
+
+    console.log(typeof "hello" == "string")//字符串
+    console.log(typeof true == "boolean") //布尔类型
+    console.log(typeof function(){} == "function")//函数
+    console.log(typeof undefined == "undefined")
+
+    // 不正常 "object"
+    console.log(typeof [1,2,3]);
+    console.log(typeof null);
+    console.log(typeof {});
+
+    // 验证数组和对象
+    console.log([1,2,3] instanceof Array);
+    console.log({} instanceof Object)
+
+
+
+    if(function f(){}){
+        if(typeof f){
+            console.log(f)
+        }
+    }
+
+</script>
+</html>

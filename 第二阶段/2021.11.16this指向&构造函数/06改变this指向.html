@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+</body>
+<script>
+    // 每个函数内部都有自己的this
+    // btn.onclick=function(){//事件处理函数 this指向当前DOM对象
+    //     var self=this;//将this存入变量中
+    //     setTimeout(function(){
+    //         self.style.fontSize="50px";
+    //     },1000)
+    // }
+
+
+
+    // 定义时改变this指向
+    function f(){
+        console.log(this);
+    }
+    // f();
+    // var obj={
+    //     say:f
+    // }
+    // obj.say();
+
+    // btn.onclick=f;
+
+    var obj={name:"obj"};
+    f=f.bind(obj);//改变函数this指向返回新函数
+
+    f();
+    btn.onclick=f;
+
+
+
+
+    btn.onclick=function(){
+        setTimeout(function(){
+            this.style.fontSize="80px";
+        }.bind(this),1000)
+    }
+
+
+
+
+
+
+</script>
+</html>

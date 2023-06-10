@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #dedede;
+      }
+      #wrap {
+        width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+      }
+      #wrap > li {
+        width: 220px;
+        list-style: none;
+      }
+      .item img {
+        width: 200px;
+        border-radius: 20px;
+        display: block;
+      }
+      .item {
+        padding: 10px;
+        background-color: white;
+        border-radius: 20px;
+        margin-top: 10px;
+      }
+      .item h3 {
+        line-height: 50px;
+        text-align: center;
+      }
+      .item > div {
+        margin: 10px 10px;
+      }
+      .item > div:nth-of-type(n + 2) {
+        display: flex;
+      }
+      .item > div:nth-of-type(1) {
+        width: 180px;
+        height: 30px;
+        line-height: 30px;
+        background-color: rgb(230, 217, 217);
+        color: rgb(219, 58, 30);
+        text-align: center;
+      }
+      .item > div > img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+      }
+      .item > div > span {
+        display: inline-block;
+        width: 150px;
+        height: 30px;
+        line-height: 30px;
+        padding-left: 20px;
+        color: rgb(48, 30, 218);
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="wrap">
+      <li>
+        <!-- <div class="item">
+          <img
+            src="https://hbimg.huabanimg.com/546fa86f232b3569eaf7ad6eb42845d41859075c12aeb-U2YdR6_/fw/480/format/webp?w_h=236x212"
+            alt=""
+          />
+          <div>target</div>
+          <div>
+            <img
+              src="https://hbimg.huabanimg.com/9ba79f5185492420c61f54d271d550ebea8ec9f91ad42-RTOdLw_sq75sf/format/webp"
+              alt=""
+            />
+            <span>夏至</span>
+          </div>
+        </div> -->
+      </li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </body>
+  <script src="./homework.js"></script>
+  <script>
+    function random(a, b) {
+      return Math.floor(Math.random() * (b - a + 1)) + a;
+    }
+
+    // 记录每列的高度
+    var cols = [];
+    for (var i = 0; i < wrap.children.length; i++) {
+      cols.push({
+        H: 0,
+        index: i,
+      });
+    }
+
+    var num = 0;
+    var num2 = 0;
+    // 挨个插入商品元素
+    for (var i = 0; i < 30; i++) {
+      // 找到最低的那一列
+      cols.sort(function (a, b) {
+        return a.H - b.H;
+      });
+
+      // 图片高度
+      // 图片高度
+      var imgWH = list[i].img.split("=")[1].split("x");
+      var w_h = imgWH[1] / imgWH[0];
+      var imgHeight = 200 * w_h; //高度
+
+      // 创建单个容器
+      var node = document.createElement("div");
+      node.className = "item";
+      node.innerHTML = `
+          <img style="height:${imgHeight}px"
+            src="${list[i].img}"
+            alt=""
+          />
+          <div>${list[i].target}</div>
+          <div>
+            <img
+              src="${list[i].avt}"
+              alt=""
+            />
+            <span>${list[i].author}</span>
+          </div>`;
+
+      wrap.children[cols[0].index].appendChild(node); //插入到页面
+      var h = node.offsetHeight; //新元素在页面中的高度占位
+
+      // 更新当前列的高度
+      cols[0].H += h + 10;
+      num = i;
+      num2 = i;
+    }
+
+    // 触底操作
+    window.onscroll = function () {
+      // 滚动高度
+      var st = document.body.scrollTop || document.documentElement.scrollTop;
+      // 窗口高度
+      var H = window.innerHeight;
+      // 页面高度
+      var h = document.body.offsetHeight;
+      // 触底条件
+      // console.log(st,H,h)
+      if (st + H + 2 >= h) {
+        console.log("触底");
+
+        for (var i = num; i < num2 + 30; i++) {
+          if (num2 + 30 <= list.length) {
+            // 找到最低的那一列
+            cols.sort(function (a, b) {
+              return a.H - b.H;
+            });
+
+            // 图片高度
+            var imgWH = list[i].img.split("=")[1].split("x");
+            var w_h = imgWH[1] / imgWH[0];
+            var imgHeight = 200 * w_h; //高度
+
+            // 创建单个容器
+            var node = document.createElement("div");
+            node.className = "item";
+            node.innerHTML = `
+          <img style="height:${imgHeight}px"
+            src="${list[i].img}"
+            alt=""
+          />
+          <div>${list[i].target}</div>
+          <div>
+            <img
+              src="${list[i].avt}"
+              alt=""
+            />
+            <span>${list[i].author}</span>
+          </div>`;
+
+            wrap.children[cols[0].index].appendChild(node); //插入到页面
+            var h = node.offsetHeight; //新元素在页面中的高度占位
+
+            // 更新当前列的高度
+            cols[0].H += h + 10;
+            num = i;
+          } else {
+            alert("我也是有底线的^-^");
+            window.onscroll = null;
+            return
+          }
+        }
+        num2 = num;
+      }
+    };
+  </script>
+</html>

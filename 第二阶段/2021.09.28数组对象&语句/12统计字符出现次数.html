@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var str="agfgfafafdageferrgreg";
+    var code={};
+    // 没有a属性
+    // console.log(code.a)
+    /*
+        在对象中存储记录  每次记录前 是否已经记录过该字符
+                                            a:1     a:+1
+    */
+    for(var i=0;i<str.length;i++){
+        var s=str[i];//单个字符
+        if(code[s]==undefined){
+            code[s]=1;
+        }else{
+            code[s]++;
+        }
+    }
+    console.log(code)
+    
+</script>
+</html>

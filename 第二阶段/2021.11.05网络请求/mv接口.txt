@@ -1,0 +1,10 @@
+搜索mv
+    http://39.96.88.57:9090/api/www/search/searchMvBykeyWord?key=周杰伦
+    url:http://39.96.88.57:9090/api/www/search/searchMvBykeyWord
+    method:GET
+    params:key(搜索关键字)
+
+获取mv播放地址
+    http://39.96.88.57:9090/api/v1/www/music/playUrl?mid=156755380&type=mv&httpsStatus=1
+    method:GET
+    params:rid(mv id标识，可从mv搜索结果中拿到)

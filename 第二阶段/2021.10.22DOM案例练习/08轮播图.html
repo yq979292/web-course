@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #view img{
+            width: 100%;
+            display: none;
+        }
+        #view{
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="view">
+        <img src="images/a.jpg" alt="">
+        <img src="images/b.webp" alt="">
+        <img src="images/c.webp" alt="">
+        <img src="images/d.webp" alt="">
+    </div>
+
+    <div id="btns">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+    </div>
+
+    <br>
+
+    <button id="prev">上一张</button>
+    <button id="next">下一张</button>
+</body>
+<script>
+    var imgs=document.getElementById("view").getElementsByTagName("img");
+    var btns=document.getElementById("btns").getElementsByTagName("button");
+    var prev=document.getElementById("prev");
+    var next=document.getElementById("next");
+    // 设置初始状态
+    imgs[0].style.display="block";
+    btns[0].style.color="red";
+
+    var x=0;
+
+    next.onclick=function(){
+        // 递增之前 x指当前显示的元素索引
+        imgs[x].style.display="none";
+        btns[x].style.color="black";
+        x++;
+        if(x>imgs.length-1){
+            x=0;
+        }
+        // 递增之后 想看的图片图片
+        imgs[x].style.display="block";
+        btns[x].style.color="red";
+    }
+
+    prev.onclick=function(){
+        // 递减之前 x指当前显示的元素索引
+        imgs[x].style.display="none";
+        btns[x].style.color="black";
+        x--;
+        if(x<0){
+            x=imgs.length-1;
+        }
+        // 递减之后 想看的图片图片
+        imgs[x].style.display="block";
+        btns[x].style.color="red";
+    }
+
+
+    // 点击标记点
+    for(var i=0;i<btns.length;i++){
+        btns[i].index=i;
+        btns[i].onclick=function(){
+            // 取消
+            imgs[x].style.display="none";
+            btns[x].style.color="black";
+            x=this.index;
+            // 设置当前的
+            imgs[x].style.display="block";
+            btns[x].style.color="red";
+        }
+    }
+</script>
+</html>

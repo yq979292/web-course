@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 500px;
+            height: 500px;
+            background-color: red;
+        }
+        #small{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="small"></div>
+    </div>
+</body>
+<script>
+    // 当子元素触发事件时 事件会沿着节点嵌套关系向父级元素传递
+    box.onclick=function(e){
+        console.log("box");
+    }
+    small.onclick=function(e){
+        // 阻止事件冒泡
+        e.stopPropagation();
+
+
+        // 处理兼容 
+        if(e.stopPropagation){
+            e.stopPropagation();
+        }else{
+            e.cancelBubble=true;//针对低版本IE
+        }
+
+
+        console.log("small");
+    }
+    document.onclick=function(){
+        console.log(document);
+    }
+</script>
+</html>

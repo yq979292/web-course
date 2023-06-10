@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style: none;
+        }
+        #one{
+            width: 300px;
+        }
+        .one-title{
+            line-height: 50px;
+            background-color: rgb(241, 241, 241);
+            overflow: hidden;
+            height: 50px;
+        }
+        .one-title span{
+            float:left;
+            margin:0 5px
+        }
+
+        .one-item{
+            position: relative;
+        }
+        .right-wrap{
+            position: absolute;
+            left:300px;
+            top:0;
+            width: 600px;
+            background-color: orange;
+            display: none;
+        }
+        .one-item:hover .right-wrap{
+            display: block;
+        }
+        .one-item:hover .one-title{
+            background-color: rgb(54, 137, 170);
+        }
+    </style>
+</head>
+<body>
+    <ul id="one">
+        <li class="one-item">
+            <!-- 标题 -->
+            <p class="one-title">
+                <span>技术</span>
+                <span>JAVA</span>
+                <span>PHP</span>
+                <span>前端开发</span>
+                <span>前端开发</span>
+                <span>前端开发</span>
+            </p>
+            <!-- 右侧块 -->
+            <div class="right-wrap">
+                <h3>技术</h3>
+                <ul class="two">
+                    <li class="two-item">
+                        <span>后端</span>
+                        <span>JAVA</span>
+                        <span>PHP</span>
+                        <span>C++</span>
+                    </li>
+                    <li class="two-item">
+                        <span>后端</span>
+                        <span>JAVA</span>
+                        <span>PHP</span>
+                        <span>C++</span>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</body>
+<script src="./data.js"></script>
+<script>
+    var zpData=data.zpData;
+    for(var i=0;i<zpData.length;i++){
+        // 能直接插的直接插入
+        // 不能直接插的 提前处理
+
+        // 标题后的几个二级标题
+            // 取出前五个
+            var two_list=zpData[i].subLevelModelList.slice(0,5);
+            var two_title_str="";
+            for(var j=0;j<two_list.length;j++){
+                two_title_str+=`<span>${two_list[j].name}</span>`
+            }
+        // 右侧二级
+        var list=zpData[i].subLevelModelList;
+        var two_list_str="";
+        for(var m=0;m<list.length;m++){
+            // 三级列表
+            var three_list=list[m].subLevelModelList;
+            // 拼接span
+            var three_list_str="";
+            for(var n=0;n<three_list.length;n++){
+                three_list_str+=`
+                    <span>${three_list[n].name}</span>
+                `
+            }
+            two_list_str+=`
+                <li class="two-item">
+                    <span>${list[m].name}</span>
+                    ${three_list_str}
+                </li>
+            `
+        }
+
+        // 插入页面
+        one.innerHTML+=`
+            <li class="one-item">
+                <!-- 标题 -->
+                <p class="one-title">
+                    <span>${zpData[i].name}</span>
+                    ${two_title_str}
+                </p>
+                <!-- 右侧块 -->
+                <div class="right-wrap">
+                    <h3>${zpData[i].name}</h3>
+                    <ul class="two">
+                        ${two_list_str}
+                    </ul>
+                </div>
+            </li>
+        `
+    }
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <script src="./layui/layui.js"></script>
+</head>
+<body>
+    
+    <div class="layui-form" style="width:200px" lay-filter="myform">
+
+        <input type="text" name="userName" placeholder="用户名" autocomplete="off" class="layui-input">
+        <input type="text" name="pwd" placeholder="密码" autocomplete="off" class="layui-input">
+
+        <button class="layui-btn" id="btn">提交</button>
+    </div>
+</body>
+
+<script>
+    var form=layui.form;
+
+
+    btn.onclick=function(){
+        // 取出指定区域内所有表单的值
+        // var res=form.val("myform");
+        // console.log(res);
+
+        form.val("myform",{
+            userName:"张三",
+            pwd:"456"
+        })
+    }
+
+</script>
+</html>

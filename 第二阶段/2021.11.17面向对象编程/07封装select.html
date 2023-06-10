@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .cj-select {
+            position: relative;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .cj-select h3 {
+            line-height: 40px;
+            text-indent: 10px;
+            border: 2px solid #999;
+            background-color: white;
+            font-weight: normal;
+            border-radius: 5px;
+        }
+
+        .cj-select ul {
+            position: absolute;
+            top: 48px;
+            width: 100%;
+            padding: 10px 0;
+            background-color: white;
+            box-shadow: 0 0 10px #999;
+            display: none;
+            z-index: 99999;
+        }
+
+        .cj-select li {
+            line-height: 30px;
+            text-indent: 10px;
+        }
+
+        .cj-select li:hover {
+            background-color: rgb(56, 56, 121);
+            color: white;
+        }
+
+        .cj-select .active {
+            background-color: rgb(56, 56, 121);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <button>box选择北京</button>
+
+    <div id="box2"></div>
+</body>
+<script>
+    function MySelect(el,arr,callback){
+        // 构造函数内部存储私有的属性和方法
+        this.el=typeof el == "string"?document.getElementById(el):el;
+        this.arr=arr;
+        this.cb=callback;
+        // 要访问的节点
+        this.wrap=null;
+        this.items=null;
+        this.title=null;
+        this.list=null;
+        // 切换
+        this.flag=false;
+        this.res="";
+        this.x=-1;
+
+        this.insert();
+    }
+    // 构造函数的原型对象上存储公用的属性和方法
+    // 生成基本结构
+    MySelect.prototype.insert=function(){
+        this.wrap=document.createElement("div");
+        this.wrap.className="cj-select";
+        this.el.appendChild(this.wrap);
+        // 拼接选项结构
+        var str="";
+        for(var i=0;i<this.arr.length;i++){
+            str+=`
+                <li>${this.arr[i]}</li>
+            `
+        }
+        // 插入选项
+        this.wrap.innerHTML+=`
+            <h3></h3>
+            <ul>${str}</ul>
+        `
+        // 存储节点
+        this.title=this.wrap.getElementsByTagName("h3")[0];
+        this.items=this.wrap.getElementsByTagName("li");
+        this.list=this.wrap.getElementsByTagName("ul")[0];
+        this.title.innerHTML="请选择";
+
+        // 绑定事件
+        this.bindEvent();
+    }
+    // 显示隐藏切换
+    MySelect.prototype.toggle=function(){
+        this.flag=!this.flag;
+        this.list.style.display=this.flag?"block":"none"
+    }
+    // 设置选择内容
+    MySelect.prototype.set=function(val){
+        if(this.x!=-1){
+            this.items[this.x].className="";
+        }
+
+        this.title.innerHTML=this.res=val;
+        // 内容变化
+        this.cb&&this.cb(val);
+        this.x=this.arr.indexOf(val);
+        this.items[this.x].className="active";
+    }
+
+    // 绑定事件  触发时机
+    MySelect.prototype.bindEvent=function(){
+
+        this.wrap.onclick=this.toggle.bind(this);
+
+        var self=this;
+        for(var i=0;i<this.items.length;i++){
+            this.items[i].onclick=function(){
+                self.set(this.innerHTML);
+            }
+        }
+    }
+
+    console.log(new MySelect("box",["上海","北京","杭州"],function(val){
+        console.log(val);
+    }),"+++++")
+    var o=new MySelect("box",["上海","北京","杭州"],function(val){
+        console.log(val);
+    })
+
+    new MySelect("box2",["上海","北京","杭州"],function(val){
+        console.log(val);
+    })
+
+
+
+    fetch("https://m.ximalaya.com/m-revision/common/album/queryAlbumRelatedRecommendAlbums?albumId=22963309&page=2&pageSize=6&v=1638610368103")
+    .then(r=>r.json())
+    .then(function(res){
+        console.log(res);
+    })
+</script>
+
+</html>

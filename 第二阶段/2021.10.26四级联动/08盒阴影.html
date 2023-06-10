@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            border-radius: 50%;
+            margin:100px auto;
+            /* inset 内投影  逗号隔开设置多组投影*/
+            /* box-shadow: 10px 50px 10px black inset,
+            10px 50px 10px black; */
+            box-shadow: 0 0 80px rgb(212, 212, 212);
+        }
+        img{
+            margin:100px auto;
+            display: block;
+            /* box-shadow: 0 0 20px black; */
+            filter: drop-shadow(0 0 80px white);
+        }
+        body{
+            background: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <img src="./星星.png" alt="">
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        img{
+            width: 490px;
+            height: 250px;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            /* border:5px solid red; */
+            position: absolute;
+            left:0;
+            top:0;
+            border-radius: 50%;
+            display: none;
+        }
+        #big{
+            width: 980px;
+            height: 500px;
+        }
+        #wrap{
+            position: relative;
+            width: 490px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <img id="small" src="./d.jpg" alt="">
+        <div id="box">
+            <img id="big" src="./d.jpg" alt="">
+        </div>
+    </div>
+</body>
+<script>
+    // 鼠标到小图坐上角距离   让大图移动到指定位置
+    wrap.onmousemove=function(e){
+        // 获取鼠标到小图左上角的距离
+        var x=e.clientX-this.offsetLeft;
+        var y=e.clientY-this.offsetTop;
+
+
+        // 移动红块
+        box.style.left=x-50+"px";
+        box.style.top=y-50+"px";
+
+
+        // 处理边界
+        if(x<25){
+            x=25;
+        }
+        if(x>465){
+            x=465;
+        }
+        if(y<25){
+            y=25;
+        }
+        if(y>225){
+            y=225;
+        }
+
+        // 让大图移动    +50回50来到中心  红框容器的宽高的一半
+        big.style.marginTop=-y*2+50+'px';
+        big.style.marginLeft=-x*2+50+'px';
+
+    }
+
+    wrap.onmouseover=function(){
+        box.style.display="block";
+    }
+    wrap.onmouseout=function(){
+        box.style.display="none";
+    }
+</script>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="color">
+        <button>red</button>
+        <button>blue</button>
+        <button>orange</button>
+        <button>pink</button>
+    </div>
+    <hr>
+    <div id="size">
+        <button>20</button>
+        <button>30</button>
+        <button>40</button>
+        <button>50</button>
+    </div>
+</body>
+<script>
+    var colors=color.getElementsByTagName("button");
+    var sizes=size.getElementsByTagName("button");
+
+    colors[0].style.color="red";
+    sizes[0].style.color="red";
+
+    // 点击时在控制台打印 blue-40
+
+    var x=0,y=0;
+
+    // 起始的结果
+    var c=colors[0].innerHTML,s=sizes[0].innerHTML;
+
+    for(var i=0;i<colors.length;i++){
+        colors[i].index=i;
+        colors[i].onclick=function(){
+            colors[x].style.color="black";
+            x=this.index;
+            colors[x].style.color="red";
+            c=this.innerHTML;
+            print();
+        }
+    }
+
+    for(var i=0;i<sizes.length;i++){
+        sizes[i].index=i;
+        sizes[i].onclick=function(){
+            sizes[y].style.color="black";
+            y=this.index;
+            sizes[y].style.color="red";
+            s=this.innerHTML;
+            print();
+        }
+    }
+
+
+    function print(){
+        console.log(c+"-"+s)
+        console.log(c+"-"+s)
+        console.log(c+"-"+s)
+        console.log(c+"-"+s)
+        console.log(c+"-"+s)
+        console.log(c+"-"+s)
+        console.log(c+"-"+s)
+        console.log(c+"-"+s)
+        console.log(c+"-"+s)
+        console.log(c+"-"+s)
+        console.log(c+"-"+s)
+        console.log(c+"-"+s)
+        console.log(c+"-"+s)
+        console.log(c+"-"+s)
+        console.log(c+"-"+s)
+        console.log(c+"-"+s)
+        console.log(c+"-"+s)
+        console.log(c+"-"+s)
+        console.log(c+"-"+s)
+    }
+    
+</script>
+</html>

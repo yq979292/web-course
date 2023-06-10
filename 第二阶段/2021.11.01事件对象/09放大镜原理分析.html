@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        img{
+            width: 490px;
+            height: 250px;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            border:5px solid red;
+        }
+    </style>
+</head>
+<body>
+    <img id="small" src="./d.jpg" alt="">
+    <div id="box">
+        <img id="big" src="./d.jpg" alt="">
+    </div>
+</body>
+<script>
+    // 鼠标到小图坐上角距离   让大图移动到指定位置
+    small.onmousemove=function(e){
+        // 获取鼠标到小图左上角的距离
+        var x=e.clientX-this.offsetLeft;
+        var y=e.clientY-this.offsetTop;
+
+        // 处理边界
+        if(x<50){
+            x=50;
+        }
+        if(x>440){
+            x=440;
+        }
+        if(y<50){
+            y=50;
+        }
+        if(y>200){
+            y=200;
+        }
+
+        // 让大图移动    +50回50来到中心  红框容器的宽高的一半
+        big.style.marginTop=-y+50+'px';
+        big.style.marginLeft=-x+50+'px';
+
+    }
+</script>
+</html>

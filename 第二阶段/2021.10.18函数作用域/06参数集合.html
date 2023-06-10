@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // var res=Math.max(10,200,500,30,1);
+    // console.log(res);
+
+    function max(){//参数数量不固定 任意数量
+        // arguments //参数集合  不能使用数组内部的方法
+        // console.log(arguments);
+        var num=arguments[0];
+        for(var i=1;i<arguments.length;i++){
+            if(num<arguments[i]){
+                num=arguments[i];
+            }
+        }
+        return num;
+    }
+    var res=max(1,2,3,4);
+    console.log(res);
+
+
+    // 合并对象
+    // var obj={name:"张三"};
+    // var obj2={age:20};
+    // var obj3={sex:"男"};
+    // var obj4={};
+
+    // assign({name:"张三"},{age:20},{sex:"男"}); =>  {name:"张三",age:20,sex:"男"}
+
+    function assign(){
+        var obj={};
+        for(var i=0;i<arguments.length;i++){//取出单个实参 对象
+            
+            for(var key in arguments[i]){//取出对象的键值对
+                obj[key]=arguments[i][key]
+            }
+
+        }
+        return obj;
+    }
+
+    var res=assign({name:"张三"},{age:20},{sex:"男"},{tel:180255151,qq:1515484233});
+    console.log(res);
+
+</script>
+</html>

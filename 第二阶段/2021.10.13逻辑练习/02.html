@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 求出数组中所有数字之和
+    var arr=["100",20,"hello","x1","1world"];
+    var total=0;
+    for(var i=0;i<arr.length;i++){
+        var num=arr[i]*1;//转化为数值
+        if(!isNaN(arr[i])){//检测是否是NaN
+            total+=num;
+        }
+    }
+    console.log(total);
+
+
+
+
+    var list=[1,2,3,4];
+    list[3]=500;
+    console.log(list)
+
+
+    var str="hello";
+    // 访问字符串中的字符
+    str[0]="a";//不行
+    console.log(str);
+
+</script>
+</html>

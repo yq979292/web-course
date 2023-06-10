@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="setCookie">设置cookie</button>
+    <button id="delCookie">删除cookie</button>
+</body>
+<script>
+    setCookie.onclick=function(){
+        document.cookie="name=张三"
+    }
+    delCookie.onclick=function(){
+        // 将过期时间设置为过去的时间 可以删除cookie
+        document.cookie="name=张三;expires=Tue, 09 Nov 2020 06:48:21 GMT"
+    }
+</script>
+</html>

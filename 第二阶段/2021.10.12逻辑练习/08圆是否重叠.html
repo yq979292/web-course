@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var c1={
+        x:100,
+        y:100,
+        r:50
+    }
+    var c2={
+        x:350,
+        y:130,
+        r:70
+    }
+    // 圆心距离
+    var dis= Math.sqrt(Math.pow(c2.x-c1.x,2) + Math.pow(c2.y-c1.y,2));
+    // console.log(dis);
+    if(dis>c1.r+c2.r){
+        alert("不重叠")
+    }else{
+        alert("重叠")
+    }
+
+
+
+</script>
+</html>

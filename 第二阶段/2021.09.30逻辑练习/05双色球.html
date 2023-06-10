@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 七个随机不重复的数字
+    // 0-99
+    // 随机数
+        // Math.floor(Math.random()*100)
+
+
+    var res=[];
+    var count=0;
+    // 循环七次
+    for(var i=0;i<7;i++){
+        count++;
+        // 得到0-99整数随机数
+        var num=Math.floor(Math.random()*100);
+        // 检测有没有重复的数字
+        if(res.indexOf(num)==-1){
+            res.push(num);//添加至数组
+        }else{
+            i--;
+        }
+    }
+    console.log(res)
+    console.log(count);
+</script>
+</html>

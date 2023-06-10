@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    function Search(el, callback) {
+        // 私有的
+        this.input = null;
+        this.button = null;
+        this.parent = typeof el == "string" ? document.getElementById(el) : el;
+        this.callback = callback;
+        // 执行初始化操作
+        this.init();
+    }
+    // 公共的
+    Search.prototype.createNode = function () {
+        this.input = document.createElement("input");
+        this.button = document.createElement("button");
+        this.button.innerHTML = "搜索";
+        // 绑定事件
+        this.bindEvent();
+    }
+
+    Search.prototype.bindEvent = function () {
+        var fun = function () {
+            this.callback(this.input.value)
+        }.bind(this);
+        // 点击按钮
+        this.button.onclick = fun;
+        // 敲回车
+        this.input.onkeyup = function (e) {
+            if (e.keyCode == 13) {
+                fun();
+            }
+        }
+        // 插入容器
+        this.insert();
+    }
+
+    Search.prototype.insert = function () {
+        if (typeof this.parent == "string") {
+            this.parent = document.getElementById(this.parent);
+        }
+        this.parent.appendChild(this.input);
+        this.parent.appendChild(this.button);
+    }
+
+    Search.prototype.init = function () {
+        this.createNode();
+    }
+
+
+    var o=new Search("box",function(val){
+        alert(val);
+    })
+    console.log(o)
+
+</script>
+
+</html>

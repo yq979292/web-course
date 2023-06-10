@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        形参也是函数内部的局部变量
+        
+       当访问变量时 会先在当前作用域内部查找 (访问变量的地方开始捋)
+       如果没有则向外一层查找 直到全局作用域为止
+    */
+    function f(){
+        var x=100;
+        function f2(){
+            // var x=200;
+            console.log(x);
+        }
+        f2();
+    }
+    f();
+
+
+
+
+
+    var a=20000;
+    function fun(){
+        console.log(a);
+    }
+    function fun2(){
+        var a=1000;
+        fun();
+    }
+    fun2();
+
+
+    var y=10;
+    function fun4(f){
+        var y=20;
+        f();
+    }
+    
+    fun4(function(){
+        console.log(y);
+    })
+
+</script>
+</html>

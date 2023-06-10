@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</body>
+<script>
+    // 创建节点
+    var node=document.createElement("li");
+    node.innerHTML="new";
+    // 尾部插入
+    // list.appendChild(node);
+    // 可在任意位置插入  在哪一个子元素之前插入
+    // list.insertBefore(node,list.children[0])
+    list.insertBefore(list.children[3],list.children[0])
+</script>
+</html>

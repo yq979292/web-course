@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        100-999
+        个十百位的立方和 等于 这个数字本身
+    */
+    for(var i=100;i<1000;i++){
+        // console.log(i); 100-999的数字
+        var gw=i%10;
+        var sw=(i-gw)/10%10;
+        var bw=Math.floor(i/100);
+        // 立方
+        gw=Math.pow(gw,3);
+        sw=Math.pow(sw,3);
+        bw=Math.pow(bw,3);
+        if(gw+sw+bw==i){
+            console.log(i);
+        }
+    }
+    
+
+
+    // var num=223;
+    // var gw=num%10;
+    // var sw=(num-gw)/10%10;
+    // var bw=Math.floor(num/100);
+    // console.log(bw,sw,gw);
+
+</script>
+</html>

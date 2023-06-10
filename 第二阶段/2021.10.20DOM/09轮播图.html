@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #banner{
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <img id="banner" src="images/a.jpg" alt="">
+    <br>
+    <button id="next">下一张</button>
+</body>
+<script>
+    var imgs=["images/a.jpg","images/b.webp","images/c.webp","images/d.webp"];
+
+    var banner=document.getElementById("banner");
+    var next=document.getElementById("next");
+
+    var x=0;//计数
+
+    // 点击下一张
+    next.onclick=function(){
+        x++;
+        if(x>imgs.length-1){
+            x=0;
+        }
+        // 修改图片地址
+        banner.src=imgs[x];
+    }
+
+    // 思考 上一张咋办?
+
+</script>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #view{
+            display: flex;
+            width: 401px;
+            border:1px solid red;
+        }
+        #view img{
+            width: 80px;
+        }
+        h3{
+            color:darkred;
+        }
+    </style>
+</head>
+<body>
+    <div id="view">
+        <img src="images/星星-灰.png" alt="">
+        <img src="images/星星-灰.png" alt="">
+        <img src="images/星星-灰.png" alt="">
+        <img src="images/星星-灰.png" alt="">
+        <img src="images/星星-灰.png" alt="">
+    </div>
+    <h3> <span id="score">0</span>.0 </h3>
+</body>
+<script>
+    var view = document.getElementById("view");
+    var score = document.getElementById("score");
+    var imgs = view.getElementsByTagName("img");
+    var num=0;//记录选择星星的数量
+    // 给每个星星绑定鼠标移入事件
+    for(var i=0;i<imgs.length;i++){
+        imgs[i].index=i;//添加编号
+        imgs[i].onmouseover=function(){
+            // 全部设置成空心的
+            empty();
+            // 把当前元素及之前元素全部变成实心
+            for(var j=0;j<=this.index;j++){
+                // console.log(j);
+                imgs[j].src="images/星星.png"
+            }
+            score.innerHTML=this.index+1;
+        }
+        // 点击 选择
+        imgs[i].onclick=function(){
+            // 记录选择的数量
+            num=this.index+1;
+        }
+    }
+
+    // 离开view
+    view.onmouseout=function(){
+        empty();
+        // 填充实心  num==0
+        if(num){
+            // 1 2 3 4 5
+            for(var i=0;i<num;i++){
+                imgs[i].src="images/星星.png"
+            }
+        }
+        score.innerHTML=num;
+    }
+
+    function empty(){
+        for(var m=0;m<imgs.length;m++){
+            imgs[m].src="images/星星-灰.png"
+        }
+    }
+
+</script>
+</html>

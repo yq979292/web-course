@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">0</button>
+    <button id="btn2">50</button>
+    <button id="add">按钮</button>
+</body>
+<script>
+    // 传入DOM对象  点击让内容递增
+
+    function Increase(el){
+        this.el=el;
+        this.num=Number(el.innerHTML);//获取DOM中内容作为数字起始值
+    }
+    Increase.prototype.add=function(){
+        this.num++;
+        this.el.innerHTML=this.num;
+    }
+    Increase.prototype.bindEvent=function(){
+        this.el.onclick=this.add.bind(this);
+    }
+
+    var o=new Increase(btn);
+
+    add.onclick=function(){
+        o.add();
+    }
+</script>
+</html>

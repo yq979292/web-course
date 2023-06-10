@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 函数传参
+        // 参数是函数 or 其他数据类型(存储数据)
+        function ajax(url,f){
+            var xhr=new XMLHttpRequest();
+            xhr.open("GET",url);
+            xhr.send();
+            xhr.onreadystatechange=function(){
+                if(xhr.status==200&&xhr.readyState==4){
+                    // 请求成功之后要干的事
+                    f(JSON.parse(xhr.responseText));
+                }
+            }
+        }
+
+
+
+
+        ajax("http://39.96.88.57:9090/api/www/search/searchMvBykeyWord?key=周杰伦",function(res){
+            for(var i=0;i<res.data.mvlist.length;i++){
+                console.log(res.data.mvlist[i].name)
+            }
+        });
+
+
+        // function fun(x,y){
+        //     console.log(x+y);
+        // }
+        // fun(100,200)
+
+
+        // 什么情况下 需要把函数作为参数传入其他函数   你想控制函数内部代码片段时
+        // function fun(f){
+        //     var x=10,y=20;
+        //     var res=x+y;//函数内部运算的结果
+        //     f(res);
+        // }
+
+
+
+        // fun(function(a){
+        //     console.log(a);
+        // })
+</script>
+</html>

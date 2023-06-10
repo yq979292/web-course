@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 500px;
+            height: 500px;
+            background-color: red;
+        }
+        #small{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 事件流 -->
+    <!-- 冒泡 捕获 -->
+    <div id="box">
+        <div id="small"></div>
+    </div>
+</body>
+<script>
+    // 0级DOM事件只支持冒泡
+    // box.onclick=function(){
+    //     console.log("box");
+    // }
+    // small.onclick=function(){
+    //     console.log("small");
+    // }
+
+    // 将三个参数设置为true 捕获机制
+    box.addEventListener("click",function(){
+        console.log("box")
+    },true)
+    small.addEventListener("click",function(){
+        console.log("small")
+    })
+</script>
+</html>

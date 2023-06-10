@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list">
+        <li>111 <button>×</button> </li>
+        <li>222 <button>×</button> </li>
+        <li>333 <button>×</button> </li>
+        <li>444 <button>×</button> </li>
+        <li>555 <button>×</button> </li>
+    </ul>
+</body>
+<script>
+    var btns=list.getElementsByTagName("button");
+
+    for(var i=0;i<btns.length;i++){
+        btns[i].onclick=function(){
+            list.removeChild(this.parentNode);
+            // 是否删完了
+            if(list.children.length==0){
+                list.innerHTML=`<li>空空如也!</li>`
+            }
+        }
+    }
+</script>
+</html>

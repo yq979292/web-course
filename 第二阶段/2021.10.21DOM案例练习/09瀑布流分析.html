@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style: none;
+        }
+        #cols{
+            width: 600px;
+            margin:0 auto;
+            overflow: hidden;
+        }
+        .col{
+            width: 240px;
+            border:2px solid red;
+            float:left;
+            margin:0 28px;
+        }
+        .col img{
+            display: block;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <ul id="cols">
+        <li class="col"></li>
+        <li class="col"></li>
+    </ul>
+</body>
+<script src="./瀑布流/homework.js"></script>
+<script>
+    var cols=document.getElementsByClassName("col");
+
+    
+    for(var i=0;i<list.length;i++){
+        // 获取两列的高度
+        var c1=parseFloat(getComputedStyle(cols[0],null).height);
+        var c2=parseFloat(getComputedStyle(cols[1],null).height);
+
+        console.log(c1,c2);
+
+        // 计算出图片的高度i
+        var s=list[i].img.split("?")[1].split("=")[1].split("x");//包含图片原始宽高
+        var h_w=s[1]/s[0];//高:宽
+        var h=240*h_w;
+
+        cols[c1>c2?1:0].innerHTML+=`
+                <img src="${list[i].img}" style="height:${h}px">
+            `
+    }
+
+
+    // 多列 找出高度最小的那一列
+    var arr=[2,3,4];
+    var arr=[{h:2,col:0},{h:3,col:1},{h:4,col:2}];
+    arr.sort(function(a,b){
+        return a.h<b.h?-1:1;
+    })
+    console.log(arr[0]);
+
+</script>
+</html>

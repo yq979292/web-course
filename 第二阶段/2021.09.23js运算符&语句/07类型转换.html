@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        数值 字符串 布尔
+    */
+    // 其他类型转化为数值
+        // Number() 包含纯数字的字符串 ""结果为0 否则结果为NaN(not a number)
+        // true 1  false 0
+        // var s="";
+        // s=Number(s);
+        // console.log(s);
+        // console.log(NaN==NaN)//NaN不等于自身
+        // isNaN() 检测是否是NaN
+        // console.log(isNaN(s))
+        // console.log(Number(true))
+
+        var boxWidth="100.5.6px";
+        // parseInt() 提取字符串开头位置的数字(整数)
+        // parseFloat() 提取字符串开头位置的数字(小数)
+        console.log(parseInt(boxWidth));
+        console.log(parseFloat(boxWidth));
+
+        // 保留小数
+        var price=100.5321;
+        var res=price.toFixed(2);
+        console.log(res);
+
+    // 将其他类型转化为字符串
+    var num=200;
+    console.log(num.toString())
+    var flag=true;
+    console.log(flag.toString())
+    var arr=[1,2,3,4,5];
+    console.log(arr.toString())
+    var obj={};
+    console.log(obj.toString());//[object Object]
+
+
+    // 将其他类型转化为布尔
+    // Boolean()   转化之后为假的六种情况 false "" 0 NaN undefined null
+
+    var num=0;
+    if(!num){//条件在运行时会被转换为布尔 Boolean()
+        alert("num是0")
+    }
+
+</script>
+</html>

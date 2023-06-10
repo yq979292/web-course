@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">存储</button>
+</body>
+<script>
+    // btn.onclick=function(){
+    //     // 得到七天之后日期对象
+    //     var d=new Date();
+    //     var ms=d.getTime()+7*24*60*60*1000;//七天之后的时间戳
+    //     d.setTime(ms);//七天之后的日期对象
+    //     var str=d.toGMTString();
+        
+    //     document.cookie="name=张三;expires="+str;
+    // }
+
+
+    btn.onclick=function(){
+        var d=new Date();
+        var ms=d.getTime()+10*1000;
+        d.setTime(ms);
+        var str=d.toGMTString();
+        console.log(str);
+        
+        document.cookie="name=张三;expires="+str;
+    }
+</script>
+</html>

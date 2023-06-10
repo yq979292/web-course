@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        + 两边都是数值  加法运算
+        + 任意一边是字符串 连接符
+    */
+    // var str="hello"+" world";
+    // console.log(str);
+
+    // 插入变量
+    // var title="前端83期";
+    // document.write("<h1>"+title+"</h1>")
+
+    // 内部用双引号 外部就用单引号  
+    // 内外都想用单引号  内部引号用\转义
+    // var s='he\'l\'lo';
+    // console.log(s);
+
+    var title="前端83期";
+    var c="red";
+    var s=60;
+    // document.write("<h1 style='color:"+c+"'>"+title+"</h1>");
+    // document.write("<h1 style='color:"+c+"'>"+title+"</h1>");
+    document.write("<h1 style='color:"+c+";font-size:"+s+"px'>"+title+"</h1>");
+
+
+    // document.write("<ul>"
+    //         +"<li>商品</li>"
+    //         +"</ul>")
+
+
+    // 模板字符串  插入变量  缩进
+    var title="前端83期";
+    var c="red";
+    var s=60;
+    // 插入变量
+    var html=`
+            <h1 style="color:${c};font-size:${s}px">
+                <em>${title}</em>
+            </h1>
+    `;
+    document.write(html);
+
+
+
+    console.log("1"+1);
+    console.log(3-2+"5")
+</script>
+</html>

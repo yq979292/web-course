@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #dedede;
+        }
+        *{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style: none;
+        }
+        .list{
+            width: 1000px;
+            margin:0 auto;
+            background-color: white;
+            padding:20px;
+        }
+        .title{
+            display: flex;
+            justify-content: space-between;
+            line-height: 40px;
+        }
+        .num{
+            width: 200px;
+        }
+        .song{
+            width: 300px;
+        }
+        .zj{
+            width: 300px;
+        }
+        .sz{
+            width: 100px;
+        }
+        .item{
+            display: flex;
+            justify-content: space-between;
+            line-height: 70px;
+            margin-top:10px;
+        }
+        .item img{
+            width: 70px;
+            margin-left:30px;
+        }
+        .item .num{
+            display: flex;
+        }
+        .item .num span{
+            width: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li class="title">
+            <h4 class="num">序号</h4>
+            <h4 class="song">歌曲</h4>
+            <h4 class="zj">专辑</h4>
+            <h4 class="sc">时长</h4>
+        </li>
+        
+    
+</body>
+<script src="./作业.js"></script>
+<script>
+    var list=singer.data.list;
+
+    for(var i=0;i<list.length;i++){
+        document.write(`
+            <li class="item">
+                    <div class="num">
+                        <span>${i+1}</span>
+                        <img src="${list[i].pic}" alt="">
+                    </div>
+                    <div class="song">
+                        ${list[i].name} ${list[i].hasmv?"<span>mv</span>":""}
+                    </div>
+                    <div class="zj">${list[i].album||"无"}</div>
+                    <div class="sc">${list[i].songTimeMinutes}</div>
+            </li>
+        `)
+    }
+    
+    document.write("</ul>")
+</script>
+</html>

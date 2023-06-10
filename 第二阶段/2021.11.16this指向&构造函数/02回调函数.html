@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <button id="btn2">按钮</button>
+</body>
+<script>
+    function A(el,type,f){
+        el.addEventListener(type,function(e){//事件处理函数
+            // 点击要干的事
+            f(e);
+        })
+    }
+
+    A(btn,"click",function(e){
+        console.log("hello")
+    });
+
+    A(btn2,"mouseover",function(){
+        alert("world")
+    })
+
+
+
+
+
+    // laypage.render({
+    //     elem:"box",
+    //     count:100,
+    //     jump:function(a){//每次切换页码时  a 当前页码
+
+    //     }
+    // })
+
+</script>
+</html>

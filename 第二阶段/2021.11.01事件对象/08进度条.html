@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #box{
+            margin:100px auto;
+            width: 500px;
+            background-color: #999;
+        }
+        #small{
+            width: 10%;
+            height: 8px;
+            background-color: green;
+            box-shadow: 0 0 10px rgb(2, 255, 2);
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="small"></div>
+    </div>
+</body>
+<script>
+    box.onclick=function(e){
+
+        // 得到鼠标到box左边界的距离
+        var x=e.clientX-this.offsetLeft;
+
+        // 换算成百分比 赋值给small的宽度
+        small.style.width=x/this.offsetWidth*100+"%";
+
+    }
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // Math.PI/180    1°是多少弧度
+    var angle=Math.PI/180*30;
+    var res=Math.sin(angle);//0.5;
+    console.log(res);
+
+    // 反正弦 已知长度反推角度
+    var r2=Math.asin(5/10)*180/Math.PI;
+    console.log(r2);
+
+
+    var angle=Math.PI/180*45;
+    // 正切
+    var r3=Math.tan(angle);
+    console.log(r3);
+    // 反正切 
+    var r4=Math.atan2(5,5)*180/Math.PI;
+    console.log(r4);
+</script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="D">D</button>
+    <button id="F">F</button>
+</body>
+<script>
+    var D=document.getElementById("D");
+    var F=document.getElementById("F");
+
+    // 定义自定义属性 表示当前元素是否被点击过
+    D.clicked=false;
+    F.clicked=false;
+
+    D.onclick=function(){
+        this.clicked=true;
+        if(F.clicked){
+            alert("DF二连");
+            // 重置
+            D.clicked=false;
+            F.clicked=false;
+        }
+    }
+
+    F.onclick=function(){
+        this.clicked=true;
+        if(D.clicked){
+            alert("DF二连");
+            // 重置
+            D.clicked=false;
+            F.clicked=false;
+        }
+    }
+
+
+
+</script>
+</html>

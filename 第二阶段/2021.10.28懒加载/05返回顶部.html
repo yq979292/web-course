@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #toTop{
+            position: fixed;
+            right:10px;
+            bottom:10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div style="height: 5000px;"></div>
+    <button id="toTop">返回顶部</button>
+</body>
+<script>
+    toTop.onclick=function(){
+        // 设置滚动高度为0
+        document.body.scrollTop=0;
+        document.documentElement.scrollTop=0;
+    }
+    // 控制返回顶部按钮何时显示
+    window.onscroll=function(){
+        var st=document.body.scrollTop||document.documentElement.scrollTop;
+        toTop.style.display=st>500?"block":"none";
+    }
+</script>
+</html>

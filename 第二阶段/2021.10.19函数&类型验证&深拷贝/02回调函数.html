@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // function fun(a){
+    //     var x=10;
+    //     a(x);
+    // }
+    // fun(function(x){
+    //     console.log(x);
+    // })
+
+    // var arr=[1,2,12,4,5];
+    // arr.sort(function(a,b){//a,b数组中对比的两个元素
+    //     return a>b?1:-1;
+    // })
+
+
+    // function f1(f){
+    //     return f();//f1返回f的返回值
+    // }
+    // var res=f1(function(){return 1});
+    // console.log(res);
+
+    // 想在调用函数时决定如何处理结果(控制函数内部的语句或表达式  使用函数作为参数)
+    function add(x,y,f){
+        var z=x+y;
+        f(z)
+    }
+    add(1,2,function(a){
+        console.log(a);
+    });
+
+    add(3,4,function(a){
+        // alert(a);
+    })
+    function add2(x,y,z){
+        console.log(x,y,z)
+        z(x,y)
+    }
+    add2(1,2,function(a,b){
+        console.log(a+b)
+        console.log('这是回调函数')
+    })
+
+</script>
+</html>

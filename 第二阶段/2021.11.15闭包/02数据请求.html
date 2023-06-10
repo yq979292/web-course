@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <script src="./layui/layui.js"></script>
+</head>
+<body>
+    <input type="text" id="word"> <button id="search">搜索</button>
+    <div id="page"></div>
+    <ul id="list">
+        
+    </ul>
+</body>
+<script>
+    var layPage=layui.laypage;
+    /*
+        1.请求一次数据 获取数据条数
+        2.根据条数 生成分页
+    */
+    // 第一次请求数据 获取数据条数
+    function searchFun(val){
+        fetch("http://39.96.88.57:9090/api/www/search/searchMvBykeyWord?key="+val+"&pn=1&rn=0")
+        .then(r=>r.json())
+        .then(function(res){
+            // res.data.total 总条数
+            var total=res.data.total;
+            if(total>10){
+                page.style.display="block";
+                layPage.render({
+                    elem: 'page' //注意，这里的 test1 是 ID，不用加 # 号
+                    ,count: total //数据总数
+                    ,prev:"<"
+                    ,next:">"
+                    ,jump:function(obj){
+                        console.log("请求第"+obj.curr+"页数据");
+                        getList(val,obj.curr);
+                    }
+                });
+            }else{
+                page.style.display="none";
+                console.log("直接请求数据");
+                getList(val,1);
+            }
+            
+        })
+    }
+
+    // 请求并渲染列表
+    function getList(key,page){//需要知道搜索的内容和页码
+        // console.log(key,page);
+        fetch("http://39.96.88.57:9090/api/www/search/searchMvBykeyWord?key="+key+"&pn="+page+"&rn=10")
+        .then(r=>r.json())
+        .then(function(res){
+            // 渲染列表
+            list.innerHTML="";
+            var data=res.data.mvlist;
+            for(var i=0;i<data.length;i++){
+                list.innerHTML+=`
+                    <li data-id="${data[i].id}">${data[i].name}</li>
+                `
+            }
+        })
+    }
+
+
+    search.onclick=function(){
+
+        searchFun(word.value);
+
+    }
+
+    word.onkeyup=function(e){
+        if(e.keyCode==13){
+            searchFun(word.value);
+        }
+    }
+
+    /*
+        searchList.onclick=function(e){
+            if(e.target.nodeName=="LI"){
+                searchFun(e.target.innerHTML)
+            }
+        }
+    */
+
+
+    list.onclick=function(e){
+        if(e.target.nodeName=="LI"){
+            var id=e.target.dataset.id;
+            alert(id);
+        }
+    }
+</script>
+</html>

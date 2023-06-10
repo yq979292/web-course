@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./area.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    // console.log(data);
+    for(var province_name in data){
+        // console.log(province_name);
+    }
+
+    var province_name="山西省";
+    var city_obj=data[province_name][0];
+    for(var city_name in city_obj){
+        // console.log(city_name);
+    }
+
+    // 区
+    var city_name="大同市";
+    var area_list=city_obj[city_name];
+    var area_obj={};//转换数据结构  {"中原区":["",""],"二七区":["",""]}
+    for(var i=0;i<area_list.length;i++){
+        for(var area_name in area_list[i]){
+            // console.log(area_name,area_list[i][area_name])
+            area_obj[area_name]=area_list[i][area_name].split("、");
+        }
+    }
+    console.log(area_obj);
+
+
+    // 街道
+    var area_name="矿区"
+    var street_list=area_obj[area_name];
+    for(var i=0;i<street_list.length;i++){
+        console.log(street_list[i]);
+    }
+
+    
+</script>
+</html>

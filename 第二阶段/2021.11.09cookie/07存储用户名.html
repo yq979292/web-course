@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="userName">
+    <button id="save">存储</button>
+</body>
+<script>
+    // 每次进入页面时
+    var name=getCookie().userName;
+    if(name){
+        userName.value=name;
+    }
+
+
+    save.onclick=function(){
+        // 存储cookie
+        document.cookie="userName="+userName.value;
+    }
+
+
+
+
+
+
+
+    function getCookie() {
+        var arr = document.cookie.split("; ");
+        var obj = {};
+        for (var i = 0; i < arr.length; i++) {
+            var s = arr[i].split("=");
+            obj[s[0]] = s[1];
+        }
+        return obj;
+    }
+</script>
+
+</html>

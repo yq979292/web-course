@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var arr=["a","b","c"];
+    // //尾部新增
+    // arr.push("d");
+    // arr.push("e","f","g");
+    // // 尾部删除
+    // arr.pop();
+    // // 头部添加
+    // arr.unshift("0");
+    // arr.unshift("0","1","2");
+    // // 头部删除
+    // arr.shift();
+
+
+    // splice 删除 插入 替换
+    // 删除
+    // arr.splice(1,1);//从索引1开始删除1位
+    // arr.splice(1,2)//从索引1开始删除2位
+    // 插入
+    // arr.splice(2,0,"d")//在索引2的位置插入d
+    // arr.splice(2,0,"d","e","f")//在索引2的位置插入d
+    // 替换
+    // arr.splice(1,1,"d")
+
+    // 颠倒数组
+    // arr.reverse();
+
+    // 返回新结果的方法
+    // 合并数组
+    // var arr2=["d","e","f"];
+    // var arr3=["x","y","z"];
+    // var res=arr.concat(arr2,arr3)
+
+    // var arr=["a","b","c","d","e","f"];
+    // 截取数组元素
+    // var res=arr.slice(2,5);
+
+    // join  和  split  互逆
+    // var res=arr.join("-");
+    // var res=arr.join("");
+    // var res=arr.join();//不传则用,隔开
+
+    // 排序
+    var arr=[5,8,2,11,4];
+    // arr.sort();//不能用
+    arr.sort(function(a,b){
+        // a b数组每次对比的两个元素
+        if(a>b){
+            return 1;//换位
+        }else{
+            return -1;//不换
+        }
+    })
+    console.log(arr);
+
+    var list=[{
+        title:"苹果",
+        price:2
+    },{
+        title:"香蕉",
+        price:5
+    },{
+        title:"西瓜",
+        price:1.5
+    }]
+
+    list.sort(function(a,b){
+        // if(a.price>b.price){
+        //     return 1
+        // }else{
+        //     return -1
+        // }
+        return a.price>b.price?1:-1;
+    })
+    console.log(list)
+
+
+    var list2=[{
+        title:"苹果",
+        price:"￥20"
+    },{
+        title:"香蕉",
+        price:"￥50"
+    },{
+        title:"西瓜",
+        price:"￥15"
+    }]
+    // 思考 按价格升序排列 ???
+</script>
+</html>

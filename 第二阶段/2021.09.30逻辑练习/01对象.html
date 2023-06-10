@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var obj={
+        name:"张三",
+        age:20
+    }
+    obj.age=50;
+    console.log(obj.age);
+    obj.sex="男";//单独定义属性
+    console.log(obj.sex);
+    //删除对象属性
+    delete obj.name;
+    console.log(obj);
+
+
+    var o1={
+        class:"前端83",
+        school:"郑州理工"
+    }
+
+    var o2={};
+    // o2.class=o1.class;
+    // o2.school=o1.school;
+    // console.log(o2);
+
+    for(var key in o1){
+        // console.log(key,o1[key])
+        o2[key]=o1[key]
+    }
+    console.log(o2);
+
+
+</script>
+</html>

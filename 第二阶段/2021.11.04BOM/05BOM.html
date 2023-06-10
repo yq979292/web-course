@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="back">后退</button>
+
+    <!-- 内嵌子页面 -->
+    <iframe style="width:500px;height: 500px;" src="https://www.mi.com/xiaomicivi?masid=2872.0216" frameborder="0"></iframe>
+    <iframe style="width:500px;height: 500px;" src="https://www.mgtv.com/" frameborder="0"></iframe>
+
+</body>
+<script>
+    /*
+        Browser Object Model
+        用js跟浏览器进行交互
+        alert("")
+        计时器
+    */
+    /*
+        window  document
+    */
+    /*
+        获取浏览器信息
+    */
+    // console.log(navigator.userAgent);
+
+    function myBrowser() {
+        var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+        var isOpera = userAgent.indexOf("Opera") > -1; //判断是否Opera浏览器
+        var isIE = userAgent.indexOf("compatible") > -1
+            && userAgent.indexOf("MSIE") > -1 && !isOpera; //判断是否IE浏览器
+        var isEdge = userAgent.indexOf("Edge") > -1; //判断是否IE的Edge浏览器
+        var isFF = userAgent.indexOf("Firefox") > -1; //判断是否Firefox浏览器
+        var isSafari = userAgent.indexOf("Safari") > -1
+            && userAgent.indexOf("Chrome") == -1; //判断是否Safari浏览器
+        var isChrome = userAgent.indexOf("Chrome") > -1
+            && userAgent.indexOf("Safari") > -1; //判断Chrome浏览器
+
+        if (isIE) {
+            var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+            reIE.test(userAgent);
+            var fIEVersion = parseFloat(RegExp["$1"]);
+            if (fIEVersion == 7) {
+                return "IE7";
+            } else if (fIEVersion == 8) {
+                return "IE8";
+            } else if (fIEVersion == 9) {
+                return "IE9";
+            } else if (fIEVersion == 10) {
+                return "IE10";
+            } else if (fIEVersion == 11) {
+                return "IE11";
+            } else {
+                return "0";
+            }//IE版本过低
+            return "IE";
+        }
+        if (isOpera) {
+            return "Opera";
+        }
+        if (isEdge) {
+            return "Edge";
+        }
+        if (isFF) {
+            return "FF";
+        }
+        if (isSafari) {
+            return "Safari";
+        }
+        if (isChrome) {
+            return "Chrome";
+        }
+
+    }
+
+    var res = myBrowser();
+    console.log(res);
+
+
+
+    //判断是否是微信浏览器的函数
+    function isWeiXin() {
+        //window.navigator.userAgent属性包含了浏览器类型、版本、操作系统类型、浏览器引擎类型等信息，这个属性可以用来判断浏览器类型
+        var ua = window.navigator.userAgent.toLowerCase();
+        //通过正则表达式匹配ua中是否含有MicroMessenger字符串
+        if (ua.indexOf('micromessenger')!=-1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    /*获取地址栏信息*/
+    console.log(location.href);
+    // 通过js控制页面跳转
+    // location.href="http://www.baidu.com";
+    
+    // location.reload();//刷新
+
+
+
+    /*控制页面前进后退*/
+    back.onclick=function(){
+        // back后退  
+        // forward前进
+        // go(-2) 正数前进 负数后退
+        history.back();
+    }
+
+
+    // iframe
+
+</script>
+
+</html>

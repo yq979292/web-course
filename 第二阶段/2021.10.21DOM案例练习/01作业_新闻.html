@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">换一批</button>
+    <ul id="list">
+        
+    </ul>
+</body>
+<script src="./data.js"></script>
+<script>
+
+    var btn=document.getElementById("btn");
+    var list=document.getElementById("list");
+
+    // 0   6
+    // 6   12
+    // 12  18
+    // 换一批  0   1   2  x
+    // x*6  (x+1)*6
+
+    var x=0;
+    // 算出一共多少批
+    var num=Math.ceil(data.length/6);
+    btn.onclick=function(){
+        x++;
+        // 看完最后一批 重置为第一批
+        if(x>num-1){
+            x=0;
+        }
+        // 清空list
+        list.innerHTML="";
+        for(var i=x*6;i<(x+1)*6;i++){
+            list.innerHTML+=`
+                <li>${i+1}. ${data[i].pure_title}</li>
+            `
+        }
+
+    }
+    
+    for(var i=0;i<6;i++){
+        list.innerHTML+=`
+            <li>${i+1}. ${data[i].pure_title}</li>
+        `
+    }
+</script>
+</html>

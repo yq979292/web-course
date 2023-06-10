@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style: none;
+        }
+        .week-wrap{
+            display: flex;
+            width: 700px;
+        }
+        .week-wrap li{
+            width: 100px;
+            line-height: 40px;
+            background-color: aqua;
+            text-align: center;
+        }
+        .list-wrap{
+            width: 700px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .list-wrap li{
+            width: 100px;
+            padding:10px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <ul class="week-wrap">
+        <li>日</li>
+        <li>一</li>
+        <li>二</li>
+        <li>三</li>
+        <li>四</li>
+        <li>五</li>
+        <li>六</li>
+    </ul>
+    <!-- <ul class="list-wrap">
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+    </ul> -->
+</body>
+<script src="./data.js"></script>
+<script>
+    // console.log(data);
+    var info=data.long_day_forecast.info;
+    // 获取今天的日期 2020-10-14
+    var d=new Date();
+    var year=d.getFullYear();
+    var month=d.getMonth()+1;
+    month=month<10?"0"+month:month;
+    var day=d.getDate();
+    day=day<10?"0"+day:day;
+    var week=d.getDay();// 0-6  星期日-星期六
+    var dateStr=year+"-"+month+"-"+day;
+    // console.log(dateStr);
+    // 根据今天的日期字符串 找到在info中索引位置
+    var list=[];
+    for(var i=0;i<info.length;i++){
+        if(info[i].date==dateStr){
+            list=info.slice(i);
+            break;
+        }
+    }
+
+    document.write(`<ul class="list-wrap">`)
+    // 根据week插入空元素
+    for(var i=0;i<week;i++){
+        document.write(`<li></li>`);
+    }
+
+    var imgs={
+        "小雨":"a.png",
+        "晴":"b.png",
+        "多云":"c.png",
+        "阴":"d.png"
+    }
+
+    for(var i=0;i<list.length;i++){
+
+        // 日期   今天  15  11-1
+        var s=list[i].date.split("-");
+        var dateText=i==0?"今天":s[2];
+        if(s[1]!=month&&s[2]*1==1){//其他月份的第一天
+            dateText=s[1]+"-"+dateText;
+        }
+
+        
+
+        document.write(`
+            <li>
+                <h4>${dateText}</h4>    
+                <p>${imgs[list[i].weather_day]}</p>
+                <p>${list[i].weather_day}</p>
+            </li>
+        `)
+    }
+
+    
+    document.write(`</ul>`)
+</script>
+</html>

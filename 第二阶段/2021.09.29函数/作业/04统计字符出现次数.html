@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // var obj={
+    //     a:500,
+    //     b:10,
+    //     c:2
+    // }
+    // var num=0,letter;
+    // for(var key in obj){
+    //     if(obj[key]>num){
+    //         num=obj[key];
+    //         letter=key;
+    //     }
+    // }
+    // console.log(num,letter)
+    
+    
+    // 并列第一
+    var obj={
+        a:500,
+        d:500,
+        b:10,
+        c:2
+    }
+    var num=0;
+    // 最大的次数
+    for(var key in obj){
+        if(obj[key]>num){
+            num=obj[key];
+        }
+    }
+    console.log(num)
+    // 找出出现次数是num的字符
+    var res=[];
+    for(var key in obj){
+        if(obj[key]==num){
+            // console.log(key);
+            res.push(key);
+        }
+    }
+    // console.log(res);
+    console.log(res.join("、")+"出现次数最多")
+</script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #dedede;
+        }
+        *{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style: none;
+        }
+        #list{
+            width: 1200px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin:0 auto
+        }
+        #list li{
+            width: 280px;
+            box-sizing: border-box;
+            padding:10px;
+            background-color: white;
+            margin:10px;
+        }
+        #list img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <ul id="list">
+        
+    </ul>
+</body>
+<script>
+    // 发送请求获取歌手列表数据
+    fetch("http://39.96.88.57:9090/api/www/artist/artistInfo?category=2&prefix=&pn=1&rn=102&httpsStatus=1&reqId=e29a5de0-1b4a-11ec-8ede-0baabc3bfe02")
+    .then(r=>r.json())
+    .then(res=>{
+        // 将数据混合模板插入列表容器
+        res.data.artistList.forEach(item=>{
+            list.innerHTML+=`
+                <li>
+                    <img src="${item.pic300}" alt="">
+                    <h3>${item.name}</h3>
+                </li>
+            `
+        })
+    })
+</script>
+</html>

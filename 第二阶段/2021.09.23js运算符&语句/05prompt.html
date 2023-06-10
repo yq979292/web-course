@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 弹出输入框 用变量接收用户输入的内容
+    var res=prompt("请输入你的年龄");
+    // 验证是否点击取消
+    if(res===null){
+        alert("想干啥，别人都填，你不填")
+    }else{
+        if(res>=18){
+            alert("成年")
+        }else{
+            alert("未成年")
+        }
+    }
+</script>
+</html>

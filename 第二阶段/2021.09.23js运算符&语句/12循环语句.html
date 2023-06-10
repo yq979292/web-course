@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 循环 重复执行代码块
+    // for(起始变量;进入循环的条件;变量变化){执行的代码片段}
+    for(var i=1;i<=10;){
+        console.log("hello",i);
+        i++
+    }
+
+
+    var arr=["🍎","🍉","🍌","🍇","🥒"];
+    // console.log(arr.length);获取数组元素个数
+    for(var i=0;i<arr.length;i++){
+        // console.log(arr[i])
+        document.write(`<span>${arr[i]}</span>`)
+    }
+
+    var s="";
+    for(var i=0;i<arr.length;i+=2){
+        s+=arr[i];
+    }
+    console.log(s)
+
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-1.8.3.min.js"></script>
+</head>
+<body>
+    <p class="txt">页面中的p标签</p>
+    <div id="box">
+        <p>原始内容</p>
+    </div>
+</body>
+<script>
+    // 内容之前插入
+    $("<p></p>").html("hello").css("color","red").appendTo("#box");
+    // 内容之后插入
+    $("<p></p>").html("hello").css("color","red").prependTo("#box");
+
+    // 现有节点
+    // $(".txt").appendTo('#box');
+
+    // 标签之后插入
+    // $("#box").after("<p>新节点</p>");
+    $("#box").after($(".txt"));
+    // 标签之前插入
+    // $("#box").before("<p>新节点</p>");
+
+
+    // 清空
+    // $("#box").empty();
+
+    // 删除节点
+    $(".txt").remove();
+</script>
+</html>

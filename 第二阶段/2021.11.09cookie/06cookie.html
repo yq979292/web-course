@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">存储</button>
+    <button id="read">读取</button>
+</body>
+<script>
+    /*
+        持久存储数据 刷新、关闭浏览器、关机数据都会一直存在
+        场景：记住用户名密码、自动登录、网站主题色、夜间模式
+        依靠浏览器存储数据
+            a.com   hello
+                    x
+                    y
+            b.com   world
+    */
+    btn.onclick=function(){
+        document.cookie="name=李四";
+        document.cookie="age=20";
+        document.cookie="sex=男";
+    }
+
+    read.onclick=function(){
+        // console.log(document.cookie);//name=张三; age=20; sex=男
+        var arr=document.cookie.split("; ");
+        var obj={};
+        for(var i=0;i<arr.length;i++){
+            var s=arr[i].split("=");
+            obj[s[0]]=s[1];
+        }
+        console.log(obj);
+    }
+
+    function getCookie(){
+        var arr=document.cookie.split("; ");
+        var obj={};
+        for(var i=0;i<arr.length;i++){
+            var s=arr[i].split("=");
+            obj[s[0]]=s[1];
+        }
+        return obj;
+    }
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            user-select: none;
+        }
+        #box{
+            width: 300px;
+            margin:100px auto;
+            background-color: #999;
+        }
+        #small{
+            width: 5px;
+            height:5px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="small"></div>
+    </div>
+</body>
+<script>
+    var flag=false;
+
+    document.onmousemove=function(e){
+        // 控制鼠标移动是否生效
+        if(flag){
+            // 超出左边界
+            if(e.clientX<box.offsetLeft){
+                small.style.marginLeft=0;
+            }else if(e.clientX>box.offsetLeft+295){//超出右边界
+                small.style.marginLeft=295+"px";
+            }else{
+                var x=e.clientX-box.offsetLeft;
+                small.style.marginLeft=x+"px";
+            }
+        }
+    }
+
+    small.onmousedown=function(){
+        flag=true;
+    }
+
+    document.onmouseup=function(){
+        flag=false;
+    }
+</script>
+</html>

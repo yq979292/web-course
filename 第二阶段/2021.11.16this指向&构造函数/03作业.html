@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">下一张</button>
+</body>
+<script>
+    function lunbo(el,f){
+        var x=0;
+        el.onclick=function(){
+            // 加之前隐藏图片
+            x++;
+            if(x>3){
+                x=0;
+            }
+            // 变化之后 显示图片
+
+            // 图片切换了
+            // if(f){
+            //     f(x);
+            // }
+            f&&f(x);
+        }
+    }
+
+    lunbo(btn,function(a){
+        console.log("切换到索引"+a)
+    })
+</script>
+</html>

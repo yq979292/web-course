@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            /* 不让用户选择页面内容 */
+            /* user-select: none; */
+        }
+    </style>
+</head>
+<body>
+    <a id="a" href="http://www.baidu.com">百度</a>
+    <p id="txt">hellodsfddfgfdgfdgfgfgf</p>
+</body>
+<script>
+    a.onclick=function(e){
+        // console.log(e.preventDefault);
+        // 阻止浏览器默认行为
+        // e.preventDefault();
+        return false;
+    }
+
+    // 右键事件
+    document.oncontextmenu=function(e){
+        // e.preventDefault();
+        return false
+    }
+
+    document.onmousemove=function(e){
+        e.preventDefault();
+        return false;
+    }
+    document.onmousedown=function(e){
+        e.preventDefault();
+    }
+</script>
+</html>

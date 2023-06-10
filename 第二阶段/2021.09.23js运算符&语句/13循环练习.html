@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="./data.js"></script>
+<script>
+    var html="<table border='1'>";
+    html+=`
+        <tr>
+            <th>商品名称</th>    
+            <th>商品价格</th>    
+            <th>商品图片</th>    
+        </tr>
+    `
+
+    for(var i=0;i<goodList.length;i++){
+        html+=`
+            <tr>
+                <td>${goodList[i].title}</td>    
+                <td>${goodList[i].price}</td>    
+                <td><img src="${goodList[i].imgUrl}"/></td>    
+            </tr>
+        `
+    }
+    html+="</table>"
+    document.write(html)
+</script>
+</html> 

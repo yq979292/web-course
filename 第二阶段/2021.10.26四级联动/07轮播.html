@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #view{
+            width: 500px;
+            height: 100px;
+            border:2px solid red;
+            overflow: hidden;
+        }
+        #list{
+            width: 800px;
+            display: flex;
+            transition: all .3s;
+        }
+        #list div{
+            width: 90px;
+            height: 100px;
+            background-color: blue;
+            line-height: 100px;
+            text-align: center;
+            margin:0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="view">
+        <div id="list">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+        </div>
+    </div>
+    <button id="prev">上一张</button>
+    <button id="next">下一张</button>
+</body>
+<script>
+    // 5
+    var x=0;
+    var num=list.getElementsByTagName("div").length;
+    next.onclick=function(){
+        if(x<num-5){
+            x++;
+            list.style.marginLeft=-x*100+"px";
+        }
+    }
+
+    prev.onclick=function(){
+        if(x>0){
+            x--;
+            list.style.marginLeft=-x*100+"px";
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="reduce">-</button>
+    <button id="num">1</button>
+    <button id="increase">+</button>
+</body>
+<script>
+    var reduce=document.getElementById("reduce");
+    var num=document.getElementById("num");
+    var increase=document.getElementById("increase");
+
+    var x=1;
+
+    // 点击递增按钮
+    increase.onclick=function(){
+        num.innerHTML=++x;
+    }
+    // 递减
+    reduce.onclick=function(){
+        if(x>1){
+            num.innerHTML=--x;
+        }
+    }
+
+
+
+
+    // 询问框  确定返回true 取消返回false
+    // var res=confirm("你想干啥?");
+    // if(res){
+    //     alert("你点了确定")
+    // }else{
+    //     alert("你点了取消")
+    // }
+
+    
+
+
+</script>
+</html>

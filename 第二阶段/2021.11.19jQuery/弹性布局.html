@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 1300px;
+            /* height: 300px; */
+            border: 1px solid red;
+            /* overflow: hidden; */
+            
+        }
+        .box div{
+            width: 250px;
+            height: 300px;
+            background-color: royalblue;
+            text-align: center;
+            line-height: 300px;
+            font-size: 50px;
+            color: white;
+            font-weight: 700;
+            float: left;
+        }
+        .box p{
+            clear: both;
+        }
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+            visibility: hidden;
+        }
+        .box_text::before{
+            content: "123";
+            display: inline-block;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <span class="box_text">hello word</span>
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <p></p>
+    </div>
+    
+</body>
+</html>

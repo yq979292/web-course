@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            background-color: red;
+        }
+        li{
+            background-color: blue;
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="list">
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+    </ul>
+</body>
+<script>
+    /*
+       原理 使用事件冒泡 将事件委托给父级元素
+       优点 减少事件绑定次数 新追加的内容也可以正常触发事件
+    */
+    var items=document.getElementById("list").getElementsByTagName("li");
+    // for(var i=0;i<items.length;i++){
+    //     items[i].onclick=function(){
+    //         this.style.color="red";
+    //     }
+    // }
+
+    // 将事件委托给父级元素
+    list.onclick=function(e){
+        // e.target触发事件时的目标节点
+        // console.log("点击了ul",e.target);
+        if(e.target.nodeName=="LI"){//标签名    e.target.id  e.target.className
+            e.target.style.color="red";
+        }
+    }
+    list.innerHTML+=`
+        <li>new</li>
+    `
+
+
+</script>
+</html>

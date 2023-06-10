@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-1.8.3.min.js"></script>
+</head>
+<body>
+    <div>
+        <button id="btn">按钮1</button>
+        <button>按钮2</button>
+        <button>按钮3</button>
+        <button>按钮4</button>
+        <button>按钮5</button>
+    </div>
+    <button>外边的</button>
+    <button>外边的</button>
+</body>
+<script>
+    // 将DOM对象转化为jQuery对象(DOM想用jQuery方法咋办)
+    // $(DOM).css()
+    // var a=document.getElementById("btn");
+    // $(a).css("color","blue")
+
+
+    $("button").click(function(e){
+        // this触发事件的DOM对象
+        // this.style.color="red";
+        $(this).css("color","red");
+
+
+        // 获取元素索引 (获取元素在兄弟节点中的编号)
+        console.log($(this).index());
+
+    })
+
+    $("button").click(function(){
+        $(this).css("backgroundColor","orange")
+    })
+</script>
+</html>

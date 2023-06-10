@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 不用担心顺序的问题 
+    // function fun(obj){
+    //     console.log(obj.methods);
+    //     alert(obj.url);
+    //     document.write(obj.success);
+    // }
+    // fun({
+    //     methods:"GET",
+    //     url:"/list",
+    //     success:function(res){}
+    // });
+
+    // 默认值 缺省参数
+    // function add(a,b){// 三种情况 a  ||   ||  a b
+    //     if(a==undefined){
+    //         a=1;
+    //     }
+    //     if(b==undefined){
+    //         b=1;
+    //     }
+    //     alert(a+b);
+    // }
+    // add(2);
+    
+
+    function add(obj){
+        obj=obj||{};
+        if(obj.a==undefined){
+            obj.a=1;
+        }
+        if(obj.b==undefined){
+            obj.b=1;
+        }
+
+        alert(obj.a+obj.b)
+    }
+    add({b:10})
+
+    
+</script>
+</html>

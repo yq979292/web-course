@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 圆和线段是否相交
+    var c={
+        x:300,
+        y:3000,
+        r:5000
+    }
+    var line={
+        x1:100,
+        y1:100,
+        x2:200,
+        y2:200
+    }
+
+
+    var l1=Math.abs(line.y2-line.y1);
+    var l2=Math.abs(line.x2-line.x1);
+    // 得出线与水平面的夹角
+    var angle1=Math.atan2(l1,l2);
+    // 圆心连线和水平面的夹角
+    var l3=Math.abs(line.y1-c.y);
+    var l4=Math.abs(line.x1-c.x);
+    var angle2=Math.atan2(l3,l4);
+
+    // console.log(angle1,angle2);
+
+    // 得出夹角差
+    var angle3=angle2-angle1;
+
+    // 斜边长度
+    var l5=Math.sqrt(Math.pow(c.x-line.x1,2)+Math.pow(c.y-line.y1,2));
+
+    // 得出垂直线的长度
+    var l6=Math.sin(angle3)*l5;
+    console.log(l6);
+
+    l6>c.r?alert("不相交"):alert("相交");
+</script>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">标题</h1>
+    <button id="btn">点击</button>
+    <div id="box">
+
+    </div>
+</body>
+<script>
+    var title=document.getElementById("title");
+    // 设置  (设置行内样式)
+    title.style.color="red";
+    title.style.marginLeft="100px";
+    title.style.fontSize="50px";
+
+    // 获取
+    // 获取行内设定的样式
+    console.log(title.style.width);
+    // 获取当前样式
+    var w=getComputedStyle(title,null).width;
+    var h=getComputedStyle(title,null).height;
+    console.log(w,h);
+    
+
+    // 思考
+    function setStyle(el,obj){
+        for(var key in obj){
+            el.style[key]=obj[key];
+        }
+    }
+
+    setStyle(title,{
+        width:"100px",
+        height:"200px",
+        backgroundColor:"red"
+    })
+var count = 0;
+var num = 0;
+var node = '';
+btn.onclick = function () {
+    count++;
+    banner(count);
+    box.innerHTML = node
+}
+function banner(a) {
+    node = ''
+for(var i=num*6;i<a*6;i++){
+    node += `
+        <li>${i}</li>
+    `
+}
+num = a;
+
+}
+
+
+</script>
+</html>

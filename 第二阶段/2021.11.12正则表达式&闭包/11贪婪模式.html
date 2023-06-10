@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 当量词是范围的时候 贪婪模式  尽可能多的匹配信息
+    // 量词之后添加?转化为懒惰模式
+    var patt=/a.*?c/;
+    var str="abcfreafrefrfrafaerfrffafeccccc";
+    console.log(patt.exec(str)[0]);
+</script>
+</html>

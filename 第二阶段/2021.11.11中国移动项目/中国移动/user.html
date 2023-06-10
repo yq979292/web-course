@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国移动</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <script src="./layui/layui.js"></script>
+</head>
+
+<body>
+    <h1>用户管理页</h1>
+    <ul id="list">
+
+    </ul>
+
+
+    <div id="box" lay-filter="abc" class="layui-form">
+
+        <input type="text" name="a" placeholder="用户名" lay-verify="required">
+        <input type="text" name="b" placeholder="密码" lay-verify="required">
+
+        <button lay-submit lay-filter="btn">提交</button>
+    </div>
+
+
+</body>
+<script src="./js/cookie.js"></script>
+<script src="./js/checkLogin.js"></script>
+<script>
+    var form=layui.form
+    // 验证通过
+    form.on("submit(btn)",function(){
+        // 取出表单值
+        /*
+            {
+                a:"用户名",
+                b:"密码"
+            }
+        */
+        var val=form.val("abc");
+
+        fetch("http://39.96.88.57/addUser",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/x-www-form-urlencoded"
+            },
+            body:"userName="+val.a+"&password="+val.b+"&token="+getCookie().token
+        })
+        .then(r=>r.json())
+        .then(function(res){
+            if(res.code==3){
+                list.innerHTML+=`
+                    <li> ${val.a}----${val.b}---<button data-id=${res.userId}>删除</button> </li>
+                `
+            }
+        })
+
+    })
+
+
+
+    // 请求列表数据
+    fetch("http://39.96.88.57/getUserList?token="+getCookie().token)
+    .then(r => r.json())
+    .then(function(res){
+
+        // console.log(res);
+        for(var i=0;i<res.length;i++){
+            list.innerHTML+=`
+                <li> ${res[i].userName}----${res[i].password}---<button data-id=${res[i].userId}>删除</button> </li>
+            `
+        }
+
+    })
+
+
+
+    // 事件委托
+    list.onclick=function(e){
+        if(e.target.nodeName=="BUTTON"){
+            // 拿到按钮携带的用户id
+            var userId=e.target.dataset.id;
+            // 删除
+            fetch("http://39.96.88.57/deleteUser",{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/x-www-form-urlencoded"
+                },
+                body:`token=${getCookie().token}&userId=${userId}`
+            })
+            .then(r=>r.json())
+            .then(function(res){
+                if(res.code==2){//删除成功
+                    list.removeChild(e.target.parentNode);
+                }
+            })
+
+        }
+    }
+
+</script>
+
+</html>

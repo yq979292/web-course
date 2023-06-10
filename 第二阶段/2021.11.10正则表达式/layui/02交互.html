@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+</head>
+<body>
+    
+    <div class="layui-form" style="width:200px">
+
+        <select name="city" lay-filter="address">
+            <option value=""></option>
+            <option value="0">北京</option>
+            <option value="1">上海</option>
+            <option value="2">广州</option>
+            <option value="3">深圳</option>
+            <option value="4">杭州</option>
+        </select>
+
+
+        <input type="checkbox" name="like1[write]" lay-filter="c" lay-skin="primary" title="写作">
+
+
+        <hr>
+        <input type="radio" name="xt" lay-filter="xt" title="5G" value="5G" checked>
+        <input type="radio" name="xt" lay-filter="xt" title="10G" value="10G">
+        <input type="radio" name="xt" lay-filter="xt" title="50G" value="50G">
+        <input type="radio" name="xt" lay-filter="xt" title="100G" value="100G">
+
+    </div>
+
+
+</body>
+<script src="./layui/layui.js"></script>
+<script>
+    var form=layui.form;
+
+    // form.on("select(address)",function(e){
+    //     console.log(e);
+    // })
+
+    // form.on("checkbox(c)",function(e){
+    //     console.log(e.elem.checked);
+    // })
+
+
+    var obj={
+        "5G": {
+            p1: 2580,
+            p2: 240183,
+            total: 243033,
+            pic1: "images/flu/01.png",
+            pic2: "images/flu/05.png"
+        },
+        "10G": {
+            p1: 14250,
+            p2: 270183,
+            total: 284433,
+            pic1: "images/flu/02.png",
+            pic2: "images/flu/06.png"
+        },
+        "50G": {
+            p1: 285000,
+            p2: 478424,
+            total: 763424,
+            pic1: "images/flu/03.png",
+            pic2: "images/flu/07.png"
+        },
+        "100G": {
+            p1: 570000,
+            p2: 872501,
+            total: 1442501,
+            pic1: "images/flu/04.png",
+            pic2: "images/flu/08.png"
+        }
+    }
+
+    var result="5G";
+    console.log(obj[result]);
+
+    form.on("radio(xt)",function(e){
+        // console.log(e.value);
+        result=e.value;
+        console.log(obj[result]);
+    })
+</script>
+</html>

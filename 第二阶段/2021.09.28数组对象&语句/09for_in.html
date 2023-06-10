@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    // 对象 和 数组
+
+    // var arr=["a","b","c","d"];
+    // for(var i in arr){
+    //     console.log(i,arr[i]);
+    // }
+    
+    var person={
+        name:"张三",
+        age:20,
+        sex:"男"
+    }
+    for(var key in person){
+        console.log(key,person[key])
+    }
+
+
+    var box=document.getElementById("box");
+    // box.style.backgroundColor="red";
+    // box.style.width="500px";
+    // box.style.height="500px";
+    // box.style.border="2px solid black";
+
+    var x={
+        width:"500px",
+        height:"500px",
+        backgroundColor:"red",
+        border:"2px solid black"
+    }
+    for(var key in x){
+        box.style[key]=x[key]
+    }
+
+</script>
+</html>

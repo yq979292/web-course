@@ -1,0 +1,30 @@
+提交地址：
+    https://api.tf2sc.cn/api/tfcar/car/estimate
+请求方式：POST
+请求头中添加客户端标识："PlatformType": "h5"
+参数类型：application/x-www-form-urlencoded
+参数说明：
+    name 姓名
+    phone 手机号
+    model 评估车型
+    mileage 公里数
+    dateOfRegistration 上牌事件
+    type=2 评估类型 固定为2
+
+
+
+
+请求地址：https://api.tf2sc.cn/api/tfcar/car/list?page=1&saleType=0&sort
+请求方式：GET
+参数说明：
+    saleType 
+        空  全部
+        0   腾发自营
+        1   车主直售
+        2   限时秒杀
+        3   严选车源
+    sort 
+        空  默认排序
+        uTime%2Cdesc  最新发布
+        currentPrice%2Cdesc 价格最高
+        currentPrice%2Casc  价格最低

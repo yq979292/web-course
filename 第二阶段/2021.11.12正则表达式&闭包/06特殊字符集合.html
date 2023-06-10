@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        /[0-9]/  任意数字   
+        /[A-Z]/  任意大写字母
+        /[A-z]/  任意字母
+        /[\u4e00-\u9fa5]/ 任意中文字符
+        \d 任意数字  [0-9]
+        \D 除数字之外的其他字符  [^0-9]
+        \w 任意数字、字母、下划线  [0-9_A-z]
+        \W 除数字、字母、下划线之外的字符
+        . 任意单个字符 想要正常的.  \.
+        \s 空格
+    */
+
+    // var patt=/\w/;
+    var patt=/[\u4e00-\u9fa5]/;
+    console.log(patt.test("abc"))
+</script>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style: none;
+        }
+        .cj-select{
+            position: relative;
+            margin:0 5px;
+            cursor: pointer;
+        }
+        .cj-select h3{
+            line-height: 40px;
+            text-indent: 10px;
+            border:2px solid #999;
+            background-color: white;
+            font-weight: normal;
+            border-radius: 5px;
+        }
+        .cj-select ul{
+            position: absolute;
+            top:48px;
+            width:100%;
+            padding:10px 0;
+            background-color: white;
+            box-shadow: 0 0 10px #999;
+            display: none;
+        }
+        .cj-select li{
+            line-height: 30px;
+            text-indent: 10px;
+        }
+        .cj-select li:hover{
+            background-color: rgb(56, 56, 121);
+            color:white;
+        }
+        .cj-select .active{
+            background-color: rgb(56, 56, 121);
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <div class="cj-select"></div>
+</body>
+<script>
+    var wrap=document.getElementsByClassName("cj-select")[0];
+    // 插入结构
+    wrap.innerHTML=`
+        <h3></h3>
+        <ul>
+            <li>上海</li>
+            <li>北京</li>
+            <li>杭州</li>
+        </ul>
+    `
+    var title=wrap.getElementsByTagName("h3")[0];
+    var list=wrap.getElementsByTagName("ul")[0];
+    var items=wrap.getElementsByTagName("li");
+
+    // 初始状态
+    var x=-1;//记录选中哪一个
+    var res="";//选择结果
+    var flag=false;//显示状态
+    title.innerHTML="请选择地址";
+
+    // 绑定点击事件  切换显示隐藏
+    wrap.onclick=function(){
+        flag=!flag;
+        list.style.display=flag?"block":"none";
+    }
+    // 点击选项
+    for(var i=0;i<items.length;i++){
+        items[i].index=i;
+        items[i].onclick=function(){
+            // 取消
+            if(x!=-1){
+                items[x].className="";
+            }
+            x=this.index;
+            // 选中结果
+            res=this.innerHTML;
+            title.innerHTML=res;
+            items[x].className="active";
+        }
+    }
+
+</script>
+</html>

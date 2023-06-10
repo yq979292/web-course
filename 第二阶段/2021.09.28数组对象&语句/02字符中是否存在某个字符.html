@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var str="abcdffd$";
+
+    // 第一种
+    // var res=str.indexOf("$");
+    // res==-1?alert("没有"):alert("有");
+    // alert(res==-1?"没有":"有");
+
+
+    // 第二种
+    // var flag=true;
+    // for(var i=0;i<str.length;i++){
+    //     if(str[i]=="$"){
+    //         flag=false;
+    //         alert("有")
+    //     }
+    // }
+    // if(flag){
+
+    // }
+
+    // 第三种
+    // for(var i=0;i<5;i++){
+    //     console.log(i);
+    //     if(i==4){
+    //         break;//手动终止循环
+    //     }
+    // }
+    // console.log("循环结束",i)
+
+    for(var i=0;i<str.length;i++){
+        if(str[i]=="$"){
+            alert("有")
+            break;
+        }
+    }
+    if(i==str.length){//正常结束
+        alert("没有")
+    }
+</script>
+</html>

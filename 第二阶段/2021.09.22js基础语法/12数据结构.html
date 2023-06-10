@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        瓜子二手车
+        创建时间 2008-至今
+        二手车数量  10000
+        车辆
+            奥迪    共200台
+                A4  美女一手车  20万
+                A6             35万
+                Q5             27万
+            奔驰    共100台
+                C级  美女一手车  15万
+                E级             30万
+                S级             56万
+    */
+    var GZ={
+        name:"瓜子二手车",
+        startTime:"2008",
+        total:10000,
+        cars:[{
+            brand:"奥迪",
+            total:200,
+            types:[{
+                name:"A4",
+                girlCar:true,
+                price:"20万"
+            },{
+                name:"A6",
+                girlCar:false,
+                price:"35万"
+            }]
+        },{
+            brand:"奔驰",
+            total:100,
+            types:[{
+                name:"C级",
+                girlCar:true,
+                price:"15万"
+            },{
+                name:"E级",
+                girlCar:false,
+                price:"30万"
+            }]
+        }]
+    }
+
+    console.log(GZ.cars[1].types[0].price)
+</script>
+</html>

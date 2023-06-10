@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="letterWrap">
+
+    </div>
+    <hr>
+    <div id="typeWrap">
+
+    </div>
+</body>
+<script>
+    var letters=" ABCDEFGHIKLMN";
+    // 插入
+    for(var i=0;i<letters.length;i++){
+        letterWrap.innerHTML+=`
+            <button>${letters[i]==" "?"热门":letters[i]}</button>
+        `
+    }
+    // 插入分类
+    var types=["全部","华语男","华语女","华语组合","日韩男"];
+    for(var i=0;i<types.length;i++){
+        typeWrap.innerHTML+=`
+            <button>${types[i]}</button>
+        `
+    }
+
+    var letterBtns=letterWrap.children;
+    var typeBtns=typeWrap.children;
+    letterBtns[0].style.color="red";
+    typeBtns[0].style.color="red";
+
+    var x=0,y=0;
+
+    // 记录选择结果
+    var letterRes="";
+    var typeRes="0";
+
+    for(var i=0;i<letterBtns.length;i++){
+        letterBtns[i].index=i;
+        letterBtns[i].onclick=function(){
+            letterBtns[x].style.color="black";
+            x=this.index;
+            letterBtns[x].style.color="red";
+            // 存字母
+            letterRes=this.innerHTML=="热门"?"":this.innerHTML;
+            // 发送请求
+            getData(typeRes,letterRes)
+        }
+    }
+
+    for(var i=0;i<typeBtns.length;i++){
+        typeBtns[i].index=i;
+        typeBtns[i].onclick=function(){
+            typeBtns[y].style.color="black";
+            y=this.index;
+            typeBtns[y].style.color="red";
+            // 存分类
+            typeRes=this.index;
+            // 发请求
+            getData(typeRes,letterRes)
+        }
+    }
+    
+
+
+
+    function getData(a,b){
+        fetch("http://39.96.88.57:9090/api/www/artist/artistInfo?category="+a+"&prefix="+b+"&pn=1&rn=100")
+        .then(r=>r.json())
+        .then(function(res){
+            console.log(res.data)
+        })
+    }
+</script>
+</html>

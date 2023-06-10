@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./area.js"></script>
+</head>
+<body>
+    <select id="province"></select>
+    <select id="city"></select>
+    <select id="area"></select>
+    <select id="street"></select>
+</body>
+<script>
+    for(var pro_name in data){
+        province.innerHTML+=`<option>${pro_name}</option>`
+    }
+    // 渲染默认市
+    var city_obj=data[province.value][0];
+    for(var city_name in city_obj){
+        city.innerHTML+=`<option>${city_name}</option>`
+    }
+
+    // 渲染默认区
+    var area_list=city_obj[city.value];
+    var area_obj={};//转换数据结构  {"中原区":["",""],"二七区":["",""]}
+    for(var i=0;i<area_list.length;i++){
+        for(var area_name in area_list[i]){
+            // console.log(area_name,area_list[i][area_name])
+            area_obj[area_name]=area_list[i][area_name].split("、");
+        }
+    }
+    // 插入区
+    for(var area_name in area_obj){
+        area.innerHTML+=`<option>${area_name}</option>`
+    }
+
+    // 插入街道
+    var street_list=area_obj[area.value];
+    // console.log(street_list)
+    for(var i=0;i<street_list.length;i++){
+        street.innerHTML+=`<option>${street_list[i]}</option>`
+    }
+
+
+    province.onchange=function(){
+
+        // 清空
+        city.innerHTML="";
+        area.innerHTML="";
+        street.innerHTML="";
+
+
+        // 更新 市 区 街道
+        var city_obj=data[province.value][0];
+        for(var city_name in city_obj){
+            city.innerHTML+=`<option>${city_name}</option>`
+        }
+
+        // 渲染默认区
+        var area_list=city_obj[city.value];
+        var area_obj={};//转换数据结构  {"中原区":["",""],"二七区":["",""]}
+        for(var i=0;i<area_list.length;i++){
+            for(var area_name in area_list[i]){
+                // console.log(area_name,area_list[i][area_name])
+                area_obj[area_name]=area_list[i][area_name].split("、");
+            }
+        }
+        // 插入区
+        for(var area_name in area_obj){
+            area.innerHTML+=`<option>${area_name}</option>`
+        }
+
+        // 插入街道
+        var street_list=area_obj[area.value];
+        // console.log(street_list)
+        for(var i=0;i<street_list.length;i++){
+            street.innerHTML+=`<option>${street_list[i]}</option>`
+        }
+    }
+    
+
+    // 切换市
+    city.onchange=function(){
+
+        area.innerHTML="";
+        street.innerHTML="";
+        
+        var area_list=data[province.value][0][city.value];
+        var area_obj={};//转换数据结构  {"中原区":["",""],"二七区":["",""]}
+        for(var i=0;i<area_list.length;i++){
+            for(var area_name in area_list[i]){
+                // console.log(area_name,area_list[i][area_name])
+                area_obj[area_name]=area_list[i][area_name].split("、");
+            }
+        }
+        // 插入区
+        for(var area_name in area_obj){
+            area.innerHTML+=`<option>${area_name}</option>`
+        }
+
+        // 插入街道
+        var street_list=area_obj[area.value];
+        // console.log(street_list)
+        for(var i=0;i<street_list.length;i++){
+            street.innerHTML+=`<option>${street_list[i]}</option>`
+        }
+
+    }
+
+
+    // 切换区
+    area.onchange=function(){
+
+        street.innerHTML="";
+
+        var area_list=data[province.value][0][city.value];
+        var area_obj={};//转换数据结构  {"中原区":["",""],"二七区":["",""]}
+        for(var i=0;i<area_list.length;i++){
+            for(var area_name in area_list[i]){
+                // console.log(area_name,area_list[i][area_name])
+                area_obj[area_name]=area_list[i][area_name].split("、");
+            }
+        }
+
+        // 插入街道
+        var street_list=area_obj[area.value];
+        // console.log(street_list)
+        for(var i=0;i<street_list.length;i++){
+            street.innerHTML+=`<option>${street_list[i]}</option>`
+        }
+
+    }
+</script>
+</html>

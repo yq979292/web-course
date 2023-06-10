@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+</body>
+<script>
+    var publi={
+        show:function(){
+            this.wrap.style.display="block";
+        },
+        hide:function(){
+            this.wrap.style.display="none";
+        }
+    }
+    // 提示框
+    function Alert(el){
+        this.wrap=el;
+    }
+    Alert.prototype.say=function(){};
+    Alert.prototype.__proto__=publi;
+
+
+    // 遮罩层
+    function Mark(el){
+        this.wrap=el;
+    }
+    Mark.prototype.__proto__=publi;
+
+    console.log(new Mark(btn));
+
+    
+    var a=new Alert(btn);
+    console.log(a);
+
+
+    var obj={};
+    obj.__proto__=a;
+</script>
+</html>

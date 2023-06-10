@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list">
+        <li> 1 <button>向上</button> </li>
+        <li> 2 <button>向上</button> </li>
+        <li> 3 <button>向上</button> </li>
+        <li> 4 <button>向上</button> </li>
+    </ul>
+</body>
+<script>
+    var btns=list.getElementsByTagName("button");
+
+    for(var i=0;i<btns.length;i++){
+
+        btns[i].onclick=function(){
+
+            list.insertBefore(this.parentNode,this.parentNode.previousElementSibling);
+
+        }
+
+    }
+</script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box img {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <img src="./images/1.png" alt="">
+        <img src="./images/1.png" alt="">
+        <img src="./images/1.png" alt="">
+        <img src="./images/1.png" alt="">
+        <img src="./images/1.png" alt="">
+    </div>
+</body>
+<script>
+    var box = document.getElementById('box')
+    var son = box.children;
+    var count = 0;
+    var flag = false;
+    for (var i = 0; i < son.length; i++) {
+        son[i].setAttribute('index', i)
+        son[i].onmouseover = function () {
+            var index = this.getAttribute('index') * 1;
+            for (var g = 0; g < son.length; g++) {
+                son[g].src = './images/1.png'
+            }
+            for (var j = 0; j <= index; j++) {
+                son[j].src = './images/4.png'
+            }
+        }
+        son[i].onmouseout = function () {
+            for (var n = 0; n < son.length; n++) {
+                son[n].src = './images/1.png'
+            }
+            if (flag) {
+                for (var k = 0; k <= count; k++) {
+                    son[k].src = './images/4.png'
+                }
+            }
+
+        }
+        son[i].onclick = function () {
+            flag = true
+            var num = this.getAttribute('index') * 1
+            var url = ''
+            count = num;
+            for (var m = 0; m <= num; m++) {
+                if (num < 2) {
+                    url = './images/4.png'
+                } else if (num < 3) {
+                    url = './images/2.png'
+                } else if (num >= 3) {
+                    url = './images/3.png'
+                } else {
+                    url = './images/1.png'
+                }
+                son[m].src = url
+            }
+        }
+    }
+</script>
+
+</html>

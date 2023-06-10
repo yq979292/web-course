@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        全局作用域 和 局部作用域(函数作用域)
+        全局变量  和 局部变量
+
+        全局变量 可以在所用作用域中被访问
+        局部变量只能在当前函数内部被访问
+
+
+        1.变量命名冲突
+        2.减少内存占用(用完会被回收  浏览器垃圾回收机制)
+
+    */
+
+    var x=10;//全局变量  持久存在
+    function fun(){
+        var y=20;//局部变量 在函数执行结束时 会被浏览器回收
+    }
+
+
+    function f(){
+        var a=10;
+        console.log(a,"函数内部")
+    }
+    f();
+    console.log(a,"函数外部");
+
+
+
+    
+
+    function getQuery(){
+        var path="http://www.baidu.com/list?a=10&b=20";
+        var s=path.split("?");
+        var arr=s[1].split("&");
+        var obj={};
+        for(var i=0;i<arr.length;i++){
+            var s2=arr[i].split("=");
+            obj[s2[0]]=s2[1];
+        }
+        console.log(obj);
+    }
+    getQuery();
+
+</script>
+</html>

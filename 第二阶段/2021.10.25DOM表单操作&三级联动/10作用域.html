@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">前端83</h1>
+    <div id="btns">
+        <button>red</button>
+        <button>green</button>
+        <button>blue</button>
+    </div>
+    <hr>
+    <button id="ok">确定</button>
+</body>
+<script>
+    var title=document.getElementById("title");
+    var btns=document.getElementById("btns").getElementsByTagName("button");
+    var ok=document.getElementById("ok");
+
+    var x;
+    for(var i=0;i<btns.length;i++){
+        // 选择颜色
+        btns[i].onclick=function(){
+            x=this.innerHTML;
+        }
+    }
+
+    ok.onclick=function(){
+        // 设置颜色
+        title.style.color=x;
+    }
+
+</script>
+</html>
